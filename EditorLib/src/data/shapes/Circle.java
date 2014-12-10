@@ -1,8 +1,6 @@
 package data.shapes;
 
-import AWT.graphicdata.AWTGraphicData;
-
-public class Circle implements Shape{
+public class Circle implements Shape {
 
 	private static final String NAME = "CIRCLE";
 	private static long instanceCounter = 0;
@@ -60,8 +58,8 @@ public class Circle implements Shape{
 	public String ID() { return id; }
 	@Override
 	public void scale(float percent) {
-		setRadius(AWTGraphicData.pointHighlightCircleThickness);
-	}
+		setRadius(radius() * percent);
+	}	
 	@Override
 	public void shift(float xOffset, float yOffset) {
 		setPosition(center.x + xOffset, center.y + yOffset);
