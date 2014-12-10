@@ -67,4 +67,10 @@ public class Circle implements Shape {
 	@Override
 	public void rotate(int degrees) {}
 	
+//	public boolean intersects(Rectangle rect) {
+//		return center.x + r >= rect.x
+//			&& center.x - r <= rect.x + rect.width
+//			&& center.y + r >= rect.y
+//			&& center.y - r <= rect.y + rect.height;
+//	}
 }

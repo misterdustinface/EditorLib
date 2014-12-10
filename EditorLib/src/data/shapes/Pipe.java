@@ -24,7 +24,7 @@ public class Pipe implements Shape{
 		calculateArea();
 	}
 	
-	public float thickness(){return thickness;}
+	public float thickness() { return thickness; }
 	public void scaleThickness(double percent){
 		thickness *= percent;
 		calculateArea();

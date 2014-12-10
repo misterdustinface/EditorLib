@@ -21,13 +21,6 @@ public class LineSegment {
 		return Math.midpoint(a, b);
 	}
 	
-	public Point a(){
-		return a.copy();
-	}
-	public Point b(){
-		return b.copy();
-	}
-	
 	/**
 	 * @param percent 0.0 - 1.0
 	 * @return Point

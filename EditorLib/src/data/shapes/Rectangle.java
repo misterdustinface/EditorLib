@@ -2,17 +2,17 @@ package data.shapes;
 
 public class Rectangle {
 
-	public int x, y, width, height;
+	public float x, y, width, height;
 	
 	public Rectangle() {
 		setBounds(0,0,0,0);
 	}
 	
-	public Rectangle(Point XY, int WIDTH, int HEIGHT) {
-		setBounds((int)XY.x, (int)XY.y, WIDTH, HEIGHT);
+	public Rectangle(Point XY, float WIDTH, float HEIGHT) {
+		setBounds(XY.x, XY.y, WIDTH, HEIGHT);
 	}
 	
-	public Rectangle(int X, int Y, int WIDTH, int HEIGHT) {
+	public Rectangle(float X, float Y, float WIDTH, float HEIGHT) {
 		setBounds(X,Y,WIDTH,HEIGHT);
 	}
 	
@@ -21,7 +21,7 @@ public class Rectangle {
 			&& y <= Y && Y <= (y+height);
 	}
 	
-	public void setBounds(int X, int Y, int WIDTH, int HEIGHT) {
+	public void setBounds(float X, float Y, float WIDTH, float HEIGHT) {
 		if(WIDTH  < 0) { WIDTH  = -WIDTH;  X -= WIDTH; }
 		if(HEIGHT < 0) { HEIGHT = -HEIGHT; Y -= HEIGHT;}
 		
@@ -31,6 +31,6 @@ public class Rectangle {
 		height = HEIGHT;
 	}
 	
-	public int getCenterX() { return x + (width /2); }
-	public int getCenterY() { return y + (height/2); }
+	public float getCenterX() { return x + (width /2); }
+	public float getCenterY() { return y + (height/2); }
 }

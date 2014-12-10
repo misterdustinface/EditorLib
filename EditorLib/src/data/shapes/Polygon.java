@@ -5,20 +5,28 @@ public class Polygon {
 
 	private final int MAX_NUMBER_OF_POINTS;
 	private int  points;
-	public int[] xpoints;
-	public int[] ypoints;
+	public float[] xpoints;
+	public float[] ypoints;
 	
 	public Polygon(int MAX_NUMBER_OF_POINTS) {
-		xpoints = new int[MAX_NUMBER_OF_POINTS];
-		ypoints = new int[MAX_NUMBER_OF_POINTS];
+		xpoints = new float[MAX_NUMBER_OF_POINTS];
+		ypoints = new float[MAX_NUMBER_OF_POINTS];
 		this.MAX_NUMBER_OF_POINTS = MAX_NUMBER_OF_POINTS;
+	}
+	
+	public Polygon(Point[] POINTS) {
+		xpoints = new float[POINTS.length];
+		ypoints = new float[POINTS.length];
+		this.MAX_NUMBER_OF_POINTS = POINTS.length;
+		for(Point p : POINTS)
+			addPoint(p.x, p.y);
 	}
 	
 	public void clearPoints() {
 		points = 0;
 	}
 	
-	public void addPoint(int x, int y) {
+	public void addPoint(float x, float y) {
 		if (points < MAX_NUMBER_OF_POINTS) {
 			xpoints[points] = x;
 			ypoints[points] = y;
@@ -66,33 +74,33 @@ public class Polygon {
 	}
 	
 	private boolean intersectsX(Rectangle rect) {
-		return intersectionRange1D(smallest(xpoints), largest(xpoints), rect.x, rect.x + rect.width);
+		return intersectionRange1D(smallest(xpoints), largest(xpoints), rect.x, (rect.x + rect.width));
 	}
 	
 	private boolean intersectsY(Rectangle rect) {
-		return intersectionRange1D(smallest(ypoints), largest(ypoints), rect.y, rect.y + rect.height);
+		return intersectionRange1D(smallest(ypoints), largest(ypoints), rect.y, (rect.y + rect.height));
 	}
 	
-	private boolean intersectionRange1D(int x1, int X1, int x2, int X2) {
+	private boolean intersectionRange1D(float x1, float X1, float x2, float X2) {
 		return (x1 <= x2 && x2 <= X1 ) || (x1 <= X2 && X2 <= X1 );
 	}
 	
 	public Rectangle getBoundingRectangle() {
-		int x = smallest(xpoints);
-		int y = smallest(ypoints);
+		float x = smallest(xpoints);
+		float y = smallest(ypoints);
 		return new Rectangle(x, y, largest(xpoints) - x, largest(ypoints) - y);
 	}
 	
-	private int smallest(int[] ar) {
-		int result = Integer.MAX_VALUE;
+	private float smallest(float[] ar) {
+		float result = Float.MAX_VALUE;
 		for(int i = 0; i < points; ++i)
 			if(ar[i] < result)
 				result = ar[i];
 		return result;
 	}
 	
-	private int largest(int[] ar) {
-		int result = Integer.MIN_VALUE;
+	private float largest(float[] ar) {
+		float result = Float.MIN_VALUE;
 		for(int i = 0; i < points; ++i)
 			if(ar[i] > result)
 				result = ar[i];
