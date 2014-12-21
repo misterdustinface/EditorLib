@@ -1,19 +1,20 @@
 package generic;
 
 public class StopwatchTimer {
-	private double START_TIME_SEC;
+	private long START_TIME_MS;
 	
 	public StopwatchTimer() { reset(); }
 	
-	public void reset()  { START_TIME_SEC = currentTimeSeconds(); }
-	public double time() { return passedTimeSinceReset__sec(); }
-	public long time__ms() {return (long) (passedTimeSinceReset__sec() * 1000); }
-	
+	public void reset()  	{ START_TIME_MS = System.currentTimeMillis(); }
+	public double time() 	{ return passedTimeSinceReset__sec(); }
+	public long time__ms() 	{ return passedTimeSinceReset__ms(); }
+
 	private double passedTimeSinceReset__sec() {
-		return currentTimeSeconds() - START_TIME_SEC;
+		return passedTimeSinceReset__ms() / 1000d;
 	}
 	
-	private static double currentTimeSeconds() {
-		return (System.currentTimeMillis() / 1000.0);
+	private long passedTimeSinceReset__ms() {
+		return System.currentTimeMillis() - START_TIME_MS;
 	}
+
 }
