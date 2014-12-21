@@ -1,5 +1,6 @@
 package data.shapes;
 
+
 public class LineSegment {
 
 	public Point a;
@@ -82,5 +83,13 @@ public class LineSegment {
 	
 	public boolean isEdge(Point point) {
 		return a.equals(point) || b.equals(point);
+	}
+	
+	public boolean isOnSegment(Point point) {
+		return Math.isOnLineSegment(a, point, b);
+	}
+	
+	public boolean intersects(LineSegment other) {
+		return Math.doLineSegmentsABandCDIntersect(a, b, other.a, other.b);
 	}
 }
