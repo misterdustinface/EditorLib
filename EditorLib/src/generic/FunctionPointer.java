@@ -1,9 +1,10 @@
 package generic;
 
-public interface FunctionPointer {
-	Object call(Object ... args);
-	public final static FunctionPointer EMPTY_FUNCTION = new FunctionPointer(){
-		@Override
-		public Object call(Object ... args) { return null; }
-	};
+/***************************
+ * DON'T YOU DARE USE THIS *
+ ***************************/
+public interface FunctionPointer<ReturnType, ArgumentType> {
+	ReturnType call();
+	ReturnType call(ArgumentType arg);
+	ReturnType call(@SuppressWarnings("unchecked") ArgumentType... args);
 }
