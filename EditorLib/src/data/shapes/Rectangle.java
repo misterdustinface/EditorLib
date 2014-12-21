@@ -1,18 +1,22 @@
 package data.shapes;
 
-public class Rectangle {
+public class Rectangle extends Shape {
 
+	private static final String NAME = "RECT";
 	public float x, y, width, height;
 	
 	public Rectangle() {
+		super(NAME);
 		setBounds(0,0,0,0);
 	}
 	
 	public Rectangle(Point XY, float WIDTH, float HEIGHT) {
+		super(NAME);
 		setBounds(XY.x, XY.y, WIDTH, HEIGHT);
 	}
 	
 	public Rectangle(float X, float Y, float WIDTH, float HEIGHT) {
+		super(NAME);
 		setBounds(X,Y,WIDTH,HEIGHT);
 	}
 	
@@ -33,4 +37,35 @@ public class Rectangle {
 	
 	public float getCenterX() { return x + (width /2); }
 	public float getCenterY() { return y + (height/2); }
+
+	@Override
+	public boolean contains(Point point) {
+		return contains(point.x, point.y);
+	}
+
+	@Override
+	public void setPosition(float x, float y) {
+		setBounds(x, y, this.width, this.height);
+	}
+
+	@Override
+	public void scale(float percent) {
+		width  *= percent;
+		height *= percent;
+	}
+
+	@Override
+	public void shift(float xOffset, float yOffset) {
+		x += xOffset;
+		y += yOffset;
+	}
+
+	@Override
+	public void rotate(int degrees) {
+		if(degrees == 90 ^ degrees == 270) {
+			width  = width + height;
+			height = width - height;
+			width  = width - height;
+		}
+	}
 }

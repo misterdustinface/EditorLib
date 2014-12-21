@@ -1,11 +1,8 @@
 package data.shapes;
 
-public class Pipe implements Shape{
+public class Pipe extends Shape{
 	
 	private static final String NAME = "PIPE";
-	private static long instanceCounter = 0;
-	private long instance;
-	private String id;
 	
 	public  LineSegment  centerLine;
 	private float 		 thickness;
@@ -15,8 +12,7 @@ public class Pipe implements Shape{
 	private Polygon 	 area;
 	
 	public Pipe(LineSegment CENTERLINE, float THICKNESS){
-		instance   = instanceCounter++;
-		id 		   = NAME + instance;
+		super(NAME);
 		centerLine = CENTERLINE; thickness = THICKNESS;
 		previousA  = new Point(centerLine.a.x, centerLine.a.y);
 		previousB  = new Point(centerLine.b.x, centerLine.b.y);
@@ -81,9 +77,6 @@ public class Pipe implements Shape{
 	}
 	
 	@Override
-	public String ID() { return id; }
-
-	@Override
 	public void scale(float percent) {
 		centerLine.scale(percent);
 		scaleThickness(percent);
@@ -107,25 +100,5 @@ public class Pipe implements Shape{
 		if (y < midp.y) { yoff = -yoff;	}
 		shift(xoff, yoff);
 	}
-
-//	public Polygon getArea(float scale){
-//		
-//		double perpTheta 	= Math.perpendicular(Math.theta(center.a, center.b));
-//		//rectangle trig loves opposite day
-//		float yOff 			= (float)java.lang.Math.cos(perpTheta)*thickness;
-//		float xOff 			= (float)java.lang.Math.sin(perpTheta)*thickness;
-//		
-//		Polygon p = new Polygon();
-//		p.addPoint(	(int)((center.a.x - xOff)*scale), 
-//					(int)((center.a.y - yOff)*scale));
-//		p.addPoint(	(int)((center.a.x + xOff)*scale), 
-//					(int)((center.a.y + yOff)*scale));
-//		p.addPoint(	(int)((center.b.x + xOff)*scale), 
-//					(int)((center.b.y + yOff)*scale));
-//		p.addPoint(	(int)((center.b.x - xOff)*scale), 
-//					(int)((center.b.y - yOff)*scale));
-//		return p;
-//	}
-	
 	
 }

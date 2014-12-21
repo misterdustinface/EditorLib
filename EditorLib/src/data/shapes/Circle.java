@@ -1,31 +1,25 @@
 package data.shapes;
 
-public class Circle implements Shape {
+public class Circle extends Shape {
 
 	private static final String NAME = "CIRCLE";
-	private static long instanceCounter = 0;
-	private long instance;
-	private String id;
 	
 	private float r;
 	private Point center;
 	
 	public Circle(final float x, final float y, final float r){
-		instance = instanceCounter++;
-		id = NAME + instance;
+		super(NAME);
 		this.r = Math.abs(r);
 		this.center = new Point(x,y);
 	}
 	public Circle(final Circle other){
-		instance = instanceCounter++;
-		id = "CIRCLE"+instance;
+		super(NAME);
 		this.r = other.r;
 		this.center = other.center.copy();
 	}
 	
 	public Circle(final Point center, final float r){
-		instance = instanceCounter++;
-		id = "CIRCLE"+instance;
+		super(NAME);
 		this.center = center.copy();
 		this.r = Math.abs(r);
 	}
@@ -53,9 +47,7 @@ public class Circle implements Shape {
 	public int hashCode(){
 		return center.hashCode();
 	}
-	
-	@Override
-	public String ID() { return id; }
+
 	@Override
 	public void scale(float percent) {
 		setRadius(radius() * percent);

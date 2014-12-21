@@ -1,7 +1,5 @@
 package data.shapes;
 
-import java.util.Collection;
-
 public class Math {
 	final public static double PI = java.lang.Math.PI;
 	
@@ -20,6 +18,9 @@ public class Math {
 	public static double theta(Point A, Point B){
 		return java.lang.Math.atan2((double)(B.y-A.y),(double)(B.x-A.x));
 	}
+	public static double theta(float x1, float y1, float x2, float y2){
+		return java.lang.Math.atan2((double)(y2-y1),(double)(x2-x1));
+	}
 	public static double perpendicular(double theta){ return Math.PI - theta; }
 	
 	public static float sqrt(final float VALUE){ return (float) java.lang.Math.sqrt((double)VALUE); }
@@ -34,31 +35,8 @@ public class Math {
 		midpoint.y = (midpoint.y + B.y)/2;
 		return midpoint;
 	}
-	public static Point center(Collection<Point> points){
-		Point center = new Point(0,0);
-		for(Point current : points){
-			center.x += current.x;
-			center.y += current.y;
-		}
-		center.x /= points.size();
-		center.y /= points.size();
-		return center;
-	}
 	
-	public static Collection<Point> rotate(Collection<Point> points, double theta){
-		Point center = center(points);
-		
-		final float COS = (float)java.lang.Math.cos(theta);
-		final float SIN = (float)java.lang.Math.sin(theta);
-		float xOff, yOff, length;
-		for(Point current : points){
-			length 	= Math.distance(center, current);
-			xOff   	= length * COS;
-			yOff	= length * SIN;
-	
-			current.x = current.x > center.x ? center.x + xOff : center.x - xOff;
-			current.y = current.y > center.y ? center.y + yOff : center.y - yOff;
-		}	
-		return points;
+	public static float difference(float A, float B) {
+		return Math.abs(Math.abs(A) - Math.abs(B));
 	}
 }
