@@ -3,11 +3,11 @@ package data.shapes;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class CollisionBoundSelectorMap{
+public class ShapeSelectorMap{
 	
 	private HashMap<String, Boolean> shapeSelectionMap;
 	
-	public CollisionBoundSelectorMap(){
+	public ShapeSelectorMap(){
 		shapeSelectionMap = new HashMap<String, Boolean>();
 	}
 	
