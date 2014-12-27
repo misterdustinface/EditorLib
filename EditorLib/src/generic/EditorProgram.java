@@ -21,24 +21,35 @@ public class EditorProgram {
 		existingThreads.add(mainThread);
 	}
 	
-	public void setRenderer() {
-		renderThread = new Thread();
+	public void setRenderer(Runnable PROGRAM_RENDERER) {
+		renderThread = new Thread(PROGRAM_RENDERER);
 		renderThread.setName("RENDERER");
 	
 		existingThreads.add(renderThread);
 	}
 	
-	public void setAudioSystem() {
-		audioSystemThread = new Thread();
+	public void setAudioSystem(Runnable PROGRAM_AUDIO_SYSTEM) {
+		audioSystemThread = new Thread(PROGRAM_AUDIO_SYSTEM);
 		audioSystemThread.setName("AUDIO_SYS");
 		
 		existingThreads.add(audioSystemThread);
 	}
 	
 	public void start() {
-		for(Thread activeThread : existingThreads) {
-			activeThread.start();
+		for(Thread thread : existingThreads) {
+			thread.start();
 		}
 	}
 	
+	public void stopAudio() {
+		try {
+			audioSystemThread.wait();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void startAudio() {
+		audioSystemThread.notify();
+	}
 }
