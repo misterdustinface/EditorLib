@@ -2,21 +2,17 @@ package data.shapes;
 
 public class Rectangle extends Shape {
 
-	private static final String NAME = "RECT";
 	public float x, y, width, height;
 	
 	public Rectangle() {
-		super(NAME);
 		setBounds(0,0,0,0);
 	}
 	
 	public Rectangle(Point XY, float WIDTH, float HEIGHT) {
-		super(NAME);
 		setBounds(XY.x, XY.y, WIDTH, HEIGHT);
 	}
 	
 	public Rectangle(float X, float Y, float WIDTH, float HEIGHT) {
-		super(NAME);
 		setBounds(X,Y,WIDTH,HEIGHT);
 	}
 	

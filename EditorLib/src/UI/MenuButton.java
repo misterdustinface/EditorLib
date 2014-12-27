@@ -50,6 +50,14 @@ public class MenuButton extends FunctionButton {
 		polygon.addPoint(menuPointX + x, menuPointY + y);
 	}
 	
+	public void setPosition(Point position) {
+		polygon.setPosition(position.x, position.y);
+	}
+	public void shift(float xOffset, float yOffset) {
+		polygon.shift(xOffset, yOffset);
+	}
+
+	
 	public float getWidth()   { return polygon.getBoundingRectangle().width;  }
 	public float getHeight()  { return polygon.getBoundingRectangle().height; }
 	public float getCenterX() { return polygon.getBoundingRectangle().getCenterX(); }

@@ -2,8 +2,6 @@ package data.shapes;
 
 
 public class Polygon extends Shape {
-
-	private static final String NAME = "POLYGON";
 	
 	private final int MAX_NUMBER_OF_POINTS;
 	private int  points;
@@ -13,7 +11,6 @@ public class Polygon extends Shape {
 	private Point center;
 	
 	public Polygon(int MAX_NUMBER_OF_POINTS) {
-		super(NAME);
 		xpoints = new float[MAX_NUMBER_OF_POINTS];
 		ypoints = new float[MAX_NUMBER_OF_POINTS];
 		this.MAX_NUMBER_OF_POINTS = MAX_NUMBER_OF_POINTS;
@@ -21,7 +18,6 @@ public class Polygon extends Shape {
 	}
 	
 	public Polygon(Point[] POINTS) {
-		super(NAME);
 		xpoints = new float[POINTS.length];
 		ypoints = new float[POINTS.length];
 		points = MAX_NUMBER_OF_POINTS = POINTS.length;

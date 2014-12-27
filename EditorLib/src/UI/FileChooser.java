@@ -48,7 +48,7 @@ public abstract class FileChooser extends DataModificationNotifier implements UI
 		});
 		
 		fileListing = new StaticGridMenu(new Grid(gridRows,gridCols));
-		fileListing.setPostition(new Point(2,48));
+		fileListing.setPosition(new Point(2,48));
 		fileListing.setButtonDimensions(140, 40);
 		fileListing.setButtonOffset(4);
 		

@@ -2,24 +2,19 @@ package data.shapes;
 
 public class Circle extends Shape {
 
-	private static final String NAME = "CIRCLE";
-	
 	private float r;
 	private Point center;
 	
 	public Circle(final float x, final float y, final float r){
-		super(NAME);
 		this.r = Math.abs(r);
 		this.center = new Point(x,y);
 	}
 	public Circle(final Circle other){
-		super(NAME);
 		this.r = other.r;
 		this.center = other.center.copy();
 	}
 	
 	public Circle(final Point center, final float r){
-		super(NAME);
 		this.center = center.copy();
 		this.r = Math.abs(r);
 	}

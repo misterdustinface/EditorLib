@@ -1,6 +1,6 @@
 package UI;
 
-public abstract class UIElement {
+public abstract class UIElement implements UILayer {
 
 	private boolean isPressed;
 	private boolean isHighlighted;
@@ -24,6 +24,4 @@ public abstract class UIElement {
 	
 	protected abstract void pressAction();
 	protected abstract void releaseAction();
-
-	public abstract void    update(MouseUserDevice mouse);
 }

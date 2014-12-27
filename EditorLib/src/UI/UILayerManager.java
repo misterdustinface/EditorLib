@@ -6,12 +6,12 @@ import java.util.HashMap;
 import UI.StratifiableUI;
 import UI.UILayer;
 
-public class LayerManager implements StratifiableUI {
+public class UILayerManager implements StratifiableUI {
 
 	private HashMap<UILayer, Boolean> 	shouldShow;
-	private ArrayList<UILayer>	  	uis;
+	private ArrayList<UILayer>	  		uis;
 	
-	public LayerManager() {
+	public UILayerManager() {
 		shouldShow 	= new HashMap<UILayer, Boolean>();
 		uis   		= new ArrayList<UILayer>();
 	}

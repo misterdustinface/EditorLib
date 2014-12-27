@@ -5,13 +5,13 @@ import java.util.HashMap;
 
 public class ShapeSelectorMap{
 	
-	private HashMap<String, Boolean> shapeSelectionMap;
+	private HashMap<Long, Boolean> shapeSelectionMap;
 	
 	public ShapeSelectorMap(){
-		shapeSelectionMap = new HashMap<String, Boolean>();
+		shapeSelectionMap = new HashMap<Long, Boolean>();
 	}
 	
-	private static String hash(Shape s) { return s.ID(); }
+	private static Long hash(Shape s) { return s.ID(); }
 	
 	public boolean isSelected(Shape s) { 
 		return shapeSelectionMap.get(hash(s));

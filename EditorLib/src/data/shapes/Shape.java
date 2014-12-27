@@ -3,15 +3,14 @@ package data.shapes;
 public abstract class Shape {
 
 	private static long instanceCounter = 0;
-	private long instance;
-	private String id;
+	private long instance, id;
 	
-	public Shape(String NAME) {
+	public Shape() {
 		instance = instanceCounter++;
-		id = NAME + instance;
+		id = instance;
 	}
 	
-	public String ID() { return id; }
+	public long ID() { return id; }
 	
 	abstract public boolean contains(Point point);
 	abstract public boolean contains(float x, float y);

@@ -23,8 +23,9 @@ public abstract class UIMenu implements UILayer {
 	public int getX() { return (int)position.x; }
 	public int getY() { return (int)position.y; }
 	
-	public void setPostition(Point POSITION) { 
-		position = POSITION;
+	public void setPosition(Point POSITION) { 
+		position.set(POSITION.x, POSITION.y);
+		refreshButtons();
 	}	
 	
 	public void setButtonOffset(int BUTTON_OFFSET) { 

@@ -2,8 +2,6 @@ package data.shapes;
 
 public class Pipe extends Shape{
 	
-	private static final String NAME = "PIPE";
-	
 	public  LineSegment  centerLine;
 	private float 		 thickness;
 	
@@ -12,7 +10,6 @@ public class Pipe extends Shape{
 	private Polygon 	 area;
 	
 	public Pipe(LineSegment CENTERLINE, float THICKNESS){
-		super(NAME);
 		centerLine = CENTERLINE; thickness = THICKNESS;
 		previousA  = new Point(centerLine.a.x, centerLine.a.y);
 		previousB  = new Point(centerLine.b.x, centerLine.b.y);
