@@ -67,10 +67,8 @@ public class MenuBar extends AntiViewport implements UILayer {
 	public void update(MouseUserDevice mouse) {
 		setBoundingBoxPosition();
 		updateMenuPositions();
-		if(isMouseInMenuBarBoundingBox(mouse)) {
-			updateMenus(mouse);
-			mouse.intercept();
-		}
+		updateMenus(mouse);
+		mouse.intercept();
 	}
 	
 	private void updateMenuPositions() {
