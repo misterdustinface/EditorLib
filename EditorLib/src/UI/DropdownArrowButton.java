@@ -2,19 +2,17 @@ package UI;
 
 import data.shapes.Point;
 
-public class DropdownArrowButton extends ArrowButton {
+public class DropdownArrowButton extends MenuButton {
 
-	protected UILayer dropdownUI;
 	protected boolean isDroppedDown;
 	
-	public DropdownArrowButton(Point POSITION, int OFFSET, int SIZE) {
-		super(POSITION, OFFSET, SIZE);
-		isDroppedDown = false;
-		orientArrow();
-	}
+	private Point position;
+	private int offset, size;
 	
-	public void setDropdownUI(UILayer DROPDOWN_UI) {
-		dropdownUI  = DROPDOWN_UI;
+	public DropdownArrowButton(Point POSITION, int OFFSET, int SIZE) {
+		position = new Point(POSITION.x, POSITION.y);
+		offset = OFFSET;
+		size = SIZE;
 		isDroppedDown = false;
 		orientArrow();
 	}
@@ -26,22 +24,18 @@ public class DropdownArrowButton extends ArrowButton {
 	
 	private void orientArrow() {
 		if(isDroppedDown) {
-			setOrientationUp();
+			position.shift(0, -size);
+			ArrowButton.up(this, position, offset, size);
 		} else {
-			setOrientationDown();
+			position.shift(0, size);
+			ArrowButton.down(this, position, offset, size);
 		}
 	}
 	
 	@Override
 	protected void pressAction() {
 		flip();
+		super.pressAction();
 	}
 	
-	@Override
-	public void update(MouseUserDevice mouse) {
-		super.update(mouse);
-		if(isDroppedDown) {
-			dropdownUI.update(mouse);
-		}
-	}
 }

@@ -3,45 +3,32 @@ package UI;
 import data.shapes.Point;
 import data.shapes.Polygon;
 
-public class ArrowButton extends MenuButton {
-
-	private Point position;
-	private int offset, size;
+final public class ArrowButton {
 	
-	public ArrowButton(Point POSITION, int OFFSET, int SIZE) {
-		position = POSITION;
-		offset   = OFFSET;
-		size     = SIZE;
-		setOrientationRight();
-	}
+	private ArrowButton() {} ;
 	
-	public void setOrientationRight(){ right(this, position, offset, size); }
-	public void setOrientationLeft() {  left(this, position, offset, size); }
-	public void setOrientationUp()   {    up(this, position, offset, size); }
-	public void setOrientationDown() {  down(this, position, offset, size); }
-	
-	private static void right(ArrowButton b, Point p, int xoff, int size) {
+	public static void right(MenuButton b, Point p, int xoff, int size) {
 		b.polygon = new Polygon(3);
 		b.addPointRelativeToMenuPosition(p, xoff,   0);
 		b.addPointRelativeToMenuPosition(p, xoff - size,  size);
 		b.addPointRelativeToMenuPosition(p, xoff - size, -size);
 	}
 	
-	private static void left(ArrowButton b, Point p, int xoff, int size) {
+	public static void left(MenuButton b, Point p, int xoff, int size) {
 		b.polygon = new Polygon(3);
 		b.addPointRelativeToMenuPosition(p, xoff,   0);
 		b.addPointRelativeToMenuPosition(p, xoff + size,  size);
 		b.addPointRelativeToMenuPosition(p, xoff + size, -size);
 	}
 	
-	private static void up(ArrowButton b, Point p, int yoff, int size) {
+	public static void down(MenuButton b, Point p, int yoff, int size) {
 		b.polygon = new Polygon(3);
 		b.addPointRelativeToMenuPosition(p, 0, yoff);
 		b.addPointRelativeToMenuPosition(p, size,  yoff-size);
 		b.addPointRelativeToMenuPosition(p, -size, yoff-size);
 	}
 	
-	private static void down(ArrowButton b, Point p, int yoff, int size) {
+	public static void up(MenuButton b, Point p, int yoff, int size) {
 		b.polygon = new Polygon(3);
 		b.addPointRelativeToMenuPosition(p, 0, yoff);
 		b.addPointRelativeToMenuPosition(p, size,  yoff+size);

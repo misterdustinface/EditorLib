@@ -5,13 +5,12 @@ import java.util.ArrayList;
 import data.shapes.Point;
 import data.shapes.Rectangle;
 
-public class MenuBar implements UILayer {
+public class MenuBar extends AntiViewport implements UILayer {
 
 	protected ArrayList<UIMenu> menus;
 	protected Rectangle			boundingBox;
-	private Viewport			viewport;
-	private int 				spacingOffset;
-	private float				xOffset, yOffset;
+	private   int 				spacingOffset;
+	private   float				xOffset, yOffset;
 
 	public MenuBar() {
 		boundingBox = new Rectangle(0,0,0,0);
@@ -32,12 +31,13 @@ public class MenuBar implements UILayer {
 	}
 
 	public void setViewport(Viewport VIEWPORT) {
-		viewport = VIEWPORT;
+		super.setViewport(VIEWPORT);
 		setBoundingBoxPosition();
 	}
 	
 	private void setBoundingBoxPosition() {
-		boundingBox.setPosition(xOffset-viewport.getXPosition(), yOffset-viewport.getYPosition());
+		Point position = getPositionRelativeToOffsets(xOffset, yOffset);
+		boundingBox.setPosition(position.x, position.y);
 	}
 	
 	public void addUIMenu(UIMenu MENU) {
