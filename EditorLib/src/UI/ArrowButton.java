@@ -1,7 +1,7 @@
 package UI;
 
-import data.shapes.Point;
-import data.shapes.Polygon;
+import shapes.Point;
+import shapes.Polygon;
 
 final public class ArrowButton {
 	

@@ -1,8 +1,8 @@
 package UI;
 
-import data.shapes.Point;
-import data.shapes.Polygon;
-import data.shapes.Rectangle;
+import shapes.Point;
+import shapes.Polygon;
+import shapes.Rectangle;
 
 public class TextLabel {
 	public enum ALIGNMENT{LEFT, CENTER, RIGHT};

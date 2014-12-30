@@ -1,4 +1,4 @@
-package data.shapes;
+package shapes;
 
 public abstract class Shape {
 

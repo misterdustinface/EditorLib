@@ -1,4 +1,4 @@
-package data.shapes;
+package shapes;
 
 public class Grid {
 	public int rows, cols;

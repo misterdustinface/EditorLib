@@ -1,4 +1,4 @@
-package data.shapes;
+package shapes;
 
 public class Math {
 	final public static double PI = java.lang.Math.PI;

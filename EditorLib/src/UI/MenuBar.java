@@ -2,8 +2,8 @@ package UI;
 
 import java.util.ArrayList;
 
-import data.shapes.Point;
-import data.shapes.Rectangle;
+import shapes.Point;
+import shapes.Rectangle;
 
 public class MenuBar extends AntiViewport implements UILayer {
 

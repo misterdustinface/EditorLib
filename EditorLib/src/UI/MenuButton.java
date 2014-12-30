@@ -1,8 +1,8 @@
 package UI;
 
+import shapes.Point;
+import shapes.Polygon;
 import generic.DebounceTimer;
-import data.shapes.Point;
-import data.shapes.Polygon;
 
 public class MenuButton extends FunctionButton {
 

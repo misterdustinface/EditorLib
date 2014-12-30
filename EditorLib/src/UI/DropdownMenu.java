@@ -2,7 +2,7 @@ package UI;
 
 import java.util.ArrayList;
 
-import data.shapes.Point;
+import shapes.Point;
 import generic.VoidFunctionPointer;
 
 public class DropdownMenu extends UIMenu {

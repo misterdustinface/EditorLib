@@ -1,6 +1,6 @@
 package UI.uiTools.accessories;
 
-import data.shapes.Point;
+import shapes.Point;
 
 public class PositionController {
 	public Point position;

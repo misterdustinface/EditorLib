@@ -5,8 +5,8 @@ import generic.VoidFunctionPointer;
 
 import java.io.File;
 
-import data.shapes.Grid;
-import data.shapes.Point;
+import shapes.Grid;
+import shapes.Point;
 
 public abstract class FileChooser extends DataModificationNotifier implements UILayer {
 	public static String START_DIRECTORY = System.getProperty("user.home");

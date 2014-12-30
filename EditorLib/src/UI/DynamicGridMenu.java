@@ -1,6 +1,6 @@
 package UI;
 
-import data.shapes.Grid;
+import shapes.Grid;
 
 public abstract class DynamicGridMenu extends StaticGridMenu {
 

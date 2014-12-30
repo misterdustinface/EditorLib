@@ -1,6 +1,6 @@
 package UI;
 
-import data.shapes.Grid;
+import shapes.Grid;
 
 public class StaticGridMenu extends UIMenu {
 

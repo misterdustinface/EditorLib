@@ -1,10 +1,10 @@
 package rendering;
 
+import shapes.Point;
 import UI.BarSlider;
 import UI.FileChooser;
 import UI.MenuButton;
 import UI.UIMenu;
-import data.shapes.Point;
 
 public interface MenuDrawer {
 	void drawButton       		( MenuButton b );

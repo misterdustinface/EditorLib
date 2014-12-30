@@ -1,6 +1,6 @@
 package UI;
 
-import data.shapes.Rectangle;
+import shapes.Rectangle;
 
 public abstract class BarSlider extends UIElement {
 

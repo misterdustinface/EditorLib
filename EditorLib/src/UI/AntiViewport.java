@@ -1,6 +1,6 @@
 package UI;
 
-import data.shapes.Point;
+import shapes.Point;
 
 public class AntiViewport {
 

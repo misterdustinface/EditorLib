@@ -2,7 +2,7 @@ package UI;
 
 import java.util.ArrayList;
 
-import data.shapes.Point;
+import shapes.Point;
 
 public abstract class UIMenu implements UILayer {
 	

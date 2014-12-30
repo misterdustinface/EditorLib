@@ -1,10 +1,10 @@
 package rendering;
 
-import data.shapes.Circle;
-import data.shapes.LineSegment;
-import data.shapes.Point;
-import data.shapes.Polygon;
-import data.shapes.Rectangle;
+import shapes.Circle;
+import shapes.LineSegment;
+import shapes.Point;
+import shapes.Polygon;
+import shapes.Rectangle;
 
 public interface ShapeDrawer {
 	void drawPoint        			(Point       point);
