@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import shapes.Point;
 import generic.VoidFunctionPointer;
 
-public class DropdownMenu extends UIMenu {
+public class DropdownListMenu extends UIMenu {
 	protected MenuButton 	 root;
 	protected StaticListMenu menu;
 	private   boolean isListMenuOpen;
@@ -17,7 +17,7 @@ public class DropdownMenu extends UIMenu {
 		}
 	};
 	
-	public DropdownMenu() {
+	public DropdownListMenu() {
 		isListMenuOpen = false;
 	}
 	
