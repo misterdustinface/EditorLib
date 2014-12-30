@@ -4,7 +4,7 @@ package shapes;
 public class Polygon extends Shape {
 	
 	private final int MAX_NUMBER_OF_POINTS;
-	private int  points;
+	private int points;
 	public float[] xpoints;
 	public float[] ypoints;
 	
@@ -30,7 +30,7 @@ public class Polygon extends Shape {
 	}
 	
 	public void clearPoints() {
-		points  = 0;
+		points = 0;
 		center.set(0, 0);
 	}
 	
@@ -42,7 +42,7 @@ public class Polygon extends Shape {
 			calculateCenter();
 		}
 	}
-	
+
 	public int getNumberOfPoints() { return points; }
 	
 	public boolean contains(Point point) {
@@ -57,7 +57,7 @@ public class Polygon extends Shape {
 				doesContain = !doesContain;
 		return doesContain;
 	}
-	
+
 	// if Y is within yRange then we can compute: X <= xBase + (xRange * yPercent)
 	private boolean isRightFacingRayFromXYCollidingWithPolygonLinesegmentAB(float X, float Y, int A, int B) {
 		return isWithinBounds(ypoints[A], Y, ypoints[B])
@@ -67,7 +67,11 @@ public class Polygon extends Shape {
 	private boolean isWithinBounds(float A, float Y, float B) {
 		return (Y < A) ^ (Y < B);
 	}
-	
+
+	/**
+	 * UNTESTED
+	 * @return
+	 */
 	public boolean intersects(Polygon other) {
 		Point C = new Point(0,0);
 		Point D = new Point(0,0);
@@ -103,6 +107,11 @@ public class Polygon extends Shape {
 		return (x1 <= x2 && x2 <= X1 ) || (x1 <= X2 && X2 <= X1 );
 	}
 	
+	
+	/**
+	 * UNTESTED
+	 * @return
+	 */
 	public Rectangle getBoundingRectangle() {
 		float x = smallest(xpoints);
 		float y = smallest(ypoints);
@@ -125,14 +134,22 @@ public class Polygon extends Shape {
 		return result;
 	}
 
+	/**
+	 * UNTESTED
+	 * @return
+	 */
 	@Override
 	public void setPosition(float x, float y) {
 		shift(x - center.x, y - center.y);
 	}
 
+	/**
+	 * UNTESTED
+	 * @return
+	 */
 	@Override
 	public void scale(float percent) {
-		for(int i = 0; i < points; ++i){
+		for(int i = 0; i < points; ++i) {
 			double theta = Math.theta(center.x, center.y, xpoints[i], ypoints[i]);		
 			xpoints[i] = (float) java.lang.Math.cos(theta) * Math.difference(xpoints[i], center.x) * percent;
 			ypoints[i] = (float) java.lang.Math.sin(theta) * Math.difference(ypoints[i], center.y) * percent;
@@ -141,12 +158,17 @@ public class Polygon extends Shape {
 
 	@Override
 	public void shift(float xOffset, float yOffset) {
-		for(int i = 0; i < points; ++i){
+		for(int i = 0; i < points; ++i) {
 			xpoints[i] += xOffset;
 			ypoints[i] += yOffset;
 		}
+		calculateCenter();
 	}
 
+	/**
+	 * UNTESTED
+	 * @return
+	 */
 	@Override
 	public void rotate(int degrees) {
 		double rads  = java.lang.Math.toRadians(degrees);
@@ -160,7 +182,7 @@ public class Polygon extends Shape {
 	
 			xpoints[i] = xpoints[i] > center.x ? center.x + xOff : center.x - xOff;
 			ypoints[i] = ypoints[i] > center.y ? center.y + yOff : center.y - yOff;
-		}	
+		}
 	}
 	
 	private void calculateCenter() {
@@ -176,4 +198,5 @@ public class Polygon extends Shape {
 	
 	public float getCenterX() { return center.x; }
 	public float getCenterY() { return center.y; }
+
 }
