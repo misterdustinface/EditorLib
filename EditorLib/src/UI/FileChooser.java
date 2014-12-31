@@ -25,7 +25,7 @@ public abstract class FileChooser extends DataModificationNotifier implements UI
 	
 	public FileChooser() {		
 		
-		upButton = makeButton();
+		upButton = extendedMenuButton();
 		upButton.textLabel.setText(UP_BUTTON_TEXT);
 		upButton.textLabel.center();
 		upButton.makeBoxRelativeToPoint(0, 0, 2, 2, 120, 40);
@@ -36,7 +36,7 @@ public abstract class FileChooser extends DataModificationNotifier implements UI
 			}
 		});
 		
-		exitButton = makeButton();
+		exitButton = extendedMenuButton();
 		exitButton.textLabel.setText(EXIT_BUTTON_TEXT);
 		exitButton.textLabel.center();
 		exitButton.makeBoxRelativeToPoint(122, 0, 2, 2, 120, 40);
@@ -60,7 +60,7 @@ public abstract class FileChooser extends DataModificationNotifier implements UI
 	public MenuButton getUpButton() { return upButton; }
 	public MenuButton getExitButton() { return exitButton; }
 	
-	protected abstract MenuButton makeButton();
+	protected abstract MenuButton extendedMenuButton();
 	
 	public void chooseFile() {
 		shouldDisplayAndUpdate = true;
@@ -106,7 +106,7 @@ public abstract class FileChooser extends DataModificationNotifier implements UI
 	}
 	
 	private MenuButton makeFileChooserButton(File file) {
-		MenuButton button = makeButton();
+		MenuButton button = extendedMenuButton();
 		button.textLabel.setMaxTextWidth(20);
 		button.textLabel.setText(file.getName());
 		button.textLabel.center();
