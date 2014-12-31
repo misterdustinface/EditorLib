@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import shapes.Point;
 
-public abstract class UIMenu implements UILayer {
+public abstract class UIMenu implements ButtonMenu {
 	
 	protected Point position;
 	protected ArrayList<MenuButton> buttons;

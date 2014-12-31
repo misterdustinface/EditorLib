@@ -1,7 +1,6 @@
 package UI;
 
-public interface UILayer {	
-	//render
+public interface UILayer {
 	public void update(MouseUserDevice mouse);
 	//public boolean contains(MouseUserDevice mouse);
 }

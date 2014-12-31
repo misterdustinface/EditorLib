@@ -19,17 +19,15 @@ public abstract class BarSlider extends UIElement {
 		fill          = new Rectangle();
 	}
 	
-	protected float getFillPercent() { return fillPercent; }
+	final public void setBase(Rectangle bounding) { base = bounding; }
 	
-	public void setBase(Rectangle bounding) { base = bounding; }
+	final public void setHorizontal() { orientation = ORIENTATION.HORIZONTAL; }
+	final public void setVertical()   { orientation = ORIENTATION.VERTICAL; }
 	
-	public void setHorizontal() { orientation = ORIENTATION.HORIZONTAL; }
-	public void setVertical()   { orientation = ORIENTATION.VERTICAL; }
+	final public Rectangle getBase() { return base; }
+	final public Rectangle getFill() { return fill; }
 	
-	public Rectangle getBase() { return base; }
-	public Rectangle getFill() { return fill; }
-	
-	public void update(MouseUserDevice mouse) {
+	final public void update(MouseUserDevice mouse) {
 		
 		updateSlider(mouse.getCursorX(), mouse.getCursorY());
 		
@@ -54,7 +52,9 @@ public abstract class BarSlider extends UIElement {
 		}
 	}
 	
-	protected void setFillPercent(float delta) {
+	final protected float getFillPercent() { return fillPercent; }
+	
+	final protected void setFillPercent(float delta) {
 		fillPercent = delta;
 		if     (fillPercent > 1.0f) { fillPercent = 1.0f; }
 		else if(fillPercent < 0.0f) { fillPercent = 0.0f; }

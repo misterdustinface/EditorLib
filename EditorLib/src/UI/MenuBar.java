@@ -7,14 +7,14 @@ import shapes.Rectangle;
 
 public class MenuBar extends AntiViewport implements UILayer {
 
-	protected ArrayList<UIMenu> menus;
+	protected ArrayList<ButtonMenu> menus;
 	protected Rectangle			boundingBox;
 	private   int 				spacingOffset;
 	private   float				xOffset, yOffset;
 
 	public MenuBar() {
 		boundingBox = new Rectangle(0,0,0,0);
-		menus = new ArrayList<UIMenu>();
+		menus = new ArrayList<ButtonMenu>();
 		spacingOffset = 0;
 		xOffset = yOffset = 0;
 	}
@@ -40,15 +40,15 @@ public class MenuBar extends AntiViewport implements UILayer {
 		boundingBox.setPosition(position.x, position.y);
 	}
 	
-	public void addUIMenu(UIMenu MENU) {
+	public void addUIMenu(ButtonMenu MENU) {
 		menus.add(MENU);
 		updateMenuPositions();
 		updateMenuOffsets();
 		calculateDimensions();
 	}
 	
-	public void addUIMenus(UIMenu ... MENUS) {
-		for(UIMenu menu : MENUS) {
+	public void addUIMenus(ButtonMenu ... MENUS) {
+		for(ButtonMenu menu : MENUS) {
 			menus.add(menu);
 		}
 		updateMenuPositions();
@@ -56,7 +56,7 @@ public class MenuBar extends AntiViewport implements UILayer {
 		calculateDimensions();
 	}
 	
-	public void removeUIMenu(UIMenu MENU) {
+	public void removeUIMenu(ButtonMenu MENU) {
 		menus.remove(MENU);
 		updateMenuPositions();
 		updateMenuOffsets();
@@ -82,7 +82,7 @@ public class MenuBar extends AntiViewport implements UILayer {
 	}
 	
 	private void updateMenuOffsets() {
-		for(UIMenu menu : menus) {
+		for(ButtonMenu menu : menus) {
 			menu.setButtonOffset(spacingOffset);
 		}
 	}
@@ -92,7 +92,7 @@ public class MenuBar extends AntiViewport implements UILayer {
 	}
 	
 	private void updateMenus(MouseUserDevice mouse) {
-		for(UIMenu menu : menus) {
+		for(ButtonMenu menu : menus) {
 			menu.update(mouse);
 		}
 	}
@@ -100,7 +100,7 @@ public class MenuBar extends AntiViewport implements UILayer {
 	private void calculateDimensions() {
 		boundingBox.width  = 0;
 		boundingBox.height = 0;
-		for(UIMenu menu : menus) {
+		for(ButtonMenu menu : menus) {
 			boundingBox.width += menu.getWidth() + spacingOffset;
 			boundingBox.height = Math.max(boundingBox.height, menu.getHeight() + spacingOffset);
 		}
