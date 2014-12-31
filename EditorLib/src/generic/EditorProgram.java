@@ -6,7 +6,9 @@ public class EditorProgram {
 	
 	private Thread mainThread; 
 	private Thread renderThread;
+	private Thread drawerThread;
 	private Thread audioSystemThread;
+	private Thread networkThread;
 	
 	private LinkedList<Thread> existingThreads;
 	
@@ -28,11 +30,25 @@ public class EditorProgram {
 		existingThreads.add(renderThread);
 	}
 	
+	public void setDrawer(Runnable DRAWER) {
+		drawerThread = new Thread(DRAWER);
+		drawerThread.setName("DRAWER");
+		
+		existingThreads.add(drawerThread);
+	}
+	
 	public void setAudioSystem(Runnable PROGRAM_AUDIO_SYSTEM) {
 		audioSystemThread = new Thread(PROGRAM_AUDIO_SYSTEM);
 		audioSystemThread.setName("AUDIO_SYS");
 		
 		existingThreads.add(audioSystemThread);
+	}
+	
+	public void setNetworkThread(Runnable NETWORK_THREAD) {
+		networkThread = new Thread(NETWORK_THREAD);
+		networkThread.setName("NETWORK");
+		
+		existingThreads.add(networkThread);
 	}
 	
 	public void start() {
@@ -41,15 +57,29 @@ public class EditorProgram {
 		}
 	}
 	
+	public void startAudio() {
+		startThread(audioSystemThread);
+	}
 	public void stopAudio() {
+		stopThread(audioSystemThread);
+	}
+	
+	public void startNetwork() {
+		startThread(networkThread);
+	}
+	public void stopNetwork() {
+		stopThread(networkThread);
+	}
+	
+	private void startThread(Thread thread) {
+		thread.notify();
+	}
+	
+	private void stopThread(Thread thread) {
 		try {
-			audioSystemThread.wait();
+			thread.wait();
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-	}
-	
-	public void startAudio() {
-		audioSystemThread.notify();
 	}
 }
