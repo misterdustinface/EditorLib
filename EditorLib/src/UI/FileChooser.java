@@ -1,11 +1,10 @@
 package UI;
 
-import generic.DataModificationNotifier;
 import generic.VoidFunctionPointer;
+import generic.ListenerPattern.Descriptive.DataModificationNotifier;
 
 import java.io.File;
 
-import shapes.Grid;
 import shapes.Point;
 
 public abstract class FileChooser extends DataModificationNotifier implements UILayer {

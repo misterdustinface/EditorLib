@@ -1,6 +1,6 @@
 package file;
 
-import generic.DataModificationNotifier;
+import generic.ListenerPattern.Descriptive.DataModificationNotifier;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

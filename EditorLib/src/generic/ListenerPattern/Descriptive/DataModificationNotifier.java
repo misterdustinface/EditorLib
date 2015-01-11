@@ -1,8 +1,8 @@
-package generic;
+package generic.ListenerPattern.Descriptive;
 
 import java.util.ArrayList;
 
-public class DataModificationNotifier implements Notifier {
+public class DataModificationNotifier {
 
 	private ArrayList<DataModificationListener> dataModificationListeners;
 	
