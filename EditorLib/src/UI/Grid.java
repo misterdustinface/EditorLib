@@ -1,4 +1,4 @@
-package shapes;
+package UI;
 
 public class Grid {
 	public int rows, cols;
