@@ -15,7 +15,7 @@ public abstract class DropdownMenuBar implements UILayer {
 		public void call() {
 			isDropped = ! isDropped;
 			
-			if(isDropped) {
+			if (isDropped) {
 				setArrowUp();
 			} else {
 				setArrowDown();
@@ -32,13 +32,16 @@ public abstract class DropdownMenuBar implements UILayer {
 	}
 	
 	protected abstract MenuButton extendedMenuButton();
-	protected boolean isDropped() { return isDropped; }
+	
+	protected boolean isDropped() { 
+		return isDropped; 
+	}
 	
 	@Override
 	final public void update(MouseUserDevice mouse) {
 		updateArrowButtonPosition();
 		dropdownButton.update(mouse);
-		if(isDropped) {
+		if (isDropped) {
 			menuBar.update(mouse);
 		}
 	}

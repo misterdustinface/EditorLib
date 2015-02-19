@@ -7,7 +7,8 @@ public class LineSegment {
 	public Point b;
 	
 	public LineSegment(Point A, Point B){
-		a = A; b = B;
+		a = A; 
+		b = B;
 	}
 	public LineSegment(LineSegment other){
 		a = other.a;
@@ -34,8 +35,10 @@ public class LineSegment {
 	}
 	
 	public void shift(float x, float y){
-		a.x += x; b.x += x;
-		a.y += y; b.y += y;
+		a.x += x; 
+		a.y += y; 
+		b.x += x;
+		b.y += y;
 	}
 	
 	public void scale(double percent){
@@ -74,11 +77,21 @@ public class LineSegment {
 	private void resize(float xOff, float yOff){
 		Point midpoint = midpoint();
 		
-		if(a.x > b.x){	a.x = midpoint.x + xOff; b.x = midpoint.x - xOff;}
-		else{			a.x = midpoint.x - xOff; b.x = midpoint.x + xOff;}
+		if (a.x > b.x) { 
+			a.x = midpoint.x + xOff; 
+			b.x = midpoint.x - xOff;
+		} else {
+			a.x = midpoint.x - xOff; 
+			b.x = midpoint.x + xOff;
+		}
 		
-		if(a.y > b.y){	a.y = midpoint.y + yOff; b.y = midpoint.y - yOff;}
-		else{			a.y = midpoint.y - yOff; b.y = midpoint.y + yOff;}
+		if (a.y > b.y) {
+			a.y = midpoint.y + yOff; 
+			b.y = midpoint.y - yOff;
+		} else {
+			a.y = midpoint.y - yOff; 
+			b.y = midpoint.y + yOff;
+		}
 	}
 	
 	public boolean isEdge(Point point) {

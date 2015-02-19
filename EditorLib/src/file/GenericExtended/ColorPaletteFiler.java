@@ -10,18 +10,22 @@ public class ColorPaletteFiler extends LuaScriptFiler {
 	private ArrayList<ColorData> loadedPalette;
 	private ArrayList<ColorData> palette;
 
-	public ColorPaletteFiler() {}
+	public ColorPaletteFiler() {
+		
+	}
 	
 	public ColorPaletteFiler(ArrayList<ColorData> PALETTE) {
 		setPalette(PALETTE);
 	}
 	
-	public void setPalette(ArrayList<ColorData> PALETTE) { palette = PALETTE; }
+	public void setPalette(ArrayList<ColorData> PALETTE) { 
+		palette = PALETTE; 
+	}
 	
 	@Override
 	protected String dataToLuaScript() {
 		String script = new String();
-		for(ColorData color : palette){
+		for (ColorData color : palette) {
 			script += createEntry(	String.valueOf(color.r), String.valueOf(color.g),
 									String.valueOf(color.b), String.valueOf(color.a));
 		}
@@ -41,8 +45,8 @@ public class ColorPaletteFiler extends LuaScriptFiler {
 
 	private ColorData parseColorDataFromLine(String line) {
 		String[] entries = super.parseEntries(line);
-		int[] hues = new int[] {Integer.parseInt(entries[0]),Integer.parseInt(entries[1]),
-								Integer.parseInt(entries[2]),Integer.parseInt(entries[3])};
+		int[] hues = new int[] { Integer.parseInt(entries[0]),Integer.parseInt(entries[1]),
+								 Integer.parseInt(entries[2]),Integer.parseInt(entries[3]) };
 		return new ColorData(hues);
 	}
 

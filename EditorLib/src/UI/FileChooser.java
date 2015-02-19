@@ -76,7 +76,7 @@ public abstract class FileChooser extends DataModificationNotifier implements UI
 	
 	private void chooseFile(String path) {
 		filepath = new File(path);
-		if(filepath.isDirectory()) {
+		if (filepath.isDirectory()) {
 			refreshFileListing();
 		} else if (filepath.isFile()) {
 			exit();
@@ -89,8 +89,8 @@ public abstract class FileChooser extends DataModificationNotifier implements UI
 		final File[] files = filepath.listFiles();
 		resizeGridToFitFiles(files.length);
 		
-		for(File file : files) {
-			if(! file.isHidden()) {
+		for (File file : files) {
+			if (!file.isHidden()) {
 				MenuButton button = makeFileChooserButton(file);
 				fileListing.addButton(button);
 				final String PATH = file.getPath();
@@ -122,12 +122,14 @@ public abstract class FileChooser extends DataModificationNotifier implements UI
 	
 	@Override
 	public void update(MouseUserDevice mouse) {
-		if(shouldDisplayAndUpdate) {
+		if (shouldDisplayAndUpdate) {
 			upButton.update(mouse);
 			exitButton.update(mouse);
 			try {
 				fileListing.update(mouse);
-			} catch (Exception e) {}
+			} catch (Exception e) {
+				
+			}
 			mouse.intercept();
 		}
 	}

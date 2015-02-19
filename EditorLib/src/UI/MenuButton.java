@@ -58,24 +58,32 @@ public class MenuButton extends FunctionButton {
 	}
 
 	
-	public float getWidth()   { return polygon.getBoundingRectangle().width;  }
-	public float getHeight()  { return polygon.getBoundingRectangle().height; }
-	public float getCenterX() { return polygon.getBoundingRectangle().getCenterX(); }
-	public float getCenterY() { return polygon.getBoundingRectangle().getCenterY(); }
+	public float getWidth() { 
+		return polygon.getBoundingRectangle().width;  
+	}
+	public float getHeight() { 
+		return polygon.getBoundingRectangle().height; 
+	}
+	public float getCenterX() { 
+		return polygon.getBoundingRectangle().getCenterX(); 
+	}
+	public float getCenterY() { 
+		return polygon.getBoundingRectangle().getCenterY(); 
+	}
 	
 	@Override
 	public void update(MouseUserDevice mouse) {
-		if( contains(mouse) ) {
+		if (contains(mouse)) {
 			highlight();
-			if ( mouse.isPressed()  || mouse.isClicked() ) { debouncedPress();  }
-			if ( mouse.isReleased() || mouse.isClicked() ) { release();         }
-			if ( mouse.isPressed()  || mouse.isClicked() ) { mouse.intercept(); }
+			if (mouse.isPressed()  || mouse.isClicked()) debouncedPress();
+			if (mouse.isReleased() || mouse.isClicked()) release();
+			if (mouse.isPressed()  || mouse.isClicked()) mouse.intercept();
 		} else {
 			removeHighlight();
-			if ( isPressed() ) { release(); }
+			if (isPressed()) release();
 		}
 		
-		if(textLabel.isCentered()) { textLabel.alignText(polygon); }
+		if (textLabel.isCentered()) textLabel.alignText(polygon);
 	}
 	
 	private boolean contains(MouseUserDevice mouse) {
@@ -83,7 +91,7 @@ public class MenuButton extends FunctionButton {
 	}
 	
 	final public void debouncedPress() {
-		if(debounceTimer.isDebounceComplete()) {
+		if (debounceTimer.isDebounceComplete()) {
 			debounceTimer.reset(); // TEMPORAL COUPLING. UPDATE CAN BE CALLED MULTIPLE TIMES AT ONCE IN DIFFERENT THREADS; THEREFORE, THIS FUNCTION CAN TOO.
 			press();
 		}   

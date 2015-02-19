@@ -13,9 +13,9 @@ public abstract class DynamicGridMenu extends StaticGridMenu {
 	
 	protected void refreshButtons(int amount) {
 		clearButtons();
-		for(int i = 0; i < limitNumberOfButtons(amount); ++i)
+		for (int i = 0; i < limitNumberOfButtons(amount); ++i)
 			refreshButton(i);
-		if(canFitNewEmptyEntry())
+		if (canFitNewEmptyEntry())
 			makeNewEmptyEntry();
 		resetMenuDimensions();
 	}
@@ -25,7 +25,9 @@ public abstract class DynamicGridMenu extends StaticGridMenu {
 		return desiredAmount > max ? max : desiredAmount;
 	}
 	
-	private int getMaxNumberOfButtons() { return displaygrid.getNumberOfCells(); }
+	private int getMaxNumberOfButtons() { 
+		return displaygrid.getNumberOfCells(); 
+	}
 	
 	@Override
 	public void refreshButton(int index) { 
@@ -52,8 +54,8 @@ public abstract class DynamicGridMenu extends StaticGridMenu {
 	public void update(MouseUserDevice mouse) {
 		super.update(mouse);
 		
-		if(contains(mouse)) {
-			if(getEmptyEntry().isPressed() && canFitNewEmptyEntry()) {
+		if (contains(mouse)) {
+			if (getEmptyEntry().isPressed() && canFitNewEmptyEntry()) {
 				makeNewEmptyEntry();
 			}
 		}

@@ -20,8 +20,12 @@ public abstract class UIMenu implements ButtonMenu {
 	
 	abstract protected void resetMenuDimensions();
 
-	public int getX() { return (int)position.x; }
-	public int getY() { return (int)position.y; }
+	public int getX() { 
+		return (int)position.x; 
+	}
+	public int getY() { 
+		return (int)position.y; 
+	}
 	
 	public void setPosition(Point POSITION) { 
 		position.set(POSITION.x, POSITION.y);
@@ -33,7 +37,7 @@ public abstract class UIMenu implements ButtonMenu {
 		resetMenuDimensions();
 		refreshButtons();
 	}
-	public void setButtonSize(int BUTTON_SIZE)     {
+	public void setButtonSize(int BUTTON_SIZE) {
 		buttonWidth = buttonHeight = BUTTON_SIZE;
 		resetMenuDimensions();
 		refreshButtons();
@@ -47,7 +51,7 @@ public abstract class UIMenu implements ButtonMenu {
 	}
 	
 	public void setButtons(MenuButton ... BUTTONS) {
-		for(int i = 0; i < BUTTONS.length; ++i)
+		for (int i = 0; i < BUTTONS.length; ++i)
 			addButton(BUTTONS[i]);
 	}
 	
@@ -75,24 +79,32 @@ public abstract class UIMenu implements ButtonMenu {
 	}
 	
 	public void refreshButtons() {
-		for(int i = 0; i < numberOfButtons(); ++i)
+		for (int i = 0; i < numberOfButtons(); ++i)
 			refreshButton(i);
 	}
 	
 	abstract public void refreshButton(int index);
 	
-	public int numberOfButtons() { return buttons.size(); }
-	public MenuButton getButton(int index) { return buttons.get(index); }
+	public int numberOfButtons() { 
+		return buttons.size(); 
+	}
+	public MenuButton getButton(int index) { 
+		return buttons.get(index); 
+	}
 	
-	public int getWidth()  	{ return width; }
-	public int getHeight() 	{ return height;}
+	public int getWidth() { 
+		return width; 
+	}
+	public int getHeight() { 
+		return height;
+	}
 	
 	public boolean contains(MouseUserDevice mouse) {
 		return getX() <= mouse.getCursorX() && mouse.getCursorX() <= getX() + getWidth()
 			&& getY() <= mouse.getCursorY() && mouse.getCursorY() <= getY() + getHeight();
 	}
 	
-	protected int getSuggestedDimension(int buttonOffset, int buttonSize, int numButtonsAcross){
+	protected int getSuggestedDimension(int buttonOffset, int buttonSize, int numButtonsAcross) {
 		return (((numButtonsAcross+1) * buttonOffset) + ((numButtonsAcross) * buttonSize));
 	}
 	

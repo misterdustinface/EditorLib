@@ -35,7 +35,7 @@ public abstract class LuaScriptFiler extends DataModificationNotifier implements
 	
 	final protected String buildEntryList(String ... strings) {
 		String entrylist = new String();
-		for(int i = 0; i < strings.length - 1; ++i) {
+		for (int i = 0; i < strings.length - 1; ++i) {
 			entrylist += strings[i];
 			entrylist += TABLE_DELIMITER + " ";
 		}
@@ -51,7 +51,7 @@ public abstract class LuaScriptFiler extends DataModificationNotifier implements
 		int startIndex 	= line.indexOf(TABLE_START) + 1;
 		int endIndex 	= line.indexOf(TABLE_DELIMITER);
 		
-		while(endIndex > 0) {
+		while (endIndex > 0) {
 			entries.add(line.substring(startIndex, endIndex).trim());
 			startIndex 	= endIndex + 1;
 			endIndex 	= line.indexOf(TABLE_DELIMITER, startIndex);
@@ -65,9 +65,9 @@ public abstract class LuaScriptFiler extends DataModificationNotifier implements
 	
 	final protected void parseScript(FileInputStream reader) {
 		Scanner scanner = new Scanner(reader);
-		while(scanner.hasNextLine()){
+		while (scanner.hasNextLine()){
 			String line = scanner.nextLine();
-			if(! line.contains(IGNORE_LINE)) {
+			if (!line.contains(IGNORE_LINE)) {
 				parseLine(line);
 			}
 		}

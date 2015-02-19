@@ -13,6 +13,6 @@ public class ScaleController{
 	
 	public float getScale() {
 		return scale;
-	};
+	}
 	
 }

@@ -48,7 +48,7 @@ public class MenuBar extends AntiViewport implements UILayer {
 	}
 	
 	public void addUIMenus(ButtonMenu ... MENUS) {
-		for(ButtonMenu menu : MENUS) {
+		for (ButtonMenu menu : MENUS) {
 			menus.add(menu);
 		}
 		updateMenuPositions();
@@ -68,21 +68,21 @@ public class MenuBar extends AntiViewport implements UILayer {
 		setBoundingBoxPosition();
 		updateMenuPositions();
 		updateMenus(mouse);
-		if(isMouseInMenuBarBoundingBox(mouse)) {
+		if (isMouseInMenuBarBoundingBox(mouse)) {
 			mouse.intercept();
 		}
 	}
 	
 	private void updateMenuPositions() {
 		Point newPosition = new Point(boundingBox.x + spacingOffset, boundingBox.y + spacingOffset);
-		for(int i = menus.size()-1; i >= 0; --i) {
+		for (int i = menus.size()-1; i >= 0; --i) {
 			menus.get(i).setPosition(newPosition);
 			newPosition.shift(menus.get(i).getWidth() + spacingOffset, 0);
 		}
 	}
 	
 	private void updateMenuOffsets() {
-		for(ButtonMenu menu : menus) {
+		for (ButtonMenu menu : menus) {
 			menu.setButtonOffset(spacingOffset);
 		}
 	}
@@ -92,7 +92,7 @@ public class MenuBar extends AntiViewport implements UILayer {
 	}
 	
 	private void updateMenus(MouseUserDevice mouse) {
-		for(ButtonMenu menu : menus) {
+		for (ButtonMenu menu : menus) {
 			menu.update(mouse);
 		}
 	}
@@ -100,7 +100,7 @@ public class MenuBar extends AntiViewport implements UILayer {
 	private void calculateDimensions() {
 		boundingBox.width  = 0;
 		boundingBox.height = 0;
-		for(ButtonMenu menu : menus) {
+		for (ButtonMenu menu : menus) {
 			boundingBox.width += menu.getWidth() + spacingOffset;
 			boundingBox.height = Math.max(boundingBox.height, menu.getHeight() + spacingOffset);
 		}

@@ -8,12 +8,16 @@ public class TableFiler <ItemType> extends LuaScriptFiler {
 	private Table<ItemType> loadedTable;
 	private Table<ItemType> table;
 	
-	public TableFiler() {}
+	public TableFiler() {
+		
+	}
 	public TableFiler(Table<ItemType> TABLE) {
 		setTable(TABLE);
 	}
 	
-	public void setTable(Table<ItemType> TABLE) { table = TABLE; }
+	public void setTable(Table<ItemType> TABLE) { 
+		table = TABLE; 
+	}
 	
 	@Override
 	protected void preparseOperation() {
@@ -35,7 +39,7 @@ public class TableFiler <ItemType> extends LuaScriptFiler {
 	@Override
 	protected String dataToLuaScript() {
 		String script = new String();
-		for(String name : table.getNames()) {
+		for (String name : table.getNames()) {
 			script += createEntry(name, table.getItem(name).toString());
 		}
 		return scriptHeading("Start of Table") + script + scriptCloser("End of Table");

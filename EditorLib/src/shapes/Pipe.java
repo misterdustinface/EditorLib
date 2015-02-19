@@ -1,6 +1,6 @@
 package shapes;
 
-public class Pipe extends Shape{
+public class Pipe extends Shape {
 	
 	public  LineSegment  centerLine;
 	private float 		 thickness;
@@ -17,7 +17,10 @@ public class Pipe extends Shape{
 		calculateArea();
 	}
 	
-	public float thickness() { return thickness; }
+	public float thickness() { 
+		return thickness; 
+	}
+	
 	public void scaleThickness(double percent){
 		thickness *= percent;
 		calculateArea();
@@ -25,7 +28,7 @@ public class Pipe extends Shape{
 	
 	public Polygon getArea(){
 		
-		if(!previousA.equals(centerLine.a) || !previousB.equals(centerLine.b)){
+		if (!previousA.equals(centerLine.a) || !previousB.equals(centerLine.b)) {
 			resetPreviousPoints();
 			calculateArea();
 		}
@@ -44,7 +47,6 @@ public class Pipe extends Shape{
 	
 	private void calculateArea(){
 		double perpTheta 	= Math.perpendicular(Math.theta(centerLine.a, centerLine.b));
-		//rectangle trig loves opposite day
 		float yOff 			= (float)java.lang.Math.cos(perpTheta)*thickness;
 		float xOff 			= (float)java.lang.Math.sin(perpTheta)*thickness;
 		
@@ -93,8 +95,8 @@ public class Pipe extends Shape{
 		Point midp = centerLine.midpoint();
 		float xoff = Math.abs(Math.abs(x) - Math.abs(midp.x));
 		float yoff = Math.abs(Math.abs(y) - Math.abs(midp.y));
-		if (x < midp.x) { xoff = -xoff; }
-		if (y < midp.y) { yoff = -yoff;	}
+		if (x < midp.x) xoff = -xoff;
+		if (y < midp.y) yoff = -yoff;
 		shift(xoff, yoff);
 	}
 	

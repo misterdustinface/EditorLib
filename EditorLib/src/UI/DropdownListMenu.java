@@ -31,13 +31,17 @@ public class DropdownListMenu extends UIMenu {
 		menu = MENU;
 	}
 	
-	final protected void 	toggleListMenu() { isListMenuOpen = !isListMenuOpen; }
-	final protected boolean isListMenuOpen() { return isListMenuOpen; }
+	final protected void toggleListMenu() { 
+		isListMenuOpen = !isListMenuOpen; 
+	}
+	final protected boolean isListMenuOpen() { 
+		return isListMenuOpen; 
+	}
 	
 	@Override
 	final public void update(MouseUserDevice mouse) {
 		root.update(mouse);
-		if(isListMenuOpen) { 
+		if (isListMenuOpen) { 
 			menu.update(mouse); 
 		}
 	}
@@ -54,7 +58,7 @@ public class DropdownListMenu extends UIMenu {
 		menu.setButtonOffset(BUTTON_OFFSET);
 	}
 	
-	final public void setButtonSize(int BUTTON_SIZE)     {
+	final public void setButtonSize(int BUTTON_SIZE) {
 		super.setButtonSize(BUTTON_SIZE);
 		root.makeBoxRelativeToPoint(position, buttonOffset, buttonOffset, BUTTON_SIZE, BUTTON_SIZE);
 		menu.setButtonSize(BUTTON_SIZE);
@@ -67,7 +71,7 @@ public class DropdownListMenu extends UIMenu {
 	}
 	
 	final public void setButtons(MenuButton ... BUTTONS) {
-		for(int i = 0; i < BUTTONS.length; ++i)
+		for (int i = 0; i < BUTTONS.length; ++i)
 			addButton(BUTTONS[i]);
 	}
 	
@@ -87,11 +91,19 @@ public class DropdownListMenu extends UIMenu {
 		menu.clearButtons();
 	}
 	
-	final public int numberOfButtons() { return menu.buttons.size(); }
-	final public MenuButton getButton(int index) { return menu.buttons.get(index); }
+	final public int numberOfButtons() { 
+		return menu.buttons.size(); 
+	}
+	final public MenuButton getButton(int index) { 
+		return menu.buttons.get(index); 
+	}
 	
-	final public int getWidth()  	{ return (int) Math.max(root.getWidth(), menu.getWidth()); }
-	final public int getHeight() 	{ return (int) (root.getHeight() + buttonOffset + menu.height);}
+	final public int getWidth() { 
+		return (int) Math.max(root.getWidth(), menu.getWidth()); 
+	}
+	final public int getHeight() { 
+		return (int) (root.getHeight() + buttonOffset + menu.height);
+	}
 	
 	final public boolean contains(MouseUserDevice mouse) {
 		return super.contains(mouse) || menu.contains(mouse);

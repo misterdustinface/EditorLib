@@ -52,7 +52,7 @@ public class EditorProgram {
 	}
 	
 	public void start() {
-		for(Thread thread : existingThreads) {
+		for (Thread thread : existingThreads) {
 			thread.start();
 		}
 	}

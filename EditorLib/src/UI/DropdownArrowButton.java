@@ -18,12 +18,12 @@ public class DropdownArrowButton extends MenuButton {
 	}
 	
 	private void flip() {
-		isDroppedDown = ! isDroppedDown;
+		isDroppedDown = !isDroppedDown;
 		orientArrow();
 	}
 	
 	private void orientArrow() {
-		if(isDroppedDown) {
+		if (isDroppedDown) {
 			position.shift(0, -size);
 			ArrowButton.up(this, position, offset, size);
 		} else {

@@ -25,19 +25,21 @@ public class ProgramMain implements Runnable {
 	
 	@Override
 	public void run() {
-		for(;;) {
-			iterationStopwatch.reset();
+		for (;;) {
 			
+			iterationStopwatch.reset();
 			executeAllSpecifiedFunctions();
 			
 			try {
 				Thread.sleep(millisAllowedPerUpdate - iterationStopwatch.time__ms());
-			} catch (Exception e) {}
+			} catch (Exception e) {
+				
+			}
 		}
 	}
 	
 	private void executeAllSpecifiedFunctions() {
-		for(VoidFunctionPointer function : functions) {
+		for (VoidFunctionPointer function : functions) {
 			function.call();
 		}
 	}

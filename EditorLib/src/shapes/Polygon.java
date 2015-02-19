@@ -43,7 +43,9 @@ public class Polygon extends Shape {
 		}
 	}
 
-	public int getNumberOfPoints() { return points; }
+	public int getNumberOfPoints() { 
+		return points; 
+	}
 	
 	public boolean contains(Point point) {
 		return contains(point.x, point.y);
@@ -52,8 +54,8 @@ public class Polygon extends Shape {
 	// right direction ray odds/evens intersection solution
 	public boolean contains(float X, float Y) {
 		boolean doesContain = isRightFacingRayFromXYCollidingWithPolygonLinesegmentAB(X, Y, 0, points-1);
-		for(int i = 1; i < getNumberOfPoints(); ++i)
-			if(isRightFacingRayFromXYCollidingWithPolygonLinesegmentAB(X, Y, i, i-1))
+		for (int i = 1; i < getNumberOfPoints(); ++i)
+			if (isRightFacingRayFromXYCollidingWithPolygonLinesegmentAB(X, Y, i, i-1))
 				doesContain = !doesContain;
 		return doesContain;
 	}
@@ -77,15 +79,15 @@ public class Polygon extends Shape {
 		Point D = new Point(0,0);
 		int intersections = 0;
 		
-		for(int i = 0; i < points - 1; ++i) {
+		for (int i = 0; i < points - 1; ++i) {
 			C.x = xpoints[i]; 	C.y = ypoints[i];
 			D.x = xpoints[i+1]; D.y = ypoints[i+1];
-			if(Math.doLineSegmentsABandCDIntersect(center, other.center, C, D)) { ++intersections; }
+			if (Math.doLineSegmentsABandCDIntersect(center, other.center, C, D)) ++intersections;
 		}
-		for(int i = 0; i < other.points - 1; ++i) {
+		for (int i = 0; i < other.points - 1; ++i) {
 			C.x = other.xpoints[i]; 	C.y = other.ypoints[i];
 			D.x = other.xpoints[i+1]; 	D.y = other.ypoints[i+1];
-			if(Math.doLineSegmentsABandCDIntersect(center, other.center, C, D)) { ++intersections; }
+			if (Math.doLineSegmentsABandCDIntersect(center, other.center, C, D)) ++intersections;
 		}
 		
 		return (intersections == 0) || Math.isOdd(intersections);
@@ -120,16 +122,16 @@ public class Polygon extends Shape {
 	
 	private float smallest(float[] ar) {
 		float result = Float.MAX_VALUE;
-		for(int i = 0; i < points; ++i)
-			if(ar[i] < result)
+		for (int i = 0; i < points; ++i)
+			if (ar[i] < result)
 				result = ar[i];
 		return result;
 	}
 	
 	private float largest(float[] ar) {
 		float result = Float.MIN_VALUE;
-		for(int i = 0; i < points; ++i)
-			if(ar[i] > result)
+		for (int i = 0; i < points; ++i)
+			if (ar[i] > result)
 				result = ar[i];
 		return result;
 	}
@@ -149,7 +151,7 @@ public class Polygon extends Shape {
 	 */
 	@Override
 	public void scale(float percent) {
-		for(int i = 0; i < points; ++i) {
+		for (int i = 0; i < points; ++i) {
 			double theta = Math.theta(center.x, center.y, xpoints[i], ypoints[i]);		
 			xpoints[i] = (float) java.lang.Math.cos(theta) * Math.difference(xpoints[i], center.x) * percent;
 			ypoints[i] = (float) java.lang.Math.sin(theta) * Math.difference(ypoints[i], center.y) * percent;
@@ -158,7 +160,7 @@ public class Polygon extends Shape {
 
 	@Override
 	public void shift(float xOffset, float yOffset) {
-		for(int i = 0; i < points; ++i) {
+		for (int i = 0; i < points; ++i) {
 			xpoints[i] += xOffset;
 			ypoints[i] += yOffset;
 		}
@@ -175,7 +177,7 @@ public class Polygon extends Shape {
 		final float COS = (float)java.lang.Math.cos(rads);
 		final float SIN = (float)java.lang.Math.sin(rads);
 		float xOff, yOff, length;
-		for(int i = 0; i < points; ++i){
+		for (int i = 0; i < points; ++i) {
 			length 	= Math.distance(center.x, center.y, xpoints[i], ypoints[i]);
 			xOff   	= length * COS;
 			yOff	= length * SIN;
@@ -188,7 +190,7 @@ public class Polygon extends Shape {
 	private void calculateCenter() {
 		center.x = 0;
 		center.y = 0;
-		for(int current = 0; current < points; ++current){
+		for (int current = 0; current < points; ++current) {
 			center.x += xpoints[current];
 			center.y += ypoints[current];
 		}
@@ -196,7 +198,11 @@ public class Polygon extends Shape {
 		center.y /= points;
 	}
 	
-	public float getCenterX() { return center.x; }
-	public float getCenterY() { return center.y; }
+	public float getCenterX() { 
+		return center.x; 
+	}
+	public float getCenterY() { 
+		return center.y; 
+	}
 
 }

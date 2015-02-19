@@ -15,7 +15,7 @@ public class DataModificationNotifier {
 	}
 	
 	final public void notifyListeners() {
-		for(DataModificationListener listener : dataModificationListeners) {
+		for (DataModificationListener listener : dataModificationListeners) {
 			listener.notifyListenerAboutDataModification();
 		}
 	}

@@ -19,22 +19,32 @@ public abstract class BarSlider extends UIElement {
 		fill          = new Rectangle();
 	}
 	
-	final public void setBase(Rectangle bounding) { base = bounding; }
+	final public void setBase(Rectangle bounding) { 
+		base = bounding; 
+	}
 	
-	final public void setHorizontal() { orientation = ORIENTATION.HORIZONTAL; }
-	final public void setVertical()   { orientation = ORIENTATION.VERTICAL; }
+	final public void setHorizontal() { 
+		orientation = ORIENTATION.HORIZONTAL; 
+	}
+	final public void setVertical() { 
+		orientation = ORIENTATION.VERTICAL; 
+	}
 	
-	final public Rectangle getBase() { return base; }
-	final public Rectangle getFill() { return fill; }
+	final public Rectangle getBase() { 
+		return base; 
+	}
+	final public Rectangle getFill() { 
+		return fill; 
+	}
 	
 	final public void update(MouseUserDevice mouse) {
 		
 		updateSlider(mouse.getCursorX(), mouse.getCursorY());
 		
-		if( base.contains(mouse.getCursorX(), mouse.getCursorY())) {
+		if (base.contains(mouse.getCursorX(), mouse.getCursorY())) {
 			highlight();
-			if ( mouse.isPressed()  || mouse.isDragged() ) { press();   }
-			if ( mouse.isReleased() || mouse.isClicked() ) { release(); }
+			if (mouse.isPressed()  || mouse.isDragged()) press();
+			if (mouse.isReleased() || mouse.isClicked()) release();
 		} else {
 			removeHighlight();
 			release();
@@ -42,7 +52,7 @@ public abstract class BarSlider extends UIElement {
 	}
 	
 	private void updateSlider(float mouseX, float mouseY) {
-		if( isPressed() ) {
+		if (isPressed()) {
 			switch(orientation) {
 			case HORIZONTAL: setFillPercent(  ((mouseX - base.x)/base.width)  );
 				break;
@@ -52,12 +62,17 @@ public abstract class BarSlider extends UIElement {
 		}
 	}
 	
-	final protected float getFillPercent() { return fillPercent; }
+	final protected float getFillPercent() { 
+		return fillPercent; 
+	}
 	
 	final protected void setFillPercent(float delta) {
 		fillPercent = delta;
-		if     (fillPercent > 1.0f) { fillPercent = 1.0f; }
-		else if(fillPercent < 0.0f) { fillPercent = 0.0f; }
+		if (fillPercent > 1.0f) { 
+			fillPercent = 1.0f; 
+		} else if (fillPercent < 0.0f) { 
+			fillPercent = 0.0f; 
+		}
 		updateFillBounds();
 	}
 	

@@ -11,7 +11,9 @@ public class ShapeSelectorMap{
 		shapeSelectionMap = new HashMap<Long, Boolean>();
 	}
 	
-	private static Long hash(Shape s) { return s.ID(); }
+	private static Long hash(Shape s) { 
+		return s.ID(); 
+	}
 	
 	public boolean isSelected(Shape s) { 
 		return shapeSelectionMap.get(hash(s));
@@ -38,11 +40,11 @@ public class ShapeSelectorMap{
 	}
 	
 	public void putWithAllSelected(ArrayList<Shape> shapes) {
-		for(Shape s : shapes) putWithSelected(s);
+		for (Shape s : shapes) putWithSelected(s);
 	}
 	
 	public void remove(ArrayList<Shape> shapes) {
-		for(Shape s : shapes) remove(s);
+		for (Shape s : shapes) remove(s);
 	}
 
 }

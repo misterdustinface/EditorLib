@@ -10,7 +10,9 @@ public abstract class Shape {
 		id = instance;
 	}
 	
-	public long ID() { return id; }
+	public long ID() { 
+		return id; 
+	}
 	
 	abstract public boolean contains(Point point);
 	abstract public boolean contains(float x, float y);

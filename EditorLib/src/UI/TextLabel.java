@@ -19,7 +19,7 @@ public class TextLabel {
 		alignment    = ALIGNMENT.LEFT;
 	}
 	
-	public void setText(String TEXT)	{ 
+	public void setText(String TEXT) { 
 		text = TEXT;
 		modifyText();
 	}
@@ -30,31 +30,53 @@ public class TextLabel {
 		}
 	}
 	
-	public String 	getText() 				{ return text; }
-	public void 	setPosition(Point POS) 	{ textLocation = POS; }
-	public Point 	getPosition() 			{ return textLocation; }
+	public String getText() { 
+		return text; 
+	}
+	public void setPosition(Point POS) { 
+		textLocation = POS; 
+	}
+	public Point getPosition() { 
+		return textLocation; 
+	}
 	
-	public void 	setAlignment(ALIGNMENT a) { alignment = a; }
-	public void 	center() 	 			{ alignment = ALIGNMENT.CENTER; }
-	public boolean 	hasText() 	 			{ return text.length() > 0;}
-	public int 		suggestedWidth()  		{ return maxChars * 10; }
-	public int 		suggestedHeight() 		{ return 40;            }
+	public void setAlignment(ALIGNMENT a) { 
+		alignment = a; 
+	}
+	public void center() { 
+		alignment = ALIGNMENT.CENTER; 
+	}
+	public boolean hasText() { 
+		return text.length() > 0;
+	}
+	public int suggestedWidth() { 
+		return maxChars * 10; 
+	}
+	public int suggestedHeight() { 
+		return 40;            
+	}
 	
-	public void 	setMaxTextWidth(int maxChars) { 
+	public void setMaxTextWidth(int maxChars) { 
 		this.maxChars = maxChars; 
 		modifyText();
 	}
 
-	public boolean isCentered()       		{ return alignment == ALIGNMENT.CENTER; }
-	public boolean isRightJustified() 		{ return alignment == ALIGNMENT.RIGHT;  }
-	public boolean isLeftJustified()  		{ return alignment == ALIGNMENT.LEFT;   }
+	public boolean isCentered() { 
+		return alignment == ALIGNMENT.CENTER; 
+	}
+	public boolean isRightJustified() { 
+		return alignment == ALIGNMENT.RIGHT;  
+	}
+	public boolean isLeftJustified() { 
+		return alignment == ALIGNMENT.LEFT;   
+	}
 	
 	public void alignText(Polygon polygon) {
-		if(hasText()) {
+		if (hasText()) {
 			Rectangle bounding = polygon.getBoundingRectangle();
 			int width  = isCentered() ? text.length() : maxChars; 
 			float xoff = width * 3.75f;
-			if(isRightJustified()) { xoff = -xoff; }
+			if (isRightJustified()) xoff = -xoff;
 			textLocation.set((float)bounding.getCenterX() - xoff, (float)bounding.getCenterY() + 4);
 		}
 	}

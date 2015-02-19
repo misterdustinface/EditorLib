@@ -48,8 +48,8 @@ public class StaticGridMenu extends UIMenu {
 	
 	@Override
 	public void update(MouseUserDevice mouse) {
-		if(contains(mouse)) {
-			for(MenuButton button : buttons) {
+		if (contains(mouse)) {
+			for (MenuButton button : buttons) {
 				button.update(mouse);
 			}
 		}

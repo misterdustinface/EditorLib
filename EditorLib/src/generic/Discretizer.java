@@ -6,7 +6,7 @@ final public class Discretizer {
 	
 	public static int getMouseoverTileXPosition(int mouseXPos, Tiled grid) {
 		int tileX = mouseXPos - (mouseXPos % grid.getTileWidth());
-		if(mouseXPos < 0) { 
+		if (mouseXPos < 0) { 
 			tileX -= grid.getTileWidth(); 
 		}
 		return tileX;
@@ -14,7 +14,7 @@ final public class Discretizer {
 	
 	public static int getMouseoverTileYPosition(int mouseYPos, Tiled grid) {
 		int tileY = mouseYPos - (mouseYPos % grid.getTileHeight());
-		if(mouseYPos < 0) { 
+		if (mouseYPos < 0) { 
 			tileY -= grid.getTileHeight(); 
 		}
 		return tileY;

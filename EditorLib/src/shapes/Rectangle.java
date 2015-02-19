@@ -22,8 +22,14 @@ public class Rectangle extends Shape {
 	}
 	
 	public void setBounds(float X, float Y, float WIDTH, float HEIGHT) {
-		if(WIDTH  < 0) { WIDTH  = -WIDTH;  X -= WIDTH; }
-		if(HEIGHT < 0) { HEIGHT = -HEIGHT; Y -= HEIGHT;}
+		if (WIDTH  < 0) { 
+			WIDTH = -WIDTH;  
+			X -= WIDTH; 
+		}
+		if (HEIGHT < 0) { 
+			HEIGHT = -HEIGHT; 
+			Y -= HEIGHT;
+		}
 		
 		x = X;
 		y = Y;
@@ -31,8 +37,12 @@ public class Rectangle extends Shape {
 		height = HEIGHT;
 	}
 	
-	public float getCenterX() { return x + (width /2); }
-	public float getCenterY() { return y + (height/2); }
+	public float getCenterX() { 
+		return x + (width /2); 
+	}
+	public float getCenterY() { 
+		return y + (height/2); 
+	}
 
 	@Override
 	public boolean contains(Point point) {
@@ -58,7 +68,7 @@ public class Rectangle extends Shape {
 
 	@Override
 	public void rotate(int degrees) {
-		if(degrees == 90 ^ degrees == 270) {
+		if (degrees == 90 ^ degrees == 270) {
 			width  = width + height;
 			height = width - height;
 			width  = width - height;

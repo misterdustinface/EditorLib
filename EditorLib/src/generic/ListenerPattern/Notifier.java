@@ -14,7 +14,7 @@ public class Notifier {
 	}
 	
 	final public void notifyListeners() {
-		for(Listener listener : listeners) {
+		for (Listener listener : listeners) {
 			listener.notifyListener();
 		}
 	}
