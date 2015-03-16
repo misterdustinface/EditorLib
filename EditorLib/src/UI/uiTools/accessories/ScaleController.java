@@ -1,6 +1,7 @@
 package UI.uiTools.accessories;
 
-public class ScaleController{
+public class ScaleController {
+	
 	public float scale;
 	
 	public ScaleController() {

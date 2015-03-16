@@ -1,11 +1,13 @@
 package UI;
 
+import generic.ListenerPattern.Descriptive.ChangeNotifier;
 import shapes.Point;
 import shapes.Polygon;
 import shapes.Rectangle;
 
-public class TextLabel {
-	public enum ALIGNMENT{LEFT, CENTER, RIGHT};
+public class TextLabel extends ChangeNotifier {
+	
+	public enum ALIGNMENT { LEFT, CENTER, RIGHT };
 	
 	private ALIGNMENT 	alignment;
 	private int 		maxChars;
@@ -23,19 +25,23 @@ public class TextLabel {
 		text = TEXT;
 		modifyText();
 	}
+	
 	private void modifyText() {
 		if (text.length() > maxChars) {
 			text = text.substring(0, maxChars-3);
 			text += "...";
 		}
+		notifyChanged();
 	}
 	
 	public String getText() { 
 		return text; 
 	}
+	
 	public void setPosition(Point POS) { 
 		textLocation = POS; 
 	}
+	
 	public Point getPosition() { 
 		return textLocation; 
 	}
@@ -43,15 +49,19 @@ public class TextLabel {
 	public void setAlignment(ALIGNMENT a) { 
 		alignment = a; 
 	}
+	
 	public void center() { 
 		alignment = ALIGNMENT.CENTER; 
 	}
+	
 	public boolean hasText() { 
 		return text.length() > 0;
 	}
+	
 	public int suggestedWidth() { 
 		return maxChars * 10; 
 	}
+	
 	public int suggestedHeight() { 
 		return 40;            
 	}
@@ -64,9 +74,11 @@ public class TextLabel {
 	public boolean isCentered() { 
 		return alignment == ALIGNMENT.CENTER; 
 	}
+	
 	public boolean isRightJustified() { 
 		return alignment == ALIGNMENT.RIGHT;  
 	}
+	
 	public boolean isLeftJustified() { 
 		return alignment == ALIGNMENT.LEFT;   
 	}

@@ -3,6 +3,7 @@ package generic.ListenerPattern;
 import java.util.ArrayList;
 
 public class Notifier {
+	
 	private ArrayList<Listener> listeners;
 	
 	public Notifier() {
@@ -18,4 +19,5 @@ public class Notifier {
 			listener.notifyListener();
 		}
 	}
+	
 }

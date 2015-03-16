@@ -20,6 +20,7 @@ public class DropdownArrowButton extends MenuButton {
 	private void flip() {
 		isDroppedDown = !isDroppedDown;
 		orientArrow();
+		notifyChanged();
 	}
 	
 	private void orientArrow() {

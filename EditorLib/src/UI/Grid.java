@@ -1,6 +1,9 @@
 package UI;
 
-public class Grid {
+import generic.tags.Structure;
+
+public class Grid implements Structure {
+	
 	public int rows, cols;
 	
 	public Grid() {

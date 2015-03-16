@@ -2,7 +2,7 @@ package generic.ListenerPattern.Descriptive;
 
 import java.util.ArrayList;
 
-public class DataModificationNotifier {
+abstract public class DataModificationNotifier {
 
 	private ArrayList<DataModificationListener> dataModificationListeners;
 	
@@ -14,7 +14,7 @@ public class DataModificationNotifier {
 		dataModificationListeners.add(listener);
 	}
 	
-	final public void notifyListeners() {
+	final protected void notifyDataModified() {
 		for (DataModificationListener listener : dataModificationListeners) {
 			listener.notifyListenerAboutDataModification();
 		}

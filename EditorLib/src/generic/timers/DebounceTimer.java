@@ -1,4 +1,4 @@
-package generic;
+package generic.timers;
 
 final public class DebounceTimer {
 
@@ -36,4 +36,5 @@ final public class DebounceTimer {
 	private static double currentTimeSeconds() {
 		return (System.currentTimeMillis() / 1000.0);
 	}
+	
 }

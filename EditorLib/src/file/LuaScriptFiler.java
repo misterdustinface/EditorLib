@@ -79,7 +79,7 @@ public abstract class LuaScriptFiler extends DataModificationNotifier implements
 		preparseOperation();
 		parseScript(reader);
 		postparseOperation();
-		notifyListeners();
+		notifyDataModified();
 	}
 	
 	@Override

@@ -68,7 +68,7 @@ public abstract class FileChooser extends DataModificationNotifier implements UI
 
 	public void exit() {
 		shouldDisplayAndUpdate = false;
-		notifyListeners();
+		notifyDataModified();
 		fileListing.clearButtons();
 	}
 	

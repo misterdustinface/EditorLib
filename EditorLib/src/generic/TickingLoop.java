@@ -1,16 +1,16 @@
 package generic;
 
+import generic.timers.StopwatchTimer;
+
 import java.util.LinkedList;
 
-import generic.StopwatchTimer;
-
-public class ProgramMain implements Runnable {
+public class TickingLoop implements Runnable {
 
 	private LinkedList<VoidFunctionPointer> functions;
 	private long millisAllowedPerUpdate = 1000 / 60;
 	private StopwatchTimer iterationStopwatch;
 	
-	public ProgramMain() {
+	public TickingLoop() {
 		iterationStopwatch = new StopwatchTimer();
 		functions = new LinkedList<VoidFunctionPointer>();
 	}
@@ -26,21 +26,25 @@ public class ProgramMain implements Runnable {
 	@Override
 	public void run() {
 		for (;;) {
-			
 			iterationStopwatch.reset();
 			executeAllSpecifiedFunctions();
-			
-			try {
-				Thread.sleep(millisAllowedPerUpdate - iterationStopwatch.time__ms());
-			} catch (Exception e) {
-				
-			}
+			sleep();
 		}
 	}
 	
 	private void executeAllSpecifiedFunctions() {
 		for (VoidFunctionPointer function : functions) {
 			function.call();
+		}
+	}
+	
+	private void sleep() {
+		try {
+			Thread.sleep(millisAllowedPerUpdate - iterationStopwatch.time__ms());
+		} catch (InterruptedException e) {
+			
+		} catch (IllegalArgumentException e) {
+			
 		}
 	}
 }

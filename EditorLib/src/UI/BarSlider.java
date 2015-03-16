@@ -21,18 +21,23 @@ public abstract class BarSlider extends UIElement {
 	
 	final public void setBase(Rectangle bounding) { 
 		base = bounding; 
+		notifyChanged();
 	}
 	
 	final public void setHorizontal() { 
+		if (orientation != ORIENTATION.HORIZONTAL) notifyChanged();
 		orientation = ORIENTATION.HORIZONTAL; 
 	}
+	
 	final public void setVertical() { 
+		if (orientation != ORIENTATION.VERTICAL) notifyChanged();
 		orientation = ORIENTATION.VERTICAL; 
 	}
 	
 	final public Rectangle getBase() { 
 		return base; 
 	}
+	
 	final public Rectangle getFill() { 
 		return fill; 
 	}
@@ -74,6 +79,7 @@ public abstract class BarSlider extends UIElement {
 			fillPercent = 0.0f; 
 		}
 		updateFillBounds();
+		notifyChanged();
 	}
 	
 	private void updateFillBounds() {

@@ -3,6 +3,7 @@ package UI;
 import shapes.Point;
 
 public abstract class MouseUserDevice {
+	
 	protected Point cursorPosition;
 	
 	public MouseUserDevice() {
@@ -12,9 +13,11 @@ public abstract class MouseUserDevice {
 	public Point getCursorPosition() {
 		return cursorPosition.copy();
 	}
+	
 	public float getCursorX() {
 		return cursorPosition.x;
 	}
+	
 	public float getCursorY() {
 		return cursorPosition.y;
 	}
@@ -29,15 +32,19 @@ public abstract class MouseUserDevice {
 	final public boolean isClicked() { 
 		return state == MOUSE_STATE.CLICKED;  
 	}
+	
 	final public boolean isPressed() { 
 		return state == MOUSE_STATE.PRESSED;  
 	}
+	
 	final public boolean isReleased() { 
 		return state == MOUSE_STATE.RELEASED; 
 	}
+	
 	final public boolean isDragged() { 
 		return state == MOUSE_STATE.DRAGGED;  
 	}
+	
 	final public boolean isMoved() { 
 		return state == MOUSE_STATE.MOVED;    
 	}
@@ -49,15 +56,19 @@ public abstract class MouseUserDevice {
 	final protected void click() { 
 		state = MOUSE_STATE.CLICKED;  
 	}
+	
 	final protected void press() { 
 		state = MOUSE_STATE.PRESSED;  
 	}
+	
 	final protected void release() { 
 		state = MOUSE_STATE.RELEASED; 
 	}
+	
 	final protected void drag() { 
 		state = MOUSE_STATE.DRAGGED;  
 	}
+	
 	final protected void move() { 
 		state = MOUSE_STATE.MOVED;    
 	}
@@ -68,9 +79,11 @@ public abstract class MouseUserDevice {
 	final public boolean isPrimaryButton() { 
 		return button == BUTTON.ONE; 
 	}
+	
 	final public boolean isSecondaryButton() { 
 		return button == BUTTON.TWO; 
 	}
+	
 	final public boolean isTerciaryButton() { 
 		return button == BUTTON.THREE; 
 	}
@@ -78,12 +91,15 @@ public abstract class MouseUserDevice {
 	final protected void buttonOne() { 
 		button = BUTTON.ONE;  
 	}
+	
 	final protected void buttonTwo() { 
 		button = BUTTON.TWO;  
 	}
+	
 	final protected void buttonThree() { 
 		button = BUTTON.THREE; 
 	}
+	
 	final protected void noButton() { 
 		button = BUTTON.NONE; 
 	}

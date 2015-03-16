@@ -30,18 +30,23 @@ public class StaticGridMenu extends UIMenu {
 	protected int getXOffset(int buttonIndex) {
 		return getUnadjustedXOffset(buttonIndex) % (width-buttonOffset);
 	}
+	
 	protected int getYOffset(int buttonIndex) {	
 		return getUnadjustedYOffset(getButtonRow(buttonIndex)) % (height-buttonOffset);
 	}
+	
 	protected int getUnadjustedXOffset(int buttonIndex){
 		return getUnadjustedOffset(buttonIndex, buttonWidth);
 	}
+	
 	protected int getUnadjustedYOffset(int buttonIndex){
 		return getUnadjustedOffset(buttonIndex, buttonHeight);
 	}
+	
 	protected int getUnadjustedOffset(int buttonIndex, int buttonSize) {
 		return (((buttonIndex+1) * buttonOffset) + ((buttonIndex) * buttonSize));
 	}
+	
 	protected int getButtonRow(int buttonIndex) {
 		return (int)(getUnadjustedXOffset(buttonIndex) / (float)(width-buttonOffset));
 	}

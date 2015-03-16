@@ -3,6 +3,7 @@ package UI.uiTools.accessories;
 import shapes.Point;
 
 public class PositionController {
+	
 	public  Point position;
 	private Point initialPosition;
 

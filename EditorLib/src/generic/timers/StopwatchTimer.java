@@ -1,6 +1,7 @@
-package generic;
+package generic.timers;
 
 public class StopwatchTimer {
+	
 	private long START_TIME_MS;
 	
 	public StopwatchTimer() { 
@@ -10,9 +11,11 @@ public class StopwatchTimer {
 	public void reset() { 
 		START_TIME_MS = System.currentTimeMillis();
 	}
+	
 	public double time() { 
 		return passedTimeSinceReset__sec(); 
 	}
+	
 	public long time__ms() { 
 		return passedTimeSinceReset__ms(); 
 	}

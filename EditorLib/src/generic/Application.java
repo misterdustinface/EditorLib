@@ -2,7 +2,7 @@ package generic;
 
 import java.util.LinkedList;
 
-public class EditorProgram {
+public class Application {
 	
 	private Thread mainThread; 
 	private Thread renderThread;
@@ -12,11 +12,11 @@ public class EditorProgram {
 	
 	private LinkedList<Thread> existingThreads;
 	
-	public EditorProgram() {
+	public Application() {
 		existingThreads = new LinkedList<Thread>();
 	}
 	
-	public void setMain(ProgramMain PROGRAM_MAIN) {
+	public void setMain(TickingLoop PROGRAM_MAIN) {
 		mainThread = new Thread(PROGRAM_MAIN);
 		mainThread.setName("MAIN");
 		mainThread.setPriority(Thread.MAX_PRIORITY);

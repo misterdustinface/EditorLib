@@ -2,7 +2,7 @@ package UI;
 
 import shapes.Point;
 import shapes.Polygon;
-import generic.DebounceTimer;
+import generic.timers.DebounceTimer;
 
 public class MenuButton extends FunctionButton {
 
@@ -53,20 +53,23 @@ public class MenuButton extends FunctionButton {
 	public void setPosition(Point position) {
 		polygon.setPosition(position.x, position.y);
 	}
+	
 	public void shift(float xOffset, float yOffset) {
 		polygon.shift(xOffset, yOffset);
 	}
-
 	
 	public float getWidth() { 
 		return polygon.getBoundingRectangle().width;  
 	}
+	
 	public float getHeight() { 
 		return polygon.getBoundingRectangle().height; 
 	}
+	
 	public float getCenterX() { 
 		return polygon.getBoundingRectangle().getCenterX(); 
 	}
+	
 	public float getCenterY() { 
 		return polygon.getBoundingRectangle().getCenterY(); 
 	}
