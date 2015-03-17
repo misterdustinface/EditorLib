@@ -2,7 +2,7 @@ package UI;
 
 import shapes.Rectangle;
 
-public abstract class BarSlider extends UIElement {
+public class BarSlider extends UIElement {
 
 	enum ORIENTATION { VERTICAL, HORIZONTAL };
 	private ORIENTATION orientation;
@@ -67,11 +67,11 @@ public abstract class BarSlider extends UIElement {
 		}
 	}
 	
-	final protected float getFillPercent() { 
+	final public float getFillPercent() { 
 		return fillPercent; 
 	}
 	
-	final protected void setFillPercent(float delta) {
+	final public void setFillPercent(float delta) {
 		fillPercent = delta;
 		if (fillPercent > 1.0f) { 
 			fillPercent = 1.0f; 
@@ -91,4 +91,14 @@ public abstract class BarSlider extends UIElement {
 		}
 	}
 
+	@Override
+	protected void pressAction() {
+
+	}
+
+	@Override
+	protected void releaseAction() {
+
+	}
+	
 }
