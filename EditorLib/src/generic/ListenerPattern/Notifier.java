@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Notifier {
 	
-	protected ArrayList<Listener> listeners;
+	private ArrayList<Listener> listeners;
 	
 	public Notifier() {
 		listeners = new ArrayList<Listener>();

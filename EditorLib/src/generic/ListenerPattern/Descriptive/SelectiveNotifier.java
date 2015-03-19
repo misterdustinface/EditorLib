@@ -1,11 +1,24 @@
 package generic.ListenerPattern.Descriptive;
 
-import generic.ListenerPattern.Notifier;
+import generic.ListenerPattern.Listener;
 
-public class SelectiveNotifier extends Notifier {
+import java.util.HashMap;
+
+public class SelectiveNotifier<Signifier> {
 	
-	final public void notifyListener(int index) {
-		listeners.get(index).notifyListener();
+	private HashMap<Signifier, Listener> listeners;
+	
+	public SelectiveNotifier() {
+		listeners = new HashMap<Signifier, Listener>();
+	}
+	
+	final public void addListener(Signifier signifier, Listener listener) {
+		listeners.put(signifier, listener);
+	}
+	
+	
+	final public void notifyListener(Signifier signifier) {
+		listeners.get(signifier).notifyListener();
 	}
 	
 }
