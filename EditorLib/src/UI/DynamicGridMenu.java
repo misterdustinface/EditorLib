@@ -13,12 +13,19 @@ public abstract class DynamicGridMenu extends StaticGridMenu {
 		}
 	}
 	
+	public void clearButtons() {
+		super.clearButtons();
+		if (canFitNewEmptyEntry())
+			makeNewEmptyEntry();
+		resetMenuDimensions();
+	}
+	
 	public void refreshButtons() {
 		refreshButtons(numberOfButtons() - 1);
 	}
 	
 	protected void refreshButtons(int amount) {
-		clearButtons();
+		super.clearButtons();
 		for (int i = 0; i < limitNumberOfButtons(amount); ++i)
 			refreshButton(i);
 		if (canFitNewEmptyEntry())
