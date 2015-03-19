@@ -1,6 +1,6 @@
 package generic;
 
-final public class ColorData {
+final public class ColorData implements Cloneable {
 	
 	final private static int COLOR_RANGE = 255;
 	public float r, g, b, a;
@@ -32,6 +32,11 @@ final public class ColorData {
 	
 	public ColorData(float[] RGBA) {
 		this(RGBA[0], RGBA[1], RGBA[2], RGBA[3]);
+	}
+	
+	@Override
+	public ColorData clone() {
+		return new ColorData(r, g, b, a);
 	}
 	
 }
