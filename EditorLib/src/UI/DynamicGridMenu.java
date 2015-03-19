@@ -7,6 +7,12 @@ public abstract class DynamicGridMenu extends StaticGridMenu {
 		super(DISPLAYGRID);
 	}
 	
+	public void addNewButtons(int amount) {
+		for (int i = 0; i < amount; i++) {
+			addButton(newButton(numberOfButtons()));
+		}
+	}
+	
 	public void refreshButtons() {
 		refreshButtons(numberOfButtons() - 1);
 	}
