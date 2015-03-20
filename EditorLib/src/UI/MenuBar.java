@@ -105,6 +105,6 @@ public class MenuBar extends AntiViewport implements UILayer {
 			boundingBox.height = Math.max(boundingBox.height, menu.getHeight() + spacingOffset);
 		}
 		boundingBox.width  += spacingOffset;
-		boundingBox.height += spacingOffset;
 	}
+
 }
