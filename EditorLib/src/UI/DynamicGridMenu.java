@@ -7,6 +7,10 @@ public abstract class DynamicGridMenu extends StaticGridMenu {
 		super(DISPLAYGRID);
 	}
 	
+	public void addButton(MenuButton BUTTON) {
+		throw new RuntimeException("Dynamic Grid Menu only allows the addition of buttons internally");
+	}
+	
 	public void addNewButtons(int amount) {
 		for (int i = 0; i < amount; i++) {
 			addButton(newButton(numberOfButtons()));
