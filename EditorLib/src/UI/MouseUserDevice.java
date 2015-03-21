@@ -5,6 +5,10 @@ import shapes.Point;
 public abstract class MouseUserDevice {
 	
 	protected Point cursorPosition;
+	private enum MOUSE_STATE { PRESSED, RELEASED, CLICKED, DRAGGED, MOVED, NONE };
+	private MOUSE_STATE state = MOUSE_STATE.NONE;
+	private enum BUTTON { ONE, TWO, THREE, NONE };
+	private BUTTON button = BUTTON.NONE;
 	
 	public MouseUserDevice() {
 		cursorPosition = new Point(0,0);
@@ -21,9 +25,6 @@ public abstract class MouseUserDevice {
 	public float getCursorY() {
 		return cursorPosition.y;
 	}
-	
-	private enum MOUSE_STATE { PRESSED, RELEASED, CLICKED, DRAGGED, MOVED, NONE };
-	private MOUSE_STATE state = MOUSE_STATE.NONE;
 	
 	final public boolean isIntercepted() { 
 		return state == MOUSE_STATE.NONE; 
@@ -50,7 +51,7 @@ public abstract class MouseUserDevice {
 	}
 	
 	final public void intercept() { 
-		state = MOUSE_STATE.NONE; 
+		state = MOUSE_STATE.NONE;
 	}
 	
 	final protected void click() { 
@@ -72,9 +73,6 @@ public abstract class MouseUserDevice {
 	final protected void move() { 
 		state = MOUSE_STATE.MOVED;    
 	}
-	
-	private enum BUTTON { ONE, TWO, THREE, NONE };
-	private BUTTON button = BUTTON.NONE;
 	
 	final public boolean isPrimaryButton() { 
 		return button == BUTTON.ONE; 

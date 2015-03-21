@@ -25,6 +25,7 @@ public class UILayerManager implements StratifiableUI {
 		for (UILayer layer : layers) 
 			addLayer(layer);
 	}
+	
 	public void removeLayer(UILayer ui) { 
 		uis.remove(ui);
 		shouldShow.put(ui, true); 
@@ -38,8 +39,18 @@ public class UILayerManager implements StratifiableUI {
 		return shouldShow.get(ui); 
 	}
 	
-	public void forAllUIPerformFunction(UIFunction functionOnUI) {
+	public void forAllUIPerformFunctionBackToFront(UIFunction functionOnUI) {
 		for (UILayer ui : uis) {
+			if (shouldShow(ui)) {
+				functionOnUI.call(ui);
+			}
+		}
+	}
+	
+	public void forAllUIPerformFunctionFrontToBack(UIFunction functionOnUI) {
+		UILayer ui;
+		for (int i = uis.size() - 1; i >= 0; --i) {
+			ui = uis.get(i);
 			if (shouldShow(ui)) {
 				functionOnUI.call(ui);
 			}

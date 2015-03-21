@@ -50,6 +50,7 @@ public class BarSlider extends UIElement {
 			highlight();
 			if (mouse.isPressed()  || mouse.isDragged()) press();
 			if (mouse.isReleased() || mouse.isClicked()) release();
+			mouse.intercept();
 		} else {
 			removeHighlight();
 			release();
@@ -93,7 +94,7 @@ public class BarSlider extends UIElement {
 
 	@Override
 	protected void pressAction() {
-
+		
 	}
 
 	@Override
