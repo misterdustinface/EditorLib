@@ -25,7 +25,7 @@ public abstract class MouseUserDevice {
 	private enum MOUSE_STATE { PRESSED, RELEASED, CLICKED, DRAGGED, MOVED, NONE };
 	private MOUSE_STATE state = MOUSE_STATE.NONE;
 	
-	final public boolean wasIntercepted() { 
+	final public boolean isIntercepted() { 
 		return state == MOUSE_STATE.NONE; 
 	}
 	

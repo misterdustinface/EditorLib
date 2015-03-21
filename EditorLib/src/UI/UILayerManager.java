@@ -20,6 +20,7 @@ public class UILayerManager implements StratifiableUI {
 		uis.add(ui);
 		shouldShow.put(ui, true); 
 	}
+	
 	public void addLayers(UILayer... layers) { 
 		for (UILayer layer : layers) 
 			addLayer(layer);
@@ -28,9 +29,11 @@ public class UILayerManager implements StratifiableUI {
 		uis.remove(ui);
 		shouldShow.put(ui, true); 
 	}
+	
 	public void toggleLayer(UILayer ui) { 
 		shouldShow.put(ui, !shouldShow.get(ui)); 
 	}
+	
 	private boolean shouldShow(UILayer ui) { 
 		return shouldShow.get(ui); 
 	}
