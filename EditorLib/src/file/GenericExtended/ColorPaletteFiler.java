@@ -1,7 +1,7 @@
 package file.GenericExtended;
 
 import file.LuaScriptFiler;
-import generic.ColorData;
+import generic.structures.ColorData;
 
 import java.util.ArrayList;
 

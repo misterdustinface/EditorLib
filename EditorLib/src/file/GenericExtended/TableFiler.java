@@ -1,7 +1,7 @@
 package file.GenericExtended;
 
 import file.LuaScriptFiler;
-import generic.Table;
+import generic.datastructures.Table;
 
 public class TableFiler <ItemType> extends LuaScriptFiler {
 

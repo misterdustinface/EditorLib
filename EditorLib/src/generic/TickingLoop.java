@@ -1,5 +1,6 @@
 package generic;
 
+import generic.fp.VoidFunctionPointer;
 import generic.timers.StopwatchTimer;
 
 import java.util.LinkedList;

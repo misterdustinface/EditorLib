@@ -1,7 +1,5 @@
 package UI;
 
-import generic.SelectableTileGrid;
-import generic.Tiled;
 import generic.ListenerPattern.Listener;
 
 

@@ -1,9 +1,10 @@
 package generic;
 
-import UI.MouseUserDevice;
+import generic.fp.VoidFunctionPointer;
 import UI.UIFunction;
 import UI.UILayer;
 import UI.UILayerManager;
+import UI.input.MouseUserDevice;
 
 public class EditorProgramMain extends TickingLoop {
 
