@@ -1,23 +1,22 @@
 package UI.input.devices;
 
-import java.util.HashMap;
-
+import generic.datastructures.Table;
 import UI.input.MouseUserDevice;
 
 public class ProgrammableUserDevice {
-	public HashMap<String, UserDeviceButton> buttons;
-	public HashMap<String, MouseUserDevice>  directionalSticks;
+	public Table<UserDeviceButton> buttons;
+	public Table<MouseUserDevice>  directionalSticks;
 	
 	public ProgrammableUserDevice() {
-		buttons = new HashMap<String, UserDeviceButton>();
-		directionalSticks = new HashMap<String, MouseUserDevice>();
+		buttons = new Table<UserDeviceButton>();
+		directionalSticks = new Table<MouseUserDevice>();
 	}
 	
 	public void addButton(String name, UserDeviceButton button) {
-		buttons.put(name, button);
+		buttons.insert(name, button);
 	}
 	
 	public void addDirectionalStick(String name, MouseUserDevice stick) {
-		directionalSticks.put(name, stick);
+		directionalSticks.insert(name, stick);
 	}
 }
