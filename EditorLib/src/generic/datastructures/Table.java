@@ -1,30 +1,50 @@
 package generic.datastructures;
 
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
-public class Table <ItemType> {
+final public class Table <ItemType> {
 
-	private HashMap<String, ItemType> map;
+	private Map<String, ItemType> map;
 	
 	public Table() {
-		map = new HashMap<String, ItemType>();
+		map = Collections.synchronizedMap(new HashMap<String, ItemType>());
 	}
 	
 	public void insert(String name, ItemType item) {
-		map.put(name, item);
+		if (name != null) {
+			map.put(name, item);
+		}
 	}
 	
 	public void remove(String name) {
-		map.remove(name);
+		if (name != null) {
+			map.remove(name);
+		}
 	}
 	
-	public ItemType getItem(String name) {
-		return map.get(name);
+	public ItemType get(String name) {
+		if (name == null) {
+			return null;
+		} else {
+			return map.get(name);
+		}
+	}
+	
+	public boolean contains(String name) {
+		if (name == null) {
+			return false;
+		} else {
+			return map.containsKey(name);
+		}
 	}
 	
 	public void merge(Table<ItemType> other) {
-		map.putAll(other.map);
+		if (other != null) {
+			map.putAll(other.map);
+		}
 	}
 	
 	public void clear() {
@@ -34,4 +54,5 @@ public class Table <ItemType> {
 	public Set<String> getNames() {
 		return map.keySet();
 	}
+
 }

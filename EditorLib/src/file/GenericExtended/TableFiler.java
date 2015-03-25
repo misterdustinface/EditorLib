@@ -40,7 +40,7 @@ public class TableFiler <ItemType> extends LuaScriptFiler {
 	protected String dataToLuaScript() {
 		String script = new String();
 		for (String name : table.getNames()) {
-			script += createEntry(name, table.getItem(name).toString());
+			script += createEntry(name, table.get(name).toString());
 		}
 		return scriptHeading("Start of Table") + script + scriptCloser("End of Table");
 	}
