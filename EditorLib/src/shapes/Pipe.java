@@ -96,5 +96,14 @@ public class Pipe extends Shape {
 		if (y < midp.y) yoff = -yoff;
 		shift(xoff, yoff);
 	}
+
+	@Override
+	public void reconstruct() {
+		thickness = 0;
+		centerLine.reconstruct();
+		area.reconstruct();
+		previousA.reconstruct();
+		previousB.reconstruct();
+	}
 	
 }

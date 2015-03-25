@@ -84,6 +84,12 @@ public class Circle extends Shape {
 	public void rotate(int degrees) {
 		
 	}
+
+	@Override
+	public void reconstruct() {
+		r = 0;
+		center.reconstruct();
+	}
 	
 //	public boolean intersects(Rectangle rect) {
 //		return center.x + r >= rect.x

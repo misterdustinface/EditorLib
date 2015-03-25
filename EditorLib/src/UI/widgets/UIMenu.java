@@ -43,6 +43,7 @@ public abstract class UIMenu implements ButtonMenu {
 		resetMenuDimensions();
 		refreshButtons();
 	}
+	
 	public void setButtonSize(int BUTTON_SIZE) {
 		buttonWidth = buttonHeight = BUTTON_SIZE;
 		resetMenuDimensions();

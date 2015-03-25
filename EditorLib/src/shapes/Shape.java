@@ -1,6 +1,8 @@
 package shapes;
 
-public abstract class Shape {
+import generic.Reusable;
+
+public abstract class Shape implements Reusable {
 
 	private static long instanceCounter = 0;
 	private long instance, id;

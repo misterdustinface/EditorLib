@@ -1,7 +1,9 @@
 package shapes;
 
+import generic.Reusable;
 
-public class LineSegment {
+
+public class LineSegment implements Reusable {
 
 	public Point a;
 	public Point b;
@@ -105,6 +107,12 @@ public class LineSegment {
 	
 	public boolean intersects(LineSegment other) {
 		return Math.doLineSegmentsABandCDIntersect(a, b, other.a, other.b);
+	}
+
+	@Override
+	public void reconstruct() {
+		a.reconstruct();
+		b.reconstruct();
 	}
 
 }

@@ -1,6 +1,8 @@
-/AWT/
 /UI/
-/data/
+/devices/
 /file/
 /generic/
 /rendering/
+/shapes/
+/timers/
+/widget/

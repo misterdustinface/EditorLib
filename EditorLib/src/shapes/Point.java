@@ -1,6 +1,8 @@
 package shapes;
 
-public class Point {
+import generic.Reusable;
+
+public class Point implements Reusable {
 
 	public float x;
 	public float y;
@@ -43,6 +45,12 @@ public class Point {
 	
 	public String toString() {
 		return "Point[x: " + x + " y: " + y + "]";
+	}
+
+	@Override
+	public void reconstruct() {
+		x = 0;
+		y = 0;
 	}
 	
 }

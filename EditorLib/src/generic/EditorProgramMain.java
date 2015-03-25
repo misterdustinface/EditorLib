@@ -25,8 +25,8 @@ public class EditorProgramMain extends TickingLoop {
 	private EditorProgramMain(UILayerManager LAYER_MANAGER, MouseUserDevice MOUSE_USER_DEVICE) {
 		super();
 		
-		layerManager 	= LAYER_MANAGER;
-		mouse 			= MOUSE_USER_DEVICE;
+		layerManager = LAYER_MANAGER;
+		mouse = MOUSE_USER_DEVICE;
 		
 		super.addFunction(new VoidFunctionPointer() {
 			public void call() {

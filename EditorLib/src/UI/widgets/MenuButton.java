@@ -98,10 +98,12 @@ public class MenuButton extends FunctionButton {
 	}
 	
 	final public void debouncedPress() {
-		if (debounceTimer.isDebounceComplete()) {
-			debounceTimer.reset(); // TEMPORAL COUPLING. UPDATE CAN BE CALLED MULTIPLE TIMES AT ONCE IN DIFFERENT THREADS; THEREFORE, THIS FUNCTION CAN TOO.
-			press();
-		}   
+		synchronized(this) {
+			if (debounceTimer.isDebounceComplete()) {
+				debounceTimer.reset();
+				press();
+			}
+		}
 	}
 
 }

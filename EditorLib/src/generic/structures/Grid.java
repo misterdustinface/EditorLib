@@ -1,8 +1,9 @@
 package generic.structures;
 
+import generic.Reusable;
 import generic.tags.Structure;
 
-public class Grid implements Structure {
+public class Grid implements Structure, Reusable {
 	
 	public int rows, cols;
 	
@@ -18,6 +19,12 @@ public class Grid implements Structure {
 	
 	public int getNumberOfCells() { 
 		return rows * cols; 
+	}
+
+	@Override
+	public void reconstruct() {
+		rows = 0;
+		cols = 0;
 	}
 	
 }

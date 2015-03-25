@@ -3,7 +3,7 @@ package shapes;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class ShapeSelectorMap{
+public class ShapeSelectorMap {
 	
 	private HashMap<Long, Boolean> shapeSelectionMap;
 	

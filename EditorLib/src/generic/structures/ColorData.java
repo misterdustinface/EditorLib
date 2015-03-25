@@ -1,8 +1,9 @@
 package generic.structures;
 
+import generic.Reusable;
 import generic.tags.Structure;
 
-final public class ColorData implements Cloneable, Structure {
+final public class ColorData implements Cloneable, Structure, Reusable {
 	
 	final private static int COLOR_RANGE = 255;
 	public float r, g, b, a;
@@ -38,6 +39,13 @@ final public class ColorData implements Cloneable, Structure {
 	
 	public ColorData clone() {
 		return new ColorData(r, g, b, a);
+	}
+
+	public void reconstruct() {
+		r = 1.0f;
+		g = 1.0f;
+		b = 1.0f;
+		a = 1.0f;
 	}
 	
 }

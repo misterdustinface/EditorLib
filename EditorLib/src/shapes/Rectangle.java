@@ -70,5 +70,13 @@ public class Rectangle extends Shape {
 			width  = width - height;
 		}
 	}
+
+	@Override
+	public void reconstruct() {
+		x = 0;
+		y = 0;
+		width = 0;
+		height = 0;
+	}
 	
 }

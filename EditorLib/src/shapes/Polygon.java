@@ -201,4 +201,9 @@ public class Polygon extends Shape {
 		return center.y; 
 	}
 
+	@Override
+	public void reconstruct() {
+		clearPoints();
+	}
+
 }
