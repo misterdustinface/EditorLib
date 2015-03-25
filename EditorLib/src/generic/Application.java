@@ -7,11 +7,11 @@ import java.util.LinkedList;
 public class Application {
 	
 	private Table<Thread> threads;
-	private LinkedList<Thread> threadsList;
+	private LinkedList<String> names;
 	
 	public Application() {
 		threads = new Table<Thread>();
-		threadsList = new LinkedList<Thread>();
+		names = new LinkedList<String>();
 	}
 	
 	public void setMain(TickingLoop PROGRAM_MAIN) {
@@ -20,15 +20,15 @@ public class Application {
 	}
 	
 	public void addComponent(String name, Runnable runnableComponent) {
+		names.add(name);
 		Thread newThread = new Thread(runnableComponent);
 		newThread.setName(name);
 		threads.insert(name, newThread);
-		threadsList.add(newThread);
 	}
 	
 	public void start() {
-		for (Thread thread : threadsList) {
-			thread.start();
+		for (String name : names) {
+			startThread(threads.get(name));
 		}
 	}
 	
@@ -41,7 +41,11 @@ public class Application {
 	}
 	
 	private void startThread(Thread thread) {
-		thread.notify();
+		if (!thread.isAlive()) {
+			thread.start();
+		} else {
+			thread.notify();
+		}
 	}
 	
 	private void stopThread(Thread thread) {
@@ -51,4 +55,5 @@ public class Application {
 			e.printStackTrace();
 		}
 	}
+
 }
