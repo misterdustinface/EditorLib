@@ -1,7 +1,9 @@
 package generic.datastructures;
 
+import generic.Reusable;
 
-final public class Database <DataType> {
+
+final public class Database <DataType> implements Reusable {
 	
 	final private Table<DataType> data;
 	final private Queue<String> giveOrder;
@@ -34,6 +36,14 @@ final public class Database <DataType> {
 	private synchronized void removeReferences(String name) {
 		data.remove(name);
 		giveOrder.remove(name);
+	}
+
+	@Override
+	public void reconstruct() {
+		synchronized(this) {
+			data.clear();
+			giveOrder.clear();
+		}
 	}
 
 }

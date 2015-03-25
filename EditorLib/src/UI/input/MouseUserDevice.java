@@ -7,11 +7,15 @@ public abstract class MouseUserDevice {
 	protected Point cursorPosition;
 	private enum MOUSE_STATE { PRESSED, RELEASED, CLICKED, DRAGGED, MOVED, NONE };
 	private MOUSE_STATE state = MOUSE_STATE.NONE;
-	private enum BUTTON { ONE, TWO, THREE, NONE };
-	private BUTTON button = BUTTON.NONE;
+	private String button;
+	final public static String LEFT = "left";
+	final public static String MIDDLE = "middle";
+	final public static String RIGHT = "right";
+	final public static String NO_BUTTON = "none";
 	
 	public MouseUserDevice() {
 		cursorPosition = new Point(0,0);
+		button = NO_BUTTON;
 	}
 	
 	public Point getCursorPosition() {
@@ -74,31 +78,12 @@ public abstract class MouseUserDevice {
 		state = MOUSE_STATE.MOVED;    
 	}
 	
-	final public boolean isPrimaryButton() { 
-		return button == BUTTON.ONE; 
+	final public boolean isButton(String button) {
+		return this.button == button;
 	}
 	
-	final public boolean isSecondaryButton() { 
-		return button == BUTTON.TWO; 
+	final public void setButton(String button) {
+		this.button = button;
 	}
-	
-	final public boolean isTerciaryButton() { 
-		return button == BUTTON.THREE; 
-	}
-	
-	final protected void buttonOne() { 
-		button = BUTTON.ONE;  
-	}
-	
-	final protected void buttonTwo() { 
-		button = BUTTON.TWO;  
-	}
-	
-	final protected void buttonThree() { 
-		button = BUTTON.THREE; 
-	}
-	
-	final protected void noButton() { 
-		button = BUTTON.NONE; 
-	}
+
 }

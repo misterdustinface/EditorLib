@@ -5,13 +5,15 @@ import generic.Reusable;
 import java.lang.reflect.ParameterizedType;
 import java.util.LinkedList;
 
-public class Pool <DataType extends Reusable> {
+public class Pool <DataType extends Reusable> implements Reusable {
 
+	final int INITIAL_SIZE;
 	final private LinkedList<DataType> resources;
 
 	public Pool(int size) {	
+		INITIAL_SIZE = size;
 		resources = new LinkedList<DataType>();
-		allocateResources(size);
+		allocateResources(INITIAL_SIZE);
 	}
 	
 	public DataType take() {
@@ -25,6 +27,12 @@ public class Pool <DataType extends Reusable> {
 	public void give(DataType element) {
 		element.reconstruct();
 		resources.push(element);
+	}
+	
+	@Override
+	public void reconstruct() {
+		resources.clear();
+		allocateResources(INITIAL_SIZE);
 	}
 	
 	private void allocateResources(int size) {

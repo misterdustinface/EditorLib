@@ -1,8 +1,10 @@
 package generic.datastructures;
 
+import generic.Reusable;
+
 import java.util.ArrayList;
 
-final public class Queue <DataType> {
+final public class Queue <DataType> implements Reusable {
 	
 	private ArrayList<DataType> q;
 	
@@ -46,6 +48,11 @@ final public class Queue <DataType> {
 		if (name != null) {
 			q.remove(name);
 		}
+	}
+
+	@Override
+	public void reconstruct() {
+		q.clear();
 	}
 	
 }

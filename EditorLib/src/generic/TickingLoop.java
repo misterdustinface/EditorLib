@@ -42,10 +42,8 @@ public class TickingLoop implements Runnable {
 	private void sleep() {
 		try {
 			Thread.sleep(millisAllowedPerUpdate - iterationStopwatch.time__ms());
-		} catch (InterruptedException e) {
-			
-		} catch (IllegalArgumentException e) {
-			
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 }

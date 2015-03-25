@@ -1,11 +1,13 @@
 package generic.datastructures;
 
+import generic.Reusable;
+
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-final public class Table <ItemType> {
+final public class Table <ItemType> implements Reusable {
 
 	private Map<String, ItemType> map;
 	
@@ -53,6 +55,11 @@ final public class Table <ItemType> {
 	
 	public Set<String> getNames() {
 		return map.keySet();
+	}
+
+	@Override
+	public void reconstruct() {
+		map.clear();
 	}
 
 }

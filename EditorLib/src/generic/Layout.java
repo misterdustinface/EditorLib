@@ -1,15 +1,27 @@
 package generic;
 
-import shapes.Polygon;
 import generic.datastructures.Table;
+import shapes.Polygon;
 
-public class Layout {
+public class Layout implements Reusable {
 
-	private Table<Polygon> polys;
+	final private Table<Polygon> components;
 	
 	public Layout() {
-		polys = new Table<Polygon>();
+		components = new Table<Polygon>();
 	}
 	
-	// TODO
+	public void addComponent(String name, Polygon component) {
+		components.insert(name, component);
+	}
+	
+	public Polygon getComponent(String name) {
+		return components.get(name);
+	}
+	
+	@Override
+	public void reconstruct() {
+		components.clear();
+	}
+
 }
