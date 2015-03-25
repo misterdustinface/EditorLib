@@ -32,6 +32,10 @@ public class Application {
 		}
 	}
 	
+	public void quit() {
+		System.exit(0);
+	}
+	
 	public void startComponent(String name) {
 		startThread(threads.get(name));
 	}
