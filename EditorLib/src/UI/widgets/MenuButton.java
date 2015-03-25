@@ -52,7 +52,11 @@ public class MenuButton extends FunctionButton {
 	}
 	
 	public void setPosition(Point position) {
-		polygon.setPosition(position.x, position.y);
+		polygon.shift(position.x - polygon.xpoints[0], position.y - polygon.ypoints[0]);
+	}
+	
+	public void setCenterPosition(Point position) {
+		polygon.setCenterPosition(position.x, position.y);
 	}
 	
 	public void shift(float xOffset, float yOffset) {

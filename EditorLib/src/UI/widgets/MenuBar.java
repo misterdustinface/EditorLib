@@ -41,7 +41,7 @@ public class MenuBar extends AntiViewport implements UILayer {
 	
 	private void setBoundingBoxPosition() {
 		Point position = getPositionRelativeToOffsets(xOffset, yOffset);
-		boundingBox.setPosition(position.x, position.y);
+		boundingBox.setCenterPosition(position.x, position.y);
 	}
 	
 	public void addUIMenu(ButtonMenu MENU) {

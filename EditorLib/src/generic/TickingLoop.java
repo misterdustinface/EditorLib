@@ -40,10 +40,17 @@ public class TickingLoop implements Runnable {
 	
 	private void sleep() {
 		try {
-			Thread.sleep(millisAllowedPerUpdate - iterationStopwatch.time__ms());
+			Thread.sleep(getSleepTime());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	private long getSleepTime() {
+		long sleeptime = millisAllowedPerUpdate - iterationStopwatch.time__ms();
+		if (sleeptime < 0)
+			sleeptime = 0;
+		return sleeptime;
 	}
 	
 }

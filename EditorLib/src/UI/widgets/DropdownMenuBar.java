@@ -67,7 +67,7 @@ public abstract class DropdownMenuBar implements UILayer {
 	}
 	
 	private void updateArrowButtonPosition() {
-		dropdownButton.setPosition(getDesiredButtonPosition());
+		dropdownButton.setCenterPosition(getDesiredButtonPosition());
 	}
 
 }

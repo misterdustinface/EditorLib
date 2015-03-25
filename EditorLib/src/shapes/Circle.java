@@ -20,7 +20,7 @@ public class Circle extends Shape {
 		this.r = Math.abs(r);
 	}
 	
-	public void setPosition(float x, float y) {
+	public void setCenterPosition(float x, float y) {
 		center.x = x; 
 		center.y = y;
 	}
@@ -78,7 +78,7 @@ public class Circle extends Shape {
 	}	
 
 	public void shift(float xOffset, float yOffset) {
-		setPosition(center.x + xOffset, center.y + yOffset);
+		setCenterPosition(center.x + xOffset, center.y + yOffset);
 	}
 
 	public void rotate(int degrees) {

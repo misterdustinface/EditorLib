@@ -139,7 +139,7 @@ public class Polygon extends Shape {
 	 * UNTESTED
 	 * @return
 	 */
-	public void setPosition(float x, float y) {
+	public void setCenterPosition(float x, float y) {
 		shift(x - center.x, y - center.y);
 	}
 

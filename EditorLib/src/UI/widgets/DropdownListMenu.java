@@ -50,8 +50,8 @@ public class DropdownListMenu extends UIMenu {
 	
 	final public void setPosition(Point POSITION) {
 		super.setPosition(POSITION);
-		root.makeSuggestedBoxRelativeToPoint(position, 0,0); //root.setPosition(POSITION); // TODO
-		menu.setPosition(new Point(POSITION.x, POSITION.y + root.getHeight() ));
+		root.setPosition(POSITION);
+		menu.setPosition(POSITION.x, POSITION.y + root.getHeight());
 	}	
 	
 	final public void setButtonOffset(int BUTTON_OFFSET) { 

@@ -88,7 +88,7 @@ public class Pipe extends Shape {
 		centerLine.rotate(degrees);
 	}
 
-	public void setPosition(float x, float y) {
+	public void setCenterPosition(float x, float y) {
 		Point midp = centerLine.midpoint();
 		float xoff = Math.abs(Math.abs(x) - Math.abs(midp.x));
 		float yoff = Math.abs(Math.abs(y) - Math.abs(midp.y));

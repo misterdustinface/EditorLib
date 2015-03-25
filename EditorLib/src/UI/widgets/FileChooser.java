@@ -90,6 +90,7 @@ public abstract class FileChooser extends DataModificationNotifier implements UI
 		
 		final File[] files = filepath.listFiles();
 		resizeGridToFitFiles(files.length);
+		int filecount = 0;
 		
 		for (File file : files) {
 			if (!file.isHidden()) {
@@ -101,8 +102,12 @@ public abstract class FileChooser extends DataModificationNotifier implements UI
 						chooseFile(PATH);
 					}
 				});
+				filecount++;
 			}
 		}
+		
+		resizeGridToFitFiles(filecount);
+		
 	}
 	
 	private MenuButton makeFileChooserButton(File file) {
@@ -116,7 +121,7 @@ public abstract class FileChooser extends DataModificationNotifier implements UI
 	
 	private void resizeGridToFitFiles(int numberOfFiles) {
 		gridCols = gridCols < 1 ? 1 : gridCols;
-		gridRows = numberOfFiles / gridCols;
+		gridRows = (numberOfFiles / gridCols) + (numberOfFiles % gridCols);
 		gridRows = gridRows < 1 ? 1 : gridRows;
 		fileListing.setGridDimensions(gridRows, gridCols);
 	}

@@ -30,9 +30,13 @@ public abstract class UIMenu implements ButtonMenu {
 	}
 	
 	public void setPosition(Point POSITION) { 
-		position.set(POSITION.x, POSITION.y);
+		setPosition(POSITION.x, POSITION.y);
+	}
+	
+	public void setPosition(float x, float y) {
+		position.set(x, y);
 		refreshButtons();
-	}	
+	}
 	
 	public void setButtonOffset(int BUTTON_OFFSET) { 
 		buttonOffset = BUTTON_OFFSET; 
