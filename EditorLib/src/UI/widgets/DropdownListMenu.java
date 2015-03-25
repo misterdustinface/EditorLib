@@ -7,12 +7,12 @@ import shapes.Point;
 import generic.fp.VoidFunctionPointer;
 
 public class DropdownListMenu extends UIMenu {
+	
 	protected MenuButton 	 root;
 	protected StaticListMenu menu;
 	private   boolean isListMenuOpen;
 	
 	private final VoidFunctionPointer TOGGLE_LIST_MENU = new VoidFunctionPointer() {
-		@Override
 		public void call() {
 			toggleListMenu();
 		}
@@ -28,6 +28,7 @@ public class DropdownListMenu extends UIMenu {
 		buttons.clear();
 		buttons.add(root);
 	}
+	
 	final public void setMenu(StaticListMenu MENU) { 
 		menu = MENU;
 	}
@@ -35,11 +36,11 @@ public class DropdownListMenu extends UIMenu {
 	final protected void toggleListMenu() { 
 		isListMenuOpen = !isListMenuOpen; 
 	}
+	
 	final protected boolean isListMenuOpen() { 
 		return isListMenuOpen; 
 	}
 	
-	@Override
 	final public void update(MouseUserDevice mouse) {
 		root.update(mouse);
 		if (isListMenuOpen) { 
@@ -95,6 +96,7 @@ public class DropdownListMenu extends UIMenu {
 	final public int numberOfButtons() { 
 		return menu.buttons.size(); 
 	}
+	
 	final public MenuButton getButton(int index) { 
 		return menu.buttons.get(index); 
 	}
@@ -102,6 +104,7 @@ public class DropdownListMenu extends UIMenu {
 	final public int getWidth() { 
 		return (int) Math.max(root.getWidth(), menu.getWidth()); 
 	}
+	
 	final public int getHeight() { 
 		return (int) (root.getHeight() + buttonOffset + menu.height);
 	}
@@ -110,12 +113,10 @@ public class DropdownListMenu extends UIMenu {
 		return super.contains(mouse) || menu.contains(mouse);
 	}
 
-	@Override
 	final public void resetMenuDimensions() {
 		menu.resetMenuDimensions();
 	}
 
-	@Override
 	final public void refreshButton(int index) {
 		menu.refreshButton(index);
 	}

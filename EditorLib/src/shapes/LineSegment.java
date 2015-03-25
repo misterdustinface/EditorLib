@@ -10,6 +10,7 @@ public class LineSegment {
 		a = A; 
 		b = B;
 	}
+	
 	public LineSegment(LineSegment other){
 		a = other.a;
 		b = other.b;
@@ -105,4 +106,5 @@ public class LineSegment {
 	public boolean intersects(LineSegment other) {
 		return Math.doLineSegmentsABandCDIntersect(a, b, other.a, other.b);
 	}
+
 }

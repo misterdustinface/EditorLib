@@ -8,6 +8,7 @@ public class Point {
 	public Point(float X, float Y) { 
 		set(X,Y); 
 	}
+	
 	public Point copy() { 
 		return new Point(x,y); 
 	}
@@ -16,10 +17,12 @@ public class Point {
 		x = X; 
 		y = Y; 
 	}
+	
 	public void setPosition(Point other) { 
 		x = other.x; 
 		y = other.y;
 	}
+	
 	public void shift(float X, float Y) { 
 		x += X; 
 		y += Y; 
@@ -29,7 +32,6 @@ public class Point {
 		return x == other.x && y == other.y; 
 	}
 	
-	@Override
 	public int hashCode() {
 		//http://stackoverflow.com/questions/919612/mapping-two-integers-to-one-in-a-unique-and-deterministic-way
 		//Szudzik's function:
@@ -42,4 +44,5 @@ public class Point {
 	public String toString() {
 		return "Point[x: " + x + " y: " + y + "]";
 	}
+	
 }

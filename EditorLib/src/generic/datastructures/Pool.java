@@ -29,7 +29,6 @@ public class Pool <DataType extends Reusable> implements Reusable {
 		resources.push(element);
 	}
 	
-	@Override
 	public void reconstruct() {
 		resources.clear();
 		allocateResources(INITIAL_SIZE);

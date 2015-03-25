@@ -24,7 +24,6 @@ public class TickingLoop implements Runnable {
 		functions.add(function);
 	}
 	
-	@Override
 	public void run() {
 		for (;;) {
 			iterationStopwatch.reset();
@@ -46,5 +45,5 @@ public class TickingLoop implements Runnable {
 			e.printStackTrace();
 		}
 	}
+	
 }
-

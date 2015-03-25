@@ -24,6 +24,7 @@ public abstract class UIMenu implements ButtonMenu {
 	public int getX() { 
 		return (int)position.x; 
 	}
+	
 	public int getY() { 
 		return (int)position.y; 
 	}
@@ -89,6 +90,7 @@ public abstract class UIMenu implements ButtonMenu {
 	public int numberOfButtons() { 
 		return buttons.size(); 
 	}
+	
 	public MenuButton getButton(int index) { 
 		return buttons.get(index); 
 	}
@@ -96,6 +98,7 @@ public abstract class UIMenu implements ButtonMenu {
 	public int getWidth() { 
 		return width; 
 	}
+	
 	public int getHeight() { 
 		return height;
 	}

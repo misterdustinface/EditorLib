@@ -11,6 +11,7 @@ import UI.input.MouseUserDevice;
 import shapes.Point;
 
 public abstract class FileChooser extends DataModificationNotifier implements UILayer {
+	
 	public static String START_DIRECTORY = System.getProperty("user.home");
 	public int gridRows = 4;
 	public int gridCols = 4;
@@ -32,7 +33,6 @@ public abstract class FileChooser extends DataModificationNotifier implements UI
 		upButton.textLabel.center();
 		upButton.makeBoxRelativeToPoint(0, 0, 2, 2, 120, 40);
 		upButton.setButtonPressedFunction(new VoidFunctionPointer() {
-			@Override
 			public void call() {
 				chooseFile(filepath.getParent());
 			}
@@ -43,7 +43,6 @@ public abstract class FileChooser extends DataModificationNotifier implements UI
 		exitButton.textLabel.center();
 		exitButton.makeBoxRelativeToPoint(122, 0, 2, 2, 120, 40);
 		exitButton.setButtonPressedFunction(new VoidFunctionPointer() {
-			@Override
 			public void call() {
 				exit();
 			}
@@ -98,7 +97,6 @@ public abstract class FileChooser extends DataModificationNotifier implements UI
 				fileListing.addButton(button);
 				final String PATH = file.getPath();
 				button.setButtonPressedFunction(new VoidFunctionPointer() {
-					@Override
 					public void call() {
 						chooseFile(PATH);
 					}
@@ -123,7 +121,6 @@ public abstract class FileChooser extends DataModificationNotifier implements UI
 		fileListing.setGridDimensions(gridRows, gridCols);
 	}
 	
-	@Override
 	public void update(MouseUserDevice mouse) {
 		if (shouldDisplayAndUpdate) {
 			upButton.update(mouse);
@@ -136,4 +133,5 @@ public abstract class FileChooser extends DataModificationNotifier implements UI
 			mouse.intercept();
 		}
 	}
+	
 }

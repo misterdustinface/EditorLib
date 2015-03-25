@@ -19,7 +19,6 @@ public class Layout implements Reusable {
 		return components.get(name);
 	}
 	
-	@Override
 	public void reconstruct() {
 		components.clear();
 	}

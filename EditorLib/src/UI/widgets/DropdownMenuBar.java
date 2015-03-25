@@ -13,7 +13,6 @@ public abstract class DropdownMenuBar implements UILayer {
 	private int 			dropdownArrowWidth;
 	
 	private VoidFunctionPointer dropdownButtonPressedFunction = new VoidFunctionPointer() {
-		@Override
 		public void call() {
 			isDropped = ! isDropped;
 			
@@ -39,7 +38,6 @@ public abstract class DropdownMenuBar implements UILayer {
 		return isDropped; 
 	}
 	
-	@Override
 	final public void update(MouseUserDevice mouse) {
 		updateArrowButtonPosition();
 		dropdownButton.update(mouse);

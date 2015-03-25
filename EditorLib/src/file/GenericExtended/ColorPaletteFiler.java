@@ -22,7 +22,6 @@ public class ColorPaletteFiler extends LuaScriptFiler {
 		palette = PALETTE; 
 	}
 	
-	@Override
 	protected String dataToLuaScript() {
 		String script = new String();
 		for (ColorData color : palette) {
@@ -32,12 +31,10 @@ public class ColorPaletteFiler extends LuaScriptFiler {
 		return scriptHeading("Color Palette") + script + scriptCloser("End of Palette");
 	}
 	
-	@Override
 	protected void preparseOperation() {
 		loadedPalette = new ArrayList<ColorData>();
 	}
 	
-	@Override
 	protected void parseLine(String line) {
 		ColorData color = parseColorDataFromLine(line);
 		loadedPalette.add(color);
@@ -50,8 +47,8 @@ public class ColorPaletteFiler extends LuaScriptFiler {
 		return new ColorData(hues);
 	}
 
-	@Override
 	protected void postparseOperation() {
 		palette.addAll(loadedPalette);
 	}
+	
 }

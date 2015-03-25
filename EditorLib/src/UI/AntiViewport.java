@@ -19,4 +19,5 @@ public class AntiViewport {
 	public Point getPositionRelativeToOffsets(float xOff, float yOff) {
 		return new Point(xOff-viewport.getXPosition(), yOff-viewport.getYPosition());
 	}
+	
 }

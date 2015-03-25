@@ -49,7 +49,6 @@ public abstract class DynamicGridMenu extends StaticGridMenu {
 		return displaygrid.getNumberOfCells(); 
 	}
 	
-	@Override
 	public void refreshButton(int index) { 
 		MenuButton button = newButton(index);
 		button.makeBoxRelativeToPoint(position, getXOffset(index), getYOffset(index), buttonWidth, buttonHeight);
@@ -70,7 +69,6 @@ public abstract class DynamicGridMenu extends StaticGridMenu {
 		return buttons.get(numberOfButtons()-1);
 	}
 	
-	@Override
 	public void update(MouseUserDevice mouse) {
 		super.update(mouse);
 		
@@ -83,4 +81,5 @@ public abstract class DynamicGridMenu extends StaticGridMenu {
 	
 	protected abstract MenuButton newButton(int index);
 	protected abstract MenuButton newEmptyButton();
+	
 }

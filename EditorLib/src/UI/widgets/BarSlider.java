@@ -93,12 +93,10 @@ public class BarSlider extends UIElement {
 		}
 	}
 
-	@Override
 	protected void pressAction() {
 		
 	}
 
-	@Override
 	protected void releaseAction() {
 
 	}

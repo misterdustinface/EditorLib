@@ -38,7 +38,6 @@ final public class Database <DataType> implements Reusable {
 		giveOrder.remove(name);
 	}
 
-	@Override
 	public void reconstruct() {
 		synchronized(this) {
 			data.clear();

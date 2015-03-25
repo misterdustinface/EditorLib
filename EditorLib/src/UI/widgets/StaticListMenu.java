@@ -26,7 +26,6 @@ public class StaticListMenu extends UIMenu {
 		return (((buttonIndex+1) * buttonOffset) + ((buttonIndex) * buttonHeight));
 	}
 	
-	@Override
 	public void update(MouseUserDevice mouse) {
 		if (contains(mouse)) {
 			for (MenuButton button : buttons) {
@@ -35,4 +34,5 @@ public class StaticListMenu extends UIMenu {
 			mouse.intercept();
 		}
 	}
+	
 }

@@ -19,4 +19,5 @@ public class Grid implements Structure {
 	public int getNumberOfCells() { 
 		return rows * cols; 
 	}
+	
 }

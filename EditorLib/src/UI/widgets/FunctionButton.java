@@ -19,12 +19,10 @@ public abstract class FunctionButton extends UIElement {
 		buttonReleasedFunction = BUTTON_RELEASED_FUNCTION;
 	}
 	
-	@Override
 	protected void pressAction() {
 		buttonPressedFunction.call();
 	}
 
-	@Override
 	protected void releaseAction() {
 		buttonReleasedFunction.call();
 	}

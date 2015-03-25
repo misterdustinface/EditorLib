@@ -24,7 +24,9 @@ final public class Discretizer {
 	public static int getColAtXPosition(int xPos, Tiled grid) {
 		return getMouseoverTileXPosition(xPos, grid) / grid.getTileWidth();
 	}
+	
 	public static int getRowAtYPosition(int yPos, Tiled grid) {
 		return getMouseoverTileYPosition(yPos, grid) / grid.getTileHeight();
 	}
+	
 }

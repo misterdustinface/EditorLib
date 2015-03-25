@@ -50,7 +50,6 @@ final public class Queue <DataType> implements Reusable {
 		}
 	}
 
-	@Override
 	public void reconstruct() {
 		q.clear();
 	}

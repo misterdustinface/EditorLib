@@ -67,7 +67,6 @@ public class MenuBar extends AntiViewport implements UILayer {
 		calculateDimensions();
 	}
 
-	@Override
 	public void update(MouseUserDevice mouse) {
 		setBoundingBoxPosition();
 		updateMenuPositions();

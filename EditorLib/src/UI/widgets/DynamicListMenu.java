@@ -19,4 +19,5 @@ public abstract class DynamicListMenu extends StaticListMenu {
 	}
 	
 	protected abstract MenuButton newButton(int index);
+	
 }

@@ -11,6 +11,7 @@ public class TableFiler <ItemType> extends LuaScriptFiler {
 	public TableFiler() {
 		
 	}
+	
 	public TableFiler(Table<ItemType> TABLE) {
 		setTable(TABLE);
 	}
@@ -19,24 +20,20 @@ public class TableFiler <ItemType> extends LuaScriptFiler {
 		table = TABLE; 
 	}
 	
-	@Override
 	protected void preparseOperation() {
 		loadedTable = new Table<ItemType>();
 	}
 
-	@Override
 	protected void postparseOperation() {
 		table.merge(loadedTable);
 	}
 
-	@Override
 	protected void parseLine(String line) {
 		String   name = parseNameFromLine(line);
 		ItemType item = parseItemFromLine(line);
 		loadedTable.insert(name, item);
 	}
 
-	@Override
 	protected String dataToLuaScript() {
 		String script = new String();
 		for (String name : table.getNames()) {

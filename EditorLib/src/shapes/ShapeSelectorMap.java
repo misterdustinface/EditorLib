@@ -40,11 +40,13 @@ public class ShapeSelectorMap{
 	}
 	
 	public void putWithAllSelected(ArrayList<Shape> shapes) {
-		for (Shape s : shapes) putWithSelected(s);
+		for (Shape s : shapes) 
+			putWithSelected(s);
 	}
 	
 	public void remove(ArrayList<Shape> shapes) {
-		for (Shape s : shapes) remove(s);
+		for (Shape s : shapes) 
+			remove(s);
 	}
 
 }

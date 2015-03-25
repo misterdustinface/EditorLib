@@ -62,11 +62,10 @@ public class Pipe extends Shape {
 						(int)(centerLine.b.y - yOff));	
 	}
 
-	@Override
 	public boolean contains(Point point) {
 		return getArea().contains(point.x, point.y);
 	}
-	@Override
+	
 	public boolean contains(float x, float y) {
 		return getArea().contains(x, y);
 	}
@@ -75,22 +74,20 @@ public class Pipe extends Shape {
 		return getArea().intersects(rect);
 	}
 	
-	@Override
 	public void scale(float percent) {
 		centerLine.scale(percent);
 		scaleThickness(percent);
 		calculateArea();
 	}
-	@Override
+
 	public void shift(float xOffset, float yOffset){
 		centerLine.shift(xOffset, yOffset);
 	}
-	@Override
+
 	public void rotate(int degrees){
 		centerLine.rotate(degrees);
 	}
 
-	@Override
 	public void setPosition(float x, float y) {
 		Point midp = centerLine.midpoint();
 		float xoff = Math.abs(Math.abs(x) - Math.abs(midp.x));

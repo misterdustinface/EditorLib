@@ -44,4 +44,5 @@ public abstract class UIElement extends ChangeNotifier implements UILayer {
 	
 	protected abstract void pressAction();
 	protected abstract void releaseAction();
+	
 }

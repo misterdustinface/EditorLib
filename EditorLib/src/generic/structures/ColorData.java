@@ -36,7 +36,6 @@ final public class ColorData implements Cloneable, Structure {
 		this(RGBA[0], RGBA[1], RGBA[2], RGBA[3]);
 	}
 	
-	@Override
 	public ColorData clone() {
 		return new ColorData(r, g, b, a);
 	}

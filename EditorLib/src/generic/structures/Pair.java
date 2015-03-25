@@ -11,4 +11,5 @@ final public class Pair<A, B> implements Structure {
 		first  = FIRST;
 		second = SECOND;
 	}
+	
 }

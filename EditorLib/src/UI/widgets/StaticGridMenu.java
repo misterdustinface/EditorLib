@@ -25,7 +25,6 @@ public class StaticGridMenu extends UIMenu {
 		height = getSuggestedDimension(buttonOffset, buttonHeight, displaygrid.rows);
 	}
 	
-	@Override
 	public void refreshButton(int index) {
 		getButton(index).makeBoxRelativeToPoint(position, getXOffset(index), getYOffset(index), buttonWidth, buttonHeight);
 	}
@@ -54,7 +53,6 @@ public class StaticGridMenu extends UIMenu {
 		return (int)(getUnadjustedXOffset(buttonIndex) / (float)(width-buttonOffset));
 	}
 	
-	@Override
 	public void update(MouseUserDevice mouse) {
 		if (contains(mouse)) {
 			for (MenuButton button : buttons) {

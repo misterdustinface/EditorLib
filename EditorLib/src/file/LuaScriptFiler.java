@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public abstract class LuaScriptFiler extends DataModificationNotifier implements FileBus {
+	
 	final private static String INDENT          = "  ";
 	final private static String TABLE_START     = Character.toString('{');
 	final private static String TABLE_END       = Character.toString('}');
@@ -74,7 +75,6 @@ public abstract class LuaScriptFiler extends DataModificationNotifier implements
 		scanner.close();
 	}
 	
-	@Override
 	final public void load(FileInputStream reader) {
 		preparseOperation();
 		parseScript(reader);
@@ -82,7 +82,6 @@ public abstract class LuaScriptFiler extends DataModificationNotifier implements
 		notifyDataModified();
 	}
 	
-	@Override
 	final public void save(FileOutputStream writer) {
 		PrintWriter out = new PrintWriter(writer);
 		out.write(dataToLuaScript());
@@ -93,4 +92,5 @@ public abstract class LuaScriptFiler extends DataModificationNotifier implements
 	protected abstract void postparseOperation();
 	protected abstract void parseLine(String line); 
 	protected abstract String dataToLuaScript();
+	
 }

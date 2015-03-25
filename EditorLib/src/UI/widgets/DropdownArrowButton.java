@@ -33,7 +33,6 @@ public class DropdownArrowButton extends MenuButton {
 		}
 	}
 	
-	@Override
 	protected void pressAction() {
 		flip();
 		super.pressAction();

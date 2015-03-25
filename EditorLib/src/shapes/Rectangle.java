@@ -40,33 +40,29 @@ public class Rectangle extends Shape {
 	public float getCenterX() { 
 		return x + (width /2); 
 	}
+	
 	public float getCenterY() { 
 		return y + (height/2); 
 	}
 
-	@Override
 	public boolean contains(Point point) {
 		return contains(point.x, point.y);
 	}
 
-	@Override
 	public void setPosition(float x, float y) {
 		setBounds(x, y, this.width, this.height);
 	}
 
-	@Override
 	public void scale(float percent) {
 		width  *= percent;
 		height *= percent;
 	}
 
-	@Override
 	public void shift(float xOffset, float yOffset) {
 		x += xOffset;
 		y += yOffset;
 	}
 
-	@Override
 	public void rotate(int degrees) {
 		if (degrees == 90 ^ degrees == 270) {
 			width  = width + height;
@@ -74,4 +70,5 @@ public class Rectangle extends Shape {
 			width  = width - height;
 		}
 	}
+	
 }

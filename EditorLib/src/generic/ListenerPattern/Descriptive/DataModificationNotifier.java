@@ -19,4 +19,5 @@ abstract public class DataModificationNotifier {
 			listener.notifyListenerAboutDataModification();
 		}
 	}
+
 }

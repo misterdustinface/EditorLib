@@ -29,7 +29,6 @@ public class EditorProgramMain extends TickingLoop {
 		mouse 			= MOUSE_USER_DEVICE;
 		
 		super.addFunction(new VoidFunctionPointer() {
-			@Override
 			public void call() {
 				layerManager.forAllUIPerformFunctionFrontToBack(uiUpdate);
 			}

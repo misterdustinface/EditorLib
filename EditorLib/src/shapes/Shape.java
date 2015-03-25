@@ -20,4 +20,5 @@ public abstract class Shape {
 	abstract public void    scale(float percent);
 	abstract public void	shift(float xOffset, float yOffset);
 	abstract public void	rotate(int degrees);
+	
 }

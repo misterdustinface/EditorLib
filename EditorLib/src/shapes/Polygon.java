@@ -109,7 +109,6 @@ public class Polygon extends Shape {
 		return (x1 <= x2 && x2 <= X1 ) || (x1 <= X2 && X2 <= X1 );
 	}
 	
-	
 	/**
 	 * UNTESTED
 	 * @return
@@ -140,7 +139,6 @@ public class Polygon extends Shape {
 	 * UNTESTED
 	 * @return
 	 */
-	@Override
 	public void setPosition(float x, float y) {
 		shift(x - center.x, y - center.y);
 	}
@@ -149,7 +147,6 @@ public class Polygon extends Shape {
 	 * UNTESTED
 	 * @return
 	 */
-	@Override
 	public void scale(float percent) {
 		for (int i = 0; i < points; ++i) {
 			double theta = Math.theta(center.x, center.y, xpoints[i], ypoints[i]);		
@@ -158,7 +155,6 @@ public class Polygon extends Shape {
 		}
 	}
 
-	@Override
 	public void shift(float xOffset, float yOffset) {
 		for (int i = 0; i < points; ++i) {
 			xpoints[i] += xOffset;
@@ -171,7 +167,6 @@ public class Polygon extends Shape {
 	 * UNTESTED
 	 * @return
 	 */
-	@Override
 	public void rotate(int degrees) {
 		double rads  = java.lang.Math.toRadians(degrees);
 		final float COS = (float)java.lang.Math.cos(rads);
@@ -201,6 +196,7 @@ public class Polygon extends Shape {
 	public float getCenterX() { 
 		return center.x; 
 	}
+	
 	public float getCenterY() { 
 		return center.y; 
 	}

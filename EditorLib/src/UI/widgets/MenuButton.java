@@ -75,7 +75,6 @@ public class MenuButton extends FunctionButton {
 		return polygon.getBoundingRectangle().getCenterY(); 
 	}
 	
-	@Override
 	public void update(MouseUserDevice mouse) {
 		if (contains(mouse)) {
 			highlight();

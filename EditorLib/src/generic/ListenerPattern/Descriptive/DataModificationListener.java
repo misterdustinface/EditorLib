@@ -7,4 +7,5 @@ public abstract class DataModificationListener {
 	}
 	
 	protected abstract void whenMyDataIsModifiedExternally();
+
 }

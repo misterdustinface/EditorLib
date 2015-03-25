@@ -57,7 +57,6 @@ final public class Table <ItemType> implements Reusable {
 		return map.keySet();
 	}
 
-	@Override
 	public void reconstruct() {
 		map.clear();
 	}
