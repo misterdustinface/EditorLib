@@ -2,16 +2,16 @@ package UI.input;
 
 import shapes.Point;
 
-public abstract class MouseUserDevice {
+public abstract class MouseUserDevice extends UserDevice {
 	
 	protected Point cursorPosition;
 	private enum MOUSE_STATE { PRESSED, RELEASED, CLICKED, DRAGGED, MOVED, NONE };
 	private MOUSE_STATE state = MOUSE_STATE.NONE;
 	private String button;
-	final public static String LEFT = "left";
-	final public static String MIDDLE = "middle";
-	final public static String RIGHT = "right";
-	final public static String NO_BUTTON = "none";
+	final public static String LEFT = "LEFT";
+	final public static String MIDDLE = "MIDDLE";
+	final public static String RIGHT = "RIGHT";
+	final public static String NO_BUTTON = "NONE";
 	
 	public MouseUserDevice() {
 		cursorPosition = new Point(0,0);
@@ -83,6 +83,10 @@ public abstract class MouseUserDevice {
 	}
 	
 	final public void setButton(String button) {
+		//InputEvent buttonEvent = new InputEvent();
+		//buttonEvent.add(button);
+		//createEvent(buttonEvent);
+		
 		this.button = button;
 	}
 

@@ -1,13 +1,16 @@
 package UI.input.devices;
 
-
 public abstract class UserDeviceButton {
 	
-	private enum BUTTON_STATE { PRESSED, RELEASED, CLICKED, DRAGGED, MOVED, NONE };
+	private enum BUTTON_STATE { PRESSED, RELEASED, CLICKED, NONE };
 	private BUTTON_STATE state;
 	
 	public UserDeviceButton() {
 		state = BUTTON_STATE.NONE;
+	}
+	
+	final public boolean isIntercepted() { 
+		return state == BUTTON_STATE.NONE; 
 	}
 	
 	final public boolean isClicked() { 
