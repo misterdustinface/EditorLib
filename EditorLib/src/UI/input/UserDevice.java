@@ -20,7 +20,7 @@ public abstract class UserDevice {
 		}
 	}
 	
-	protected synchronized void createEvent(InputEvent keydata) {
+	protected void addEvent(InputEvent keydata) {
 		inputEventQueue.enqueue(keydata);
 	}
 	

@@ -8,16 +8,30 @@ public class InputEvent implements Reusable {
 	
 	private HashSet<String> event;
 	
-	public InputEvent() {
+	protected InputEvent() {
 		event = new HashSet<String>();
 	}
 	
 	public boolean is(String element) {
-		if (event == null) {
-			return false;
-		} else {
-			return event.contains(element);
+		return event.contains(element);
+	}
+	
+	public boolean isRelatedTo(String subElement) {
+		for (String element : event) {
+			if (element.contains(subElement)) {
+				return true;
+			}
 		}
+		return false;
+	}
+	
+	public String getRelation(String subElement) {
+		for (String element : event) {
+			if (element.contains(subElement)) {
+				return element;
+			}
+		}
+		return null;
 	}
 
 	public void reconstruct() {
@@ -30,6 +44,11 @@ public class InputEvent implements Reusable {
 	
 	protected void add(String element) {
 		event.add(element);
+	}
+	
+	protected void add(String ... elements) {
+		for (String element : elements)
+			add(element);
 	}
 	
 }

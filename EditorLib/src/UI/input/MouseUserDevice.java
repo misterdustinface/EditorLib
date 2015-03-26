@@ -2,7 +2,8 @@ package UI.input;
 
 import shapes.Point;
 
-public abstract class MouseUserDevice extends UserDevice {
+//extends UserDevice
+public abstract class MouseUserDevice {
 	
 	protected Point cursorPosition;
 	private enum MOUSE_STATE { PRESSED, RELEASED, CLICKED, DRAGGED, MOVED, NONE };
@@ -83,10 +84,8 @@ public abstract class MouseUserDevice extends UserDevice {
 	}
 	
 	final public void setButton(String button) {
-		//InputEvent buttonEvent = new InputEvent();
-		//buttonEvent.add(button);
-		//createEvent(buttonEvent);
-		
+//		InputEvent buttonEvent = InputEventBuilder.createWithDescription("MOUSE", button);
+//		addEvent(buttonEvent);
 		this.button = button;
 	}
 
