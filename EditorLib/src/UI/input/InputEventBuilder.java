@@ -30,54 +30,54 @@ final public class InputEventBuilder implements Library {
 		event.add("HELD");
 	}
 	
-	final private static String NUMERIC_EXPRESSION_PREFIX = "#";
-	final private static String CHANGE_OF = "d";
-	final private static String[] COORDINATE = {"X:", "Y:", "Z:"};
-	final private static String PINCHSPACE = "P:";
-	final private static String EXPANDSPACE = "E:";
-	
-	public static void touch(InputEvent event, float ... location) {
-		event.add("TOUCHED");
-		addLocation(event, location);
-	}
-	
-	public static void drag(InputEvent event, float ... deltaLocation) {
-		event.add("DRAGGED");
-		addDeltaLocation(event, deltaLocation);
-	}
-	
-	public static void move(InputEvent event, float ... location) {
-		event.add("MOVED");
-		addLocation(event, location);
-	}
-	
-	public static void swipe(InputEvent event, float ... deltaLocation) {
-		event.add("SWIPED");
-		addDeltaLocation(event, deltaLocation);
-	}
-	
-	public static void pinch(InputEvent event, float deltaAmount, float ... location) {
-		event.add("PINCHED");
-		event.add(NUMERIC_EXPRESSION_PREFIX + CHANGE_OF + PINCHSPACE + deltaAmount);
-		addLocation(event, location);
-	}
-	
-	public static void expand(InputEvent event, float deltaAmount, float ... location) {
-		event.add("EXPANDED");
-		event.add(NUMERIC_EXPRESSION_PREFIX + CHANGE_OF + EXPANDSPACE + deltaAmount);
-		addLocation(event, location);
-	}
-	
-	private static void addLocation(InputEvent event, float ... location) {
-		for (int i = 0; i < location.length; ++i) {
-			event.add(NUMERIC_EXPRESSION_PREFIX + COORDINATE[i] + location[i]);
-		}
-	}
-	
-	private static void addDeltaLocation(InputEvent event, float ... deltaLocation) {
-		for (int i = 0; i < deltaLocation.length; ++i) {
-			event.add(NUMERIC_EXPRESSION_PREFIX + CHANGE_OF + COORDINATE[i] + deltaLocation[i]);
-		}
-	}
+//	final private static String NUMERIC_EXPRESSION_PREFIX = "#";
+//	final private static String CHANGE_OF = "d";
+//	final private static String[] COORDINATE = {"X:", "Y:", "Z:"};
+//	final private static String PINCHSPACE = "P:";
+//	final private static String EXPANDSPACE = "E:";
+//	
+//	public static void touch(InputEvent event, float ... location) {
+//		event.add("TOUCHED");
+//		addLocation(event, location);
+//	}
+//	
+//	public static void drag(InputEvent event, float ... deltaLocation) {
+//		event.add("DRAGGED");
+//		addDeltaLocation(event, deltaLocation);
+//	}
+//	
+//	public static void move(InputEvent event, float ... location) {
+//		event.add("MOVED");
+//		addLocation(event, location);
+//	}
+//	
+//	public static void swipe(InputEvent event, float ... deltaLocation) {
+//		event.add("SWIPED");
+//		addDeltaLocation(event, deltaLocation);
+//	}
+//	
+//	public static void pinch(InputEvent event, float deltaAmount, float ... location) {
+//		event.add("PINCHED");
+//		event.add(NUMERIC_EXPRESSION_PREFIX + CHANGE_OF + PINCHSPACE + deltaAmount);
+//		addLocation(event, location);
+//	}
+//	
+//	public static void expand(InputEvent event, float deltaAmount, float ... location) {
+//		event.add("EXPANDED");
+//		event.add(NUMERIC_EXPRESSION_PREFIX + CHANGE_OF + EXPANDSPACE + deltaAmount);
+//		addLocation(event, location);
+//	}
+//	
+//	private static void addLocation(InputEvent event, float ... location) {
+//		for (int i = 0; i < location.length; ++i) {
+//			event.add(NUMERIC_EXPRESSION_PREFIX + COORDINATE[i] + location[i]);
+//		}
+//	}
+//	
+//	private static void addDeltaLocation(InputEvent event, float ... deltaLocation) {
+//		for (int i = 0; i < deltaLocation.length; ++i) {
+//			event.add(NUMERIC_EXPRESSION_PREFIX + CHANGE_OF + COORDINATE[i] + deltaLocation[i]);
+//		}
+//	}
 	
 }

@@ -84,9 +84,29 @@ public abstract class MouseUserDevice {
 	}
 	
 	final public void setButton(String button) {
-//		InputEvent buttonEvent = InputEventBuilder.createWithDescription("MOUSE", button);
+//		InputEvent buttonEvent = InputEventBuilder.createWithDescription(button);
 //		addEvent(buttonEvent);
 		this.button = button;
+	}
+	
+	public void forceClick() {
+		click();
+	}
+	
+	public void forcePress() {
+		press();
+	}
+	
+	public void forceRelease() {
+		release();
+	}
+	
+	public void forceButton(String button) {
+		setButton(button);
+	}
+	
+	public void forcePosition(float x, float y) {
+		cursorPosition.set(x, y);
 	}
 
 }
