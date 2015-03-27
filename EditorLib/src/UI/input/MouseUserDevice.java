@@ -31,6 +31,10 @@ public abstract class MouseUserDevice {
 		return cursorPosition.y;
 	}
 	
+	final public boolean isButton(String button) {
+		return this.button == button;
+	}
+	
 	final public boolean isIntercepted() { 
 		return state == MOUSE_STATE.NONE; 
 	}
@@ -79,34 +83,10 @@ public abstract class MouseUserDevice {
 		state = MOUSE_STATE.MOVED;    
 	}
 	
-	final public boolean isButton(String button) {
-		return this.button == button;
-	}
-	
-	final public void setButton(String button) {
+	final protected void setButton(String button) {
 //		InputEvent buttonEvent = InputEventBuilder.createWithDescription(button);
 //		addEvent(buttonEvent);
 		this.button = button;
-	}
-	
-	public void forceClick() {
-		click();
-	}
-	
-	public void forcePress() {
-		press();
-	}
-	
-	public void forceRelease() {
-		release();
-	}
-	
-	public void forceButton(String button) {
-		setButton(button);
-	}
-	
-	public void forcePosition(float x, float y) {
-		cursorPosition.set(x, y);
 	}
 
 }
