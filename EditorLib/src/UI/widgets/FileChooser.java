@@ -15,8 +15,8 @@ import shapes.PolygonBuilder;
 public abstract class FileChooser extends DataModificationNotifier implements UILayer {
 	
 	public static String START_DIRECTORY = System.getProperty("user.home");
-	public int gridRows = 4;
 	public int gridCols = 4;
+	public int gridRows = 1;
 	
 	private StaticGridMenu 	fileListing;
 	private MenuButton     	upButton;
@@ -38,7 +38,9 @@ public abstract class FileChooser extends DataModificationNotifier implements UI
 		upButton.setPolygon(p);
 		upButton.setButtonPressedFunction(new VoidFunctionPointer() {
 			public void call() {
-				chooseFile(filepath.getParent());
+				if (filepath.getParent() != null) {
+					chooseFile(filepath.getParent());
+				}
 			}
 		});
 		
@@ -50,13 +52,13 @@ public abstract class FileChooser extends DataModificationNotifier implements UI
 		exitButton.setPolygon(p2);
 		exitButton.setButtonPressedFunction(new VoidFunctionPointer() {
 			public void call() {
-				exit();
+				closeChooser();
 			}
 		});
 		
-		fileListing = new StaticGridMenu(new Grid(gridRows,gridCols));
+		fileListing = new StaticGridMenu(new Grid(gridRows, gridCols));
 		fileListing.setPosition(new Point(2,48));
-		fileListing.setButtonDimensions(140, 40);
+		fileListing.setButtonDimensions(120, 40);
 		fileListing.setButtonOffset(4);
 		
 		shouldDisplayAndUpdate = false;
@@ -74,9 +76,13 @@ public abstract class FileChooser extends DataModificationNotifier implements UI
 		chooseFile(START_DIRECTORY);
 	}
 
-	public void exit() {
-		shouldDisplayAndUpdate = false;
+	private void selectAndExit() {
+		closeChooser();
 		notifyDataModified();
+	}
+	
+	private void closeChooser() {
+		shouldDisplayAndUpdate = false;
 		fileListing.clearButtons();
 	}
 	
@@ -87,7 +93,7 @@ public abstract class FileChooser extends DataModificationNotifier implements UI
 		if (filepath.isDirectory()) {
 			refreshFileListing();
 		} else if (filepath.isFile()) {
-			exit();
+			selectAndExit();
 		}
 	}
 	
@@ -118,14 +124,9 @@ public abstract class FileChooser extends DataModificationNotifier implements UI
 	
 	private MenuButton makeFileChooserButton(File file) {
 		MenuButton button = extendedMenuButton();
-		button.textLabel.setMaxTextWidth(20);
+		button.textLabel.setMaxTextWidth(16);
 		button.textLabel.setText(file.getName());
 		button.textLabel.center();
-		
-		Polygon p = PolygonBuilder.makeBox(120, 40);
-		p.shift(getFileListing().getX(), getFileListing().getY());
-		button.setPolygon(p);
-
 		return button;
 	}
 	
