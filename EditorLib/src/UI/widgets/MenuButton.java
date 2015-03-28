@@ -13,42 +13,17 @@ public class MenuButton extends FunctionButton {
 	
 	public MenuButton() {
 		super();
-		polygon   = new Polygon(4);
+		polygon = new Polygon(4);
 		textLabel = new TextLabel();
 		debounceTimer = new DebounceTimer();
 	}
 	
-	public void makeSuggestedBoxRelativeToPoint(int xPos, int yPos) {
-		makeBoxRelativeToPoint(xPos, yPos, 0, 0, textLabel.suggestedWidth(), textLabel.suggestedHeight());
-	}
-	
-	public void makeSuggestedBoxRelativeToPoint(Point position, int xOff, int yOff) {
-		makeBoxRelativeToPoint(position, xOff, yOff, textLabel.suggestedWidth(), textLabel.suggestedHeight());
-	}
-	
-	public void makeSuggestedBoxRelativeToPoint(int xPos, int yPos, int xOff, int yOff) {
-		makeBoxRelativeToPoint(xPos, yPos, xOff, yOff, textLabel.suggestedWidth(), textLabel.suggestedHeight());
-	}
-	
-	public void makeBoxRelativeToPoint(Point position, int xOff, int yOff, int width, int height) {
-		makeBoxRelativeToPoint((int)position.x, (int)position.y, xOff, yOff, width, height);
-	}
-	
-	public void makeBoxRelativeToPoint(int xPos, int yPos, int xOff, int yOff, int width, int height) {
-		polygon = new Polygon(4);
-		addPointRelativeToMenuPosition(xPos, yPos, xOff, yOff);
-		addPointRelativeToMenuPosition(xPos, yPos, xOff + width, yOff);
-		addPointRelativeToMenuPosition(xPos, yPos, xOff + width, yOff + height);
-		addPointRelativeToMenuPosition(xPos, yPos, xOff, yOff + height);
+	public void setPolygon(Polygon POLY) {
+		polygon.clearPoints();
+		for (int i = 0; i < POLY.getNumberOfPoints(); ++i) {
+			polygon.addPoint(POLY.xpoints[i], POLY.ypoints[i]);
+		}
 		textLabel.alignText(polygon);
-	}
-	
-	public void addPointRelativeToMenuPosition(Point position, int x, int y) {
-		addPointRelativeToMenuPosition((int) position.x, (int) position.y, x, y);
-	}
-	
-	public void addPointRelativeToMenuPosition(int menuPointX, int menuPointY, int x, int y) {
-		polygon.addPoint(menuPointX + x, menuPointY + y);
 	}
 	
 	public void setPosition(Point position) {

@@ -7,7 +7,7 @@ import shapes.Rectangle;
 
 public class TextLabel extends ChangeNotifier {
 	
-	public enum ALIGNMENT { LEFT, CENTER, RIGHT };
+	private enum ALIGNMENT { LEFT, CENTER, RIGHT };
 	
 	private ALIGNMENT 	alignment;
 	private int 		maxChars;
@@ -23,10 +23,10 @@ public class TextLabel extends ChangeNotifier {
 	
 	public void setText(String TEXT) { 
 		text = TEXT;
-		modifyText();
+		onTextModified();
 	}
 	
-	private void modifyText() {
+	private void onTextModified() {
 		if (text.length() > maxChars) {
 			text = text.substring(0, maxChars-3);
 			text += "...";
@@ -46,10 +46,6 @@ public class TextLabel extends ChangeNotifier {
 		return textLocation; 
 	}
 	
-	public void setAlignment(ALIGNMENT a) { 
-		alignment = a; 
-	}
-	
 	public void center() { 
 		alignment = ALIGNMENT.CENTER; 
 	}
@@ -58,17 +54,13 @@ public class TextLabel extends ChangeNotifier {
 		return text.length() > 0;
 	}
 	
-	public int suggestedWidth() { 
-		return maxChars * 10; 
-	}
-	
-	public int suggestedHeight() { 
-		return 40;            
-	}
-	
 	public void setMaxTextWidth(int maxChars) { 
 		this.maxChars = maxChars; 
-		modifyText();
+		onTextModified();
+	}
+	
+	public int getMaxTextWidth() {
+		return maxChars;
 	}
 
 	public boolean isCentered() { 

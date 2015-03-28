@@ -3,36 +3,28 @@ package UI.widgets;
 import UI.UILayer;
 import UI.input.MouseUserDevice;
 import generic.fp.VoidFunctionPointer;
+import generic.tags.FactoryMethodPattern;
 import shapes.Point;
+import shapes.Polygon;
+import shapes.PolygonBuilder;
 
-public abstract class DropdownMenuBar implements UILayer {
+public abstract class DropdownMenuBar implements UILayer, FactoryMethodPattern {
 
 	protected MenuButton 	dropdownButton;
 	protected MenuBar		menuBar;
 	private boolean			isDropped;
-	private int 			dropdownArrowWidth;
-	
-	private VoidFunctionPointer dropdownButtonPressedFunction = new VoidFunctionPointer() {
-		public void call() {
-			isDropped = ! isDropped;
-			
-			if (isDropped) {
-				setArrowUp();
-			} else {
-				setArrowDown();
-			}
-		}
-	};
+	private int 			dropdownArrowWidth, dropdownArrowHeight;
 	
 	public DropdownMenuBar(MenuBar MENU_BAR) {
 		isDropped 		   = false;
-		dropdownArrowWidth = 8;
-		dropdownButton = extendedMenuButton();
+		dropdownArrowWidth  = 16;
+		dropdownArrowHeight = 8;
+		dropdownButton = newDropdownMenuButton();
 		dropdownButton.setButtonPressedFunction(dropdownButtonPressedFunction);
 		setMenuBar(MENU_BAR);
 	}
 	
-	protected abstract MenuButton extendedMenuButton();
+	protected abstract MenuButton newDropdownMenuButton();
 	
 	protected boolean isDropped() { 
 		return isDropped; 
@@ -53,21 +45,37 @@ public abstract class DropdownMenuBar implements UILayer {
 	
 	private void setArrowUp() {
 		Point position = getDesiredButtonPosition();
-		ArrowButton.up(dropdownButton, position, 0, dropdownArrowWidth);
-		dropdownButton.shift(0, -dropdownArrowWidth);
+		Polygon p = PolygonBuilder.makeUpArrow(dropdownArrowWidth, dropdownArrowHeight);
+		p.shift(position.x, position.y);
+		dropdownButton.setPolygon(p);
+		dropdownButton.shift(0, -dropdownArrowHeight);
 	}
 	
 	private void setArrowDown() {
 		Point position = getDesiredButtonPosition();
-		ArrowButton.down(dropdownButton, position, 0, dropdownArrowWidth);
+		Polygon p = PolygonBuilder.makeDownArrow(dropdownArrowWidth, dropdownArrowHeight);
+		p.shift(position.x, position.y);
+		dropdownButton.setPolygon(p);
 	}
 	
 	private Point getDesiredButtonPosition() {
-		return new Point(menuBar.getPosition().x + 2*dropdownArrowWidth, menuBar.getPosition().y + 2*dropdownArrowWidth);
+		return new Point(menuBar.getPosition().x + dropdownArrowWidth, menuBar.getPosition().y + 2*dropdownArrowHeight);
 	}
 	
 	private void updateArrowButtonPosition() {
 		dropdownButton.setCenterPosition(getDesiredButtonPosition());
 	}
+	
+	private VoidFunctionPointer dropdownButtonPressedFunction = new VoidFunctionPointer() {
+		public void call() {
+			isDropped = ! isDropped;
+			
+			if (isDropped) {
+				setArrowUp();
+			} else {
+				setArrowDown();
+			}
+		}
+	};
 
 }

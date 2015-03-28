@@ -9,6 +9,8 @@ import java.io.File;
 import UI.UILayer;
 import UI.input.MouseUserDevice;
 import shapes.Point;
+import shapes.Polygon;
+import shapes.PolygonBuilder;
 
 public abstract class FileChooser extends DataModificationNotifier implements UILayer {
 	
@@ -31,7 +33,9 @@ public abstract class FileChooser extends DataModificationNotifier implements UI
 		upButton = extendedMenuButton();
 		upButton.textLabel.setText(UP_BUTTON_TEXT);
 		upButton.textLabel.center();
-		upButton.makeBoxRelativeToPoint(0, 0, 2, 2, 120, 40);
+		Polygon p = PolygonBuilder.makeBox(120, 40);
+		p.shift(2, 2);
+		upButton.setPolygon(p);
 		upButton.setButtonPressedFunction(new VoidFunctionPointer() {
 			public void call() {
 				chooseFile(filepath.getParent());
@@ -41,7 +45,9 @@ public abstract class FileChooser extends DataModificationNotifier implements UI
 		exitButton = extendedMenuButton();
 		exitButton.textLabel.setText(EXIT_BUTTON_TEXT);
 		exitButton.textLabel.center();
-		exitButton.makeBoxRelativeToPoint(122, 0, 2, 2, 120, 40);
+		Polygon p2 = PolygonBuilder.makeBox(120, 40);
+		p2.shift(124, 2);
+		exitButton.setPolygon(p2);
 		exitButton.setButtonPressedFunction(new VoidFunctionPointer() {
 			public void call() {
 				exit();
@@ -115,7 +121,11 @@ public abstract class FileChooser extends DataModificationNotifier implements UI
 		button.textLabel.setMaxTextWidth(20);
 		button.textLabel.setText(file.getName());
 		button.textLabel.center();
-		button.makeSuggestedBoxRelativeToPoint(getFileListing().getX(), getFileListing().getY());
+		
+		Polygon p = PolygonBuilder.makeBox(120, 40);
+		p.shift(getFileListing().getX(), getFileListing().getY());
+		button.setPolygon(p);
+
 		return button;
 	}
 	

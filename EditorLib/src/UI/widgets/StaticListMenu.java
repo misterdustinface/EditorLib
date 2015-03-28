@@ -1,5 +1,7 @@
 package UI.widgets;
 
+import shapes.Polygon;
+import shapes.PolygonBuilder;
 import UI.input.MouseUserDevice;
 
 
@@ -19,7 +21,9 @@ public class StaticListMenu extends UIMenu {
 	}
 	
 	public void refreshButton(int index) {
-		getButton(index).makeBoxRelativeToPoint((int)position.x, (int)position.y, buttonOffset, getYOffset(index), buttonWidth, buttonHeight);
+		Polygon p = PolygonBuilder.makeBox(buttonWidth, buttonHeight);
+		p.shift((int)position.x + buttonOffset, (int)position.y + getYOffset(index));
+		getButton(index).setPolygon(p);
 	}
 	
 	protected int getYOffset(int buttonIndex) {	

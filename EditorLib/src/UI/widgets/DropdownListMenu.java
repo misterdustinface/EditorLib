@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import UI.input.MouseUserDevice;
 import shapes.Point;
+import shapes.Polygon;
+import shapes.PolygonBuilder;
 import generic.fp.VoidFunctionPointer;
 
 public class DropdownListMenu extends UIMenu {
@@ -56,19 +58,25 @@ public class DropdownListMenu extends UIMenu {
 	
 	final public void setButtonOffset(int BUTTON_OFFSET) { 
 		super.setButtonOffset(BUTTON_OFFSET);
-		root.makeSuggestedBoxRelativeToPoint(position, buttonOffset, buttonOffset);
+		Polygon p = PolygonBuilder.makeBox((int)root.getWidth(), (int)root.getHeight());
+		p.shift((int)position.x + buttonOffset, (int)position.y + buttonOffset);
+		root.setPolygon(p);
 		menu.setButtonOffset(BUTTON_OFFSET);
 	}
 	
 	final public void setButtonSize(int BUTTON_SIZE) {
 		super.setButtonSize(BUTTON_SIZE);
-		root.makeBoxRelativeToPoint(position, buttonOffset, buttonOffset, BUTTON_SIZE, BUTTON_SIZE);
+		Polygon p = PolygonBuilder.makeBox(BUTTON_SIZE, BUTTON_SIZE);
+		p.shift((int)position.x + buttonOffset, (int)position.y + buttonOffset);
+		root.setPolygon(p);
 		menu.setButtonSize(BUTTON_SIZE);
 	}
 	
 	final public void setButtonDimensions(int WIDTH, int HEIGHT) {
 		super.setButtonDimensions(WIDTH, HEIGHT);
-		root.makeBoxRelativeToPoint(position, buttonOffset, buttonOffset, WIDTH, HEIGHT);
+		Polygon p = PolygonBuilder.makeBox(WIDTH, HEIGHT);
+		p.shift((int)position.x + buttonOffset, (int)position.y + buttonOffset);
+		root.setPolygon(p);
 		menu.setButtonDimensions(WIDTH, HEIGHT);
 	}
 	

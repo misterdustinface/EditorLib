@@ -1,6 +1,10 @@
 package UI.widgets;
 
-public abstract class DynamicListMenu extends StaticListMenu {
+import shapes.Polygon;
+import shapes.PolygonBuilder;
+import generic.tags.FactoryMethodPattern;
+
+public abstract class DynamicListMenu extends StaticListMenu implements FactoryMethodPattern {
 
 	public DynamicListMenu() {
 		
@@ -14,7 +18,9 @@ public abstract class DynamicListMenu extends StaticListMenu {
 	
 	protected void makeButton(int index) {
 		MenuButton button = newButton(index);
-		button.makeBoxRelativeToPoint((int)position.x, (int)position.y, buttonOffset, getYOffset(index), buttonWidth, buttonHeight);
+		Polygon p = PolygonBuilder.makeBox(buttonWidth, buttonHeight);
+		p.shift((int)position.x + buttonOffset, (int)position.y + getYOffset(index));
+		button.setPolygon(p);
 		buttons.add(button);
 	}
 	

@@ -1,10 +1,13 @@
 package UI.widgets;
 
+import shapes.Polygon;
+import shapes.PolygonBuilder;
 import generic.structures.Grid;
+import generic.tags.FactoryMethodPattern;
 import UI.input.MouseUserDevice;
 
 
-public abstract class DynamicGridMenu extends StaticGridMenu {
+public abstract class DynamicGridMenu extends StaticGridMenu implements FactoryMethodPattern {
 
 	public DynamicGridMenu(Grid DISPLAYGRID) {
 		super(DISPLAYGRID);
@@ -51,13 +54,17 @@ public abstract class DynamicGridMenu extends StaticGridMenu {
 	
 	public void refreshButton(int index) { 
 		MenuButton button = newButton(index);
-		button.makeBoxRelativeToPoint(position, getXOffset(index), getYOffset(index), buttonWidth, buttonHeight);
+		Polygon p = PolygonBuilder.makeBox(buttonWidth, buttonHeight);
+		p.shift((int)position.x + getXOffset(index) , (int)position.y + getYOffset(index));
+		button.setPolygon(p);
 		buttons.add(button);
 	}
 	
 	private void makeNewEmptyEntry() {
 		MenuButton button = newEmptyButton();
-		button.makeBoxRelativeToPoint(position, getXOffset(numberOfButtons()), getYOffset(numberOfButtons()), buttonWidth, buttonHeight);
+		Polygon p = PolygonBuilder.makeBox(buttonWidth, buttonHeight);
+		p.shift((int)position.x + getXOffset(numberOfButtons()) , (int)position.y + getYOffset(numberOfButtons()));
+		button.setPolygon(p);
 		buttons.add(button);	
 	}
 	
