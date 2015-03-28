@@ -1,23 +1,18 @@
 package shapes;
 
-public class Circle extends Shape {
+final public class Circle extends Shape {
 
 	private float r;
 	private Point center;
 	
+	public Circle() {
+		this(0, 0, 0);
+	}
+	
 	public Circle(final float x, final float y, final float r) {
-		this.r = Math.abs(r);
-		this.center = new Point(x,y);
-	}
-	
-	public Circle(final Circle other) {
-		this.r = other.r;
-		this.center = other.center.copy();
-	}
-	
-	public Circle(final Point center, final float r) {
-		this.center = center.copy();
-		this.r = Math.abs(r);
+		center = new Point();
+		setRadius(r);
+		setCenterPosition(x, y);
 	}
 	
 	public void setCenterPosition(float x, float y) {
@@ -85,10 +80,13 @@ public class Circle extends Shape {
 		
 	}
 
-	@Override
 	public void reconstruct() {
 		r = 0;
 		center.reconstruct();
+	}
+	
+	public Circle copy() {
+		return new Circle(center.x, center.y, r);
 	}
 	
 //	public boolean intersects(Rectangle rect) {

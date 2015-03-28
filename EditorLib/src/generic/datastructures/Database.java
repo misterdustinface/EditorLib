@@ -1,9 +1,10 @@
 package generic.datastructures;
 
 import generic.Reusable;
+import generic.tags.ThreadSafe;
 
 
-final public class Database <DataType> implements Reusable {
+final public class Database <DataType> implements Reusable, ThreadSafe {
 	
 	final private Table<DataType> data;
 	final private Queue<String> giveOrder;
@@ -38,11 +39,9 @@ final public class Database <DataType> implements Reusable {
 		giveOrder.remove(name);
 	}
 
-	public void reconstruct() {
-		synchronized(this) {
-			data.clear();
-			giveOrder.clear();
-		}
+	public synchronized void reconstruct() {
+		data.clear();
+		giveOrder.clear();
 	}
 
 }

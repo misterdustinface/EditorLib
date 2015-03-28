@@ -1,6 +1,8 @@
 package shapes;
 
-public class Pipe extends Shape {
+import generic.tags.Aggregate;
+
+final public class Pipe extends Shape implements Aggregate {
 	
 	public  LineSegment  centerLine;
 	private float 		 thickness;
@@ -9,8 +11,13 @@ public class Pipe extends Shape {
 	private Point 		 previousB;
 	private Polygon 	 area;
 	
+	public Pipe(Point A, Point B, float THICKNESS) {
+		this(new LineSegment(A, B), THICKNESS);
+	}
+	
 	public Pipe(LineSegment CENTERLINE, float THICKNESS){
-		centerLine = CENTERLINE; thickness = THICKNESS;
+		centerLine = CENTERLINE; 
+		thickness = THICKNESS;
 		previousA  = new Point(centerLine.a.x, centerLine.a.y);
 		previousB  = new Point(centerLine.b.x, centerLine.b.y);
 		area       = new Polygon(4);
@@ -97,13 +104,16 @@ public class Pipe extends Shape {
 		shift(xoff, yoff);
 	}
 
-	@Override
 	public void reconstruct() {
 		thickness = 0;
 		centerLine.reconstruct();
 		area.reconstruct();
 		previousA.reconstruct();
 		previousB.reconstruct();
+	}
+	
+	public Pipe copy() {
+		return new Pipe(centerLine.copy(), thickness);
 	}
 	
 }

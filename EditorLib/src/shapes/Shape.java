@@ -22,5 +22,6 @@ public abstract class Shape implements Reusable {
 	abstract public void    scale(float percent);
 	abstract public void	shift(float xOffset, float yOffset);
 	abstract public void	rotate(int degrees);
+	abstract public Shape   copy();
 	
 }

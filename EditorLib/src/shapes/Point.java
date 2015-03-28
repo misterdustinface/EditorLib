@@ -7,12 +7,16 @@ public class Point implements Reusable {
 	public float x;
 	public float y;
 	
+	public Point() {
+		set(0, 0);
+	}
+	
 	public Point(float X, float Y) { 
-		set(X,Y); 
+		set(X, Y); 
 	}
 	
 	public Point copy() { 
-		return new Point(x,y); 
+		return new Point(x, y); 
 	}
 	
 	public void set(float X, float Y) { 
@@ -47,7 +51,6 @@ public class Point implements Reusable {
 		return "Point[x: " + x + " y: " + y + "]";
 	}
 
-	@Override
 	public void reconstruct() {
 		x = 0;
 		y = 0;

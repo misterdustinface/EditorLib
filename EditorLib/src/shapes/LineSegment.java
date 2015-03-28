@@ -1,9 +1,10 @@
 package shapes;
 
 import generic.Reusable;
+import generic.tags.Aggregate;
 
 
-public class LineSegment implements Reusable {
+final public class LineSegment extends Shape implements Reusable, Aggregate {
 
 	public Point a;
 	public Point b;
@@ -44,7 +45,7 @@ public class LineSegment implements Reusable {
 		b.y += y;
 	}
 	
-	public void scale(double percent){
+	public void scale(float percent){
 		double theta = Math.theta(a, b);
 		float halfLength = length()/2;
 		resize(	(float)(java.lang.Math.cos(theta) * halfLength * percent),
@@ -52,14 +53,27 @@ public class LineSegment implements Reusable {
 	}
 	
 	public void rotate(int degrees){
-		rotate(java.lang.Math.toRadians(degrees));
+		rotateByTheta(java.lang.Math.toRadians(degrees));
 	}
 	
-	public void rotate(double theta){
+	private void rotateByTheta(double theta){
 		theta += Math.theta(a, b);
 		float halfLength = length()/2;
 		resize(	(float)(java.lang.Math.cos(theta) * halfLength),
 				(float)(java.lang.Math.sin(theta) * halfLength));
+	}
+	
+	public boolean contains(Point point) {
+		return a.equals(point) || b.equals(point);
+	}
+
+	public boolean contains(float x, float y) {
+		return (a.x == x && a.y == y) || (b.x == x && b.y == y);
+	}
+
+	public void setCenterPosition(float x, float y) {
+		Point midpoint = midpoint();
+		shift(x - midpoint.x, y - midpoint.y);
 	}
 	
 	/**
@@ -109,10 +123,13 @@ public class LineSegment implements Reusable {
 		return Math.doLineSegmentsABandCDIntersect(a, b, other.a, other.b);
 	}
 
-	@Override
 	public void reconstruct() {
 		a.reconstruct();
 		b.reconstruct();
+	}
+	
+	public LineSegment copy() {
+		return new LineSegment(a.copy(), b.copy());
 	}
 
 }

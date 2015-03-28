@@ -1,6 +1,6 @@
 package shapes;
 
-public class Rectangle extends Shape {
+final public class Rectangle extends Shape {
 
 	public float x, y, width, height;
 	
@@ -71,12 +71,15 @@ public class Rectangle extends Shape {
 		}
 	}
 
-	@Override
 	public void reconstruct() {
 		x = 0;
 		y = 0;
 		width = 0;
 		height = 0;
+	}
+	
+	public Rectangle copy() {
+		return new Rectangle(x, y, width, height);
 	}
 	
 }

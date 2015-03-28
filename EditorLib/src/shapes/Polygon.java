@@ -1,7 +1,7 @@
 package shapes;
 
 
-public class Polygon extends Shape {
+final public class Polygon extends Shape {
 	
 	private final int MAX_NUMBER_OF_POINTS;
 	private int points;
@@ -201,9 +201,16 @@ public class Polygon extends Shape {
 		return center.y; 
 	}
 
-	@Override
 	public void reconstruct() {
 		clearPoints();
+	}
+
+	public Polygon copy() {
+		Polygon copy = new Polygon(MAX_NUMBER_OF_POINTS);
+		for (int i = 0; i < points; ++i) {
+			copy.addPoint(xpoints[i], ypoints[i]);
+		}
+		return copy;
 	}
 
 }
