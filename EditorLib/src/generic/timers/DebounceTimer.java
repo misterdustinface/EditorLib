@@ -7,17 +7,17 @@ final public class DebounceTimer {
 	private double COUNTDOWN_SEC;
 	
 	public DebounceTimer() {
-		setDebounceTime_sec(0.25);
+		setDebounceTime__sec(0.25);
 		reset();
 	}
 	
-	public void setDebounceTime_sec(double seconds) { 
+	public void setDebounceTime__sec(double seconds) { 
 		TIMER_LENGTH_SEC = seconds;
 	}
 	
 	public void reset() { 
 		COUNTDOWN_SEC  = TIMER_LENGTH_SEC; 
-		START_TIME_SEC = currentTimeSeconds();
+		START_TIME_SEC = currentTime__sec();
 	}
 	
 	public boolean isDebounceComplete() {
@@ -30,10 +30,10 @@ final public class DebounceTimer {
 	}
 	
 	private double passedTimeSinceReset() {
-		return currentTimeSeconds() - START_TIME_SEC;
+		return currentTime__sec() - START_TIME_SEC;
 	}
 	
-	private static double currentTimeSeconds() {
+	private static double currentTime__sec() {
 		return (System.currentTimeMillis() / 1000.0);
 	}
 	

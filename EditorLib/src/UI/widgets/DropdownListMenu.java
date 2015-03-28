@@ -53,12 +53,12 @@ public class DropdownListMenu extends UIMenu {
 	final public void setPosition(Point POSITION) {
 		super.setPosition(POSITION);
 		root.setPosition(POSITION);
-		menu.setPosition(POSITION.x, POSITION.y + root.getHeight());
+		menu.setPosition(POSITION.x, POSITION.y + root.getBoundingRectangle().height);
 	}	
 	
 	final public void setButtonOffset(int BUTTON_OFFSET) { 
 		super.setButtonOffset(BUTTON_OFFSET);
-		Polygon p = PolygonBuilder.makeBox((int)root.getWidth(), (int)root.getHeight());
+		Polygon p = PolygonBuilder.makeBox((int)root.getBoundingRectangle().width, (int)root.getBoundingRectangle().height);
 		p.shift((int)position.x + buttonOffset, (int)position.y + buttonOffset);
 		root.setPolygon(p);
 		menu.setButtonOffset(BUTTON_OFFSET);
@@ -110,11 +110,11 @@ public class DropdownListMenu extends UIMenu {
 	}
 	
 	final public int getWidth() { 
-		return (int) Math.max(root.getWidth(), menu.getWidth()); 
+		return (int) Math.max(root.getBoundingRectangle().width, menu.getWidth()); 
 	}
 	
 	final public int getHeight() { 
-		return (int) (root.getHeight() + buttonOffset + menu.height);
+		return (int) (root.getBoundingRectangle().height + buttonOffset + menu.height);
 	}
 	
 	final public boolean contains(MouseUserDevice mouse) {

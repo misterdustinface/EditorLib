@@ -5,10 +5,9 @@ import shapes.Point;
 import shapes.Polygon;
 import shapes.Rectangle;
 
-public class TextLabel extends ChangeNotifier {
+final public class TextLabel extends ChangeNotifier {
 	
 	private enum ALIGNMENT { LEFT, CENTER, RIGHT };
-	
 	private ALIGNMENT 	alignment;
 	private int 		maxChars;
 	private String 		text;

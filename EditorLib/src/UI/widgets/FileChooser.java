@@ -31,8 +31,7 @@ public abstract class FileChooser extends DataModificationNotifier implements UI
 	public FileChooser() {		
 		
 		upButton = extendedMenuButton();
-		upButton.textLabel.setText(UP_BUTTON_TEXT);
-		upButton.textLabel.center();
+		upButton.setText(UP_BUTTON_TEXT);
 		Polygon p = PolygonBuilder.makeBox(120, 40);
 		p.shift(2, 2);
 		upButton.setPolygon(p);
@@ -45,8 +44,7 @@ public abstract class FileChooser extends DataModificationNotifier implements UI
 		});
 		
 		exitButton = extendedMenuButton();
-		exitButton.textLabel.setText(EXIT_BUTTON_TEXT);
-		exitButton.textLabel.center();
+		exitButton.setText(EXIT_BUTTON_TEXT);
 		Polygon p2 = PolygonBuilder.makeBox(120, 40);
 		p2.shift(124, 2);
 		exitButton.setPolygon(p2);
@@ -119,14 +117,11 @@ public abstract class FileChooser extends DataModificationNotifier implements UI
 		}
 		
 		resizeGridToFitFiles(filecount);
-		
 	}
 	
 	private MenuButton makeFileChooserButton(File file) {
 		MenuButton button = extendedMenuButton();
-		button.textLabel.setMaxTextWidth(16);
-		button.textLabel.setText(file.getName());
-		button.textLabel.center();
+		button.setText(file.getName());
 		return button;
 	}
 	
