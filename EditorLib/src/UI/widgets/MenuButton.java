@@ -30,7 +30,7 @@ public class MenuButton extends FunctionButton {
 			if (isPressed()) release();
 		}
 		
-		if (textLabel.isCentered()) textLabel.alignText(polygon);
+		textLabel.alignText(polygon);
 	}
 	
 	final public void debouncedPress() {

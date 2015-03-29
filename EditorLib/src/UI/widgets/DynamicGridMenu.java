@@ -19,6 +19,7 @@ public abstract class DynamicGridMenu extends StaticGridMenu implements FactoryM
 	
 	public void addNewButtons(int amount) {
 		for (int i = 0; i < amount; i++) {
+			// TODO FIXME - use some other method
 			addButton(newButton(numberOfButtons()));
 		}
 	}
