@@ -1,33 +1,28 @@
 package UI.widgets;
 
-import java.util.ArrayList;
-
 import UI.UILayer;
 import UI.input.MouseUserDevice;
-import shapes.Point;
 
-public interface ButtonMenu extends UILayer {
-	public int getX();
-	public int getY();
-	public int getWidth();
-	public int getHeight();
+public interface ButtonMenu extends UILayer, Iterable<MenuButton> {
+	public float getX();
+	public float getY();
+	public float getWidth();
+	public float getHeight();
+	public void setPosition(float x, float y);
 	
-	public void setPosition(Point POSITION);
-	
-	public void setButtonOffset(int BUTTON_OFFSET);
-	public void setButtonSize(int BUTTON_SIZE);
-	public void setButtonDimensions(int WIDTH, int HEIGHT);
+	public void setButtonOffset(float BUTTON_OFFSET);
+	public void setButtonSize(float BUTTON_SIZE);
+	public void setButtonDimensions(float WIDTH, float HEIGHT);
 
 	public void setButtons(MenuButton ... BUTTONS);
-	public void setButtons(ArrayList<MenuButton> BUTTONS);
-	
 	public void addButton(MenuButton BUTTON);	
 	public void removeButton(MenuButton BUTTON);
 	public void clearButtons();
-	public MenuButton getButton(int index);
+	
 	public int numberOfButtons();	
 	public void refreshButtons();
 	public void refreshButton(int index);
+	public MenuButton getButton(int index);
 	
 	public boolean contains(MouseUserDevice mouse);
 }

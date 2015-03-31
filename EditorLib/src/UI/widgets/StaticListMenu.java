@@ -2,7 +2,6 @@ package UI.widgets;
 
 import shapes.Polygon;
 import shapes.PolygonBuilder;
-import UI.input.MouseUserDevice;
 
 
 public class StaticListMenu extends UIMenu {
@@ -26,17 +25,8 @@ public class StaticListMenu extends UIMenu {
 		getButton(index).setPolygon(p);
 	}
 	
-	protected int getYOffset(int buttonIndex) {	
+	protected float getYOffset(int buttonIndex) {	
 		return (((buttonIndex+1) * buttonOffset) + ((buttonIndex) * buttonHeight));
-	}
-	
-	public void update(MouseUserDevice mouse) {
-		if (contains(mouse)) {
-			for (MenuButton button : buttons) {
-				button.update(mouse);
-			}
-			mouse.intercept();
-		}
 	}
 	
 }

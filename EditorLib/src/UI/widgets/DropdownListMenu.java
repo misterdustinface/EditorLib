@@ -1,12 +1,9 @@
 package UI.widgets;
 
-import java.util.ArrayList;
-
-import UI.input.MouseUserDevice;
-import shapes.Point;
+import generic.fp.VoidFunctionPointer;
 import shapes.Polygon;
 import shapes.PolygonBuilder;
-import generic.fp.VoidFunctionPointer;
+import UI.input.MouseUserDevice;
 
 public class DropdownListMenu extends UIMenu {
 	
@@ -50,13 +47,13 @@ public class DropdownListMenu extends UIMenu {
 		}
 	}
 	
-	final public void setPosition(Point POSITION) {
-		super.setPosition(POSITION);
-		root.setPosition(POSITION);
-		menu.setPosition(POSITION.x, POSITION.y + root.getBoundingRectangle().height);
+	final public void setPosition(float x, float y) {
+		super.setPosition(x, y);
+		root.setPosition(x, y);
+		menu.setPosition(x, y + root.getBoundingRectangle().height);
 	}	
 	
-	final public void setButtonOffset(int BUTTON_OFFSET) { 
+	final public void setButtonOffset(float BUTTON_OFFSET) { 
 		super.setButtonOffset(BUTTON_OFFSET);
 		Polygon p = PolygonBuilder.makeBox((int)root.getBoundingRectangle().width, (int)root.getBoundingRectangle().height);
 		p.shift((int)position.x + buttonOffset, (int)position.y + buttonOffset);
@@ -64,7 +61,7 @@ public class DropdownListMenu extends UIMenu {
 		menu.setButtonOffset(BUTTON_OFFSET);
 	}
 	
-	final public void setButtonSize(int BUTTON_SIZE) {
+	final public void setButtonSize(float BUTTON_SIZE) {
 		super.setButtonSize(BUTTON_SIZE);
 		Polygon p = PolygonBuilder.makeBox(BUTTON_SIZE, BUTTON_SIZE);
 		p.shift((int)position.x + buttonOffset, (int)position.y + buttonOffset);
@@ -72,7 +69,7 @@ public class DropdownListMenu extends UIMenu {
 		menu.setButtonSize(BUTTON_SIZE);
 	}
 	
-	final public void setButtonDimensions(int WIDTH, int HEIGHT) {
+	final public void setButtonDimensions(float WIDTH, float HEIGHT) {
 		super.setButtonDimensions(WIDTH, HEIGHT);
 		Polygon p = PolygonBuilder.makeBox(WIDTH, HEIGHT);
 		p.shift((int)position.x + buttonOffset, (int)position.y + buttonOffset);
@@ -83,10 +80,6 @@ public class DropdownListMenu extends UIMenu {
 	final public void setButtons(MenuButton ... BUTTONS) {
 		for (int i = 0; i < BUTTONS.length; ++i)
 			addButton(BUTTONS[i]);
-	}
-	
-	final public void setButtons(ArrayList<MenuButton> BUTTONS) {
-		menu.setButtons(BUTTONS);
 	}
 	
 	final public void addButton(MenuButton BUTTON) {
@@ -109,12 +102,12 @@ public class DropdownListMenu extends UIMenu {
 		return menu.buttons.get(index); 
 	}
 	
-	final public int getWidth() { 
-		return (int) Math.max(root.getBoundingRectangle().width, menu.getWidth()); 
+	final public float getWidth() { 
+		return Math.max(root.getBoundingRectangle().width, menu.getWidth()); 
 	}
 	
-	final public int getHeight() { 
-		return (int) (root.getBoundingRectangle().height + buttonOffset + menu.height);
+	final public float getHeight() { 
+		return (root.getBoundingRectangle().height + buttonOffset + menu.height);
 	}
 	
 	final public boolean contains(MouseUserDevice mouse) {

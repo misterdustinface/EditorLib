@@ -1,6 +1,7 @@
 package UI.widgets;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import UI.input.MouseUserDevice;
 import shapes.Point;
@@ -9,7 +10,7 @@ public abstract class UIMenu implements ButtonMenu {
 	
 	protected Point position;
 	protected ArrayList<MenuButton> buttons;
-	protected int width, height, buttonOffset, buttonWidth, buttonHeight;
+	protected float width, height, buttonOffset, buttonWidth, buttonHeight;
 	
 	public UIMenu() {
 		buttons = new ArrayList<MenuButton>();
@@ -21,16 +22,20 @@ public abstract class UIMenu implements ButtonMenu {
 	
 	abstract protected void resetMenuDimensions();
 
-	public int getX() { 
-		return (int)position.x; 
+	public float getX() { 
+		return position.x; 
 	}
 	
-	public int getY() { 
-		return (int)position.y; 
+	public float getY() { 
+		return position.y; 
 	}
 	
-	public void setPosition(Point POSITION) { 
-		setPosition(POSITION.x, POSITION.y);
+	public float getWidth() { 
+		return width; 
+	}
+	
+	public float getHeight() { 
+		return height;
 	}
 	
 	public void setPosition(float x, float y) {
@@ -38,19 +43,19 @@ public abstract class UIMenu implements ButtonMenu {
 		refreshButtons();
 	}
 	
-	public void setButtonOffset(int BUTTON_OFFSET) { 
+	public void setButtonOffset(float BUTTON_OFFSET) { 
 		buttonOffset = BUTTON_OFFSET; 
 		resetMenuDimensions();
 		refreshButtons();
 	}
 	
-	public void setButtonSize(int BUTTON_SIZE) {
+	public void setButtonSize(float BUTTON_SIZE) {
 		buttonWidth = buttonHeight = BUTTON_SIZE;
 		resetMenuDimensions();
 		refreshButtons();
 	}
 	
-	public void setButtonDimensions(int WIDTH, int HEIGHT) {
+	public void setButtonDimensions(float WIDTH, float HEIGHT) {
 		buttonWidth  = WIDTH;
 		buttonHeight = HEIGHT;
 		resetMenuDimensions();
@@ -60,12 +65,6 @@ public abstract class UIMenu implements ButtonMenu {
 	public void setButtons(MenuButton ... BUTTONS) {
 		for (int i = 0; i < BUTTONS.length; ++i)
 			addButton(BUTTONS[i]);
-	}
-	
-	public void setButtons(ArrayList<MenuButton> BUTTONS) {
-		buttons = BUTTONS;
-		resetMenuDimensions();
-		refreshButtons();
 	}
 	
 	public void addButton(MenuButton BUTTON) {
@@ -100,21 +99,41 @@ public abstract class UIMenu implements ButtonMenu {
 		return buttons.get(index); 
 	}
 	
-	public int getWidth() { 
-		return width; 
-	}
-	
-	public int getHeight() { 
-		return height;
-	}
-	
 	public boolean contains(MouseUserDevice mouse) {
 		return getX() <= mouse.getCursorX() && mouse.getCursorX() <= getX() + getWidth()
 			&& getY() <= mouse.getCursorY() && mouse.getCursorY() <= getY() + getHeight();
 	}
 	
-	protected int getSuggestedDimension(int buttonOffset, int buttonSize, int numButtonsAcross) {
+	public void update(MouseUserDevice mouse) {
+		if (contains(mouse)) {
+			for (MenuButton button : buttons) {
+				button.update(mouse);
+			}
+		}
+	}
+	
+	protected float getSuggestedDimension(float buttonOffset, float buttonSize, int numButtonsAcross) {
 		return (((numButtonsAcross+1) * buttonOffset) + ((numButtonsAcross) * buttonSize));
+	}
+
+	public Iterator<MenuButton> iterator() {
+		
+		return new Iterator<MenuButton>() {
+
+			private int i = 0;
+
+			public boolean hasNext() {
+				return i < numberOfButtons();
+			}
+
+			public MenuButton next() {
+				return getButton(i++);
+			}
+
+			public void remove() {
+				removeButton(getButton(i));
+			}
+		};
 	}
 	
 }

@@ -77,10 +77,12 @@ public class MenuBar extends AntiViewport implements UILayer {
 	}
 	
 	private void updateMenuPositions() {
-		Point newPosition = new Point(boundingBox.x + spacingOffset, boundingBox.y + spacingOffset);
+		float x = boundingBox.x + spacingOffset;
+		float y = boundingBox.y + spacingOffset;
 		for (int i = menus.size()-1; i >= 0; --i) {
-			menus.get(i).setPosition(newPosition);
-			newPosition.shift(menus.get(i).getWidth() + spacingOffset, 0);
+			ButtonMenu menu = menus.get(i);
+			menu.setPosition(x, y);
+			x += menu.getWidth() + spacingOffset;
 		}
 	}
 	
@@ -107,7 +109,7 @@ public class MenuBar extends AntiViewport implements UILayer {
 			boundingBox.width += menu.getWidth() + spacingOffset;
 			boundingBox.height = Math.max(boundingBox.height, menu.getHeight() + spacingOffset);
 		}
-		boundingBox.width  += spacingOffset;
+		boundingBox.width += spacingOffset;
 	}
 
 }

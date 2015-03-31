@@ -6,11 +6,10 @@ import generic.structures.Grid;
 
 import java.io.File;
 
-import UI.UILayer;
-import UI.input.MouseUserDevice;
-import shapes.Point;
 import shapes.Polygon;
 import shapes.PolygonBuilder;
+import UI.UILayer;
+import UI.input.MouseUserDevice;
 
 public abstract class FileChooser extends DataModificationNotifier implements UILayer {
 	
@@ -55,7 +54,7 @@ public abstract class FileChooser extends DataModificationNotifier implements UI
 		});
 		
 		fileListing = new StaticGridMenu(new Grid(gridRows, gridCols));
-		fileListing.setPosition(new Point(2,48));
+		fileListing.setPosition(2, 48);
 		fileListing.setButtonDimensions(120, 40);
 		fileListing.setButtonOffset(4);
 		

@@ -1,10 +1,9 @@
 package UI.widgets;
 
-import UI.input.MouseUserDevice;
-import shapes.Point;
+import generic.timers.DebounceTimer;
 import shapes.Polygon;
 import shapes.Rectangle;
-import generic.timers.DebounceTimer;
+import UI.input.MouseUserDevice;
 
 public class MenuButton extends FunctionButton {
 
@@ -48,12 +47,12 @@ public class MenuButton extends FunctionButton {
 		textLabel.alignText(polygon);
 	}
 	
-	public void setPosition(Point position) {
-		polygon.shift(position.x - polygon.xpoints[0], position.y - polygon.ypoints[0]);
+	public void setPosition(float x, float y) {
+		polygon.shift(x - polygon.xpoints[0], y - polygon.ypoints[0]);
 	}
 	
-	public void setCenterPosition(Point position) {
-		polygon.setCenterPosition(position.x, position.y);
+	public void setCenterPosition(float x, float y) {
+		polygon.setCenterPosition(x, y);
 	}
 	
 	public void shift(float xOffset, float yOffset) {
