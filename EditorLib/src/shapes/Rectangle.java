@@ -49,8 +49,12 @@ final public class Rectangle extends Shape {
 		return contains(point.x, point.y);
 	}
 
-	public void setCenterPosition(float x, float y) {
+	public void setPosition(float x, float y) {
 		setBounds(x, y, this.width, this.height);
+	}
+	
+	public void setCenterPosition(float x, float y) {
+		setPosition(x - this.width/2, y - this.height/2);
 	}
 
 	public void scale(float percent) {

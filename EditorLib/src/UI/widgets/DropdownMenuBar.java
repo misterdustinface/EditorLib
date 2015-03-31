@@ -56,11 +56,11 @@ public abstract class DropdownMenuBar implements UILayer, FactoryMethodPattern {
 	}
 	
 	private float getDesiredButtonXPosition() {
-		return menuBar.getPosition().x + dropdownArrowWidth;
+		return menuBar.getXPosition() + dropdownArrowWidth;
 	}
 	
 	private float getDesiredButtonYPosition() {
-		return menuBar.getPosition().y + 2*dropdownArrowHeight;
+		return menuBar.getYPosition() + 2*dropdownArrowHeight;
 	}
 	
 	private void updateArrowButtonPosition() {

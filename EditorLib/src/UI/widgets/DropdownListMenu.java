@@ -7,9 +7,9 @@ import UI.input.MouseUserDevice;
 
 public class DropdownListMenu extends UIMenu {
 	
-	protected MenuButton 	 root;
+	protected MenuButton root;
 	protected StaticListMenu menu;
-	private   boolean isListMenuOpen;
+	private boolean isListMenuOpen;
 	
 	private final VoidFunctionPointer TOGGLE_LIST_MENU = new VoidFunctionPointer() {
 		public void call() {

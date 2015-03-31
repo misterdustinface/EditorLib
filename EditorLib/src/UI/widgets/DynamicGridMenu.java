@@ -13,14 +13,13 @@ public abstract class DynamicGridMenu extends StaticGridMenu implements FactoryM
 		super(DISPLAYGRID);
 	}
 	
-	public void addButton(MenuButton BUTTON) {
-		throw new RuntimeException("Dynamic Grid Menu only allows the addition of buttons internally");
-	}
+//	public void addButton(MenuButton BUTTON) {
+//		throw new RuntimeException("Dynamic Grid Menu only allows the addition of buttons internally");
+//	}
 	
 	public void addNewButtons(int amount) {
 		for (int i = 0; i < amount; i++) {
-			// TODO FIXME - use some other method
-			addButton(newButton(numberOfButtons()));
+			super.addButton(newButton(numberOfButtons()));
 		}
 	}
 	

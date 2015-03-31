@@ -71,6 +71,9 @@ final public class LineSegment extends Shape implements Reusable, Aggregate {
 		return (a.x == x && a.y == y) || (b.x == x && b.y == y);
 	}
 
+	/**
+	 * Sets the CENTER position
+	 */
 	public void setCenterPosition(float x, float y) {
 		Point midpoint = midpoint();
 		shift(x - midpoint.x, y - midpoint.y);

@@ -2,12 +2,11 @@ package UI.widgets;
 
 import java.util.ArrayList;
 
+import shapes.Rectangle;
 import UI.AntiViewport;
 import UI.UILayer;
 import UI.Viewport;
 import UI.input.MouseUserDevice;
-import shapes.Point;
-import shapes.Rectangle;
 
 public class MenuBar extends AntiViewport implements UILayer {
 
@@ -40,8 +39,7 @@ public class MenuBar extends AntiViewport implements UILayer {
 	}
 	
 	private void setBoundingBoxPosition() {
-		Point position = getPositionRelativeToOffsets(xOffset, yOffset);
-		boundingBox.setCenterPosition(position.x, position.y);
+		boundingBox.setPosition(getXPosition() + xOffset, getYPosition() + yOffset);
 	}
 	
 	public void addUIMenu(ButtonMenu MENU) {

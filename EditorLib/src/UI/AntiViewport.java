@@ -1,6 +1,5 @@
 package UI;
 
-import shapes.Point;
 
 public class AntiViewport {
 
@@ -12,12 +11,12 @@ public class AntiViewport {
 		viewport = VIEWPORT;
 	}
 	
-	public Point getPosition() {
-		return new Point(-viewport.getXPosition(), -viewport.getYPosition());
+	public float getXPosition() {
+		return -viewport.getXPosition();
 	}
 	
-	public Point getPositionRelativeToOffsets(float xOff, float yOff) {
-		return new Point(xOff-viewport.getXPosition(), yOff-viewport.getYPosition());
+	public float getYPosition() {
+		return -viewport.getYPosition();
 	}
 	
 }
