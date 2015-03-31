@@ -63,7 +63,7 @@ public class MenuButton extends FunctionButton {
 		return polygon.getBoundingRectangle();
 	}
 	
-	public void setDebounceTime__sec(long time__sec) {
+	public void setDebounceTime__sec(double time__sec) {
 		debounceTimer.setDebounceTime__sec(time__sec);
 	}
 	
