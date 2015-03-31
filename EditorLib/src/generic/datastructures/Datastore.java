@@ -6,19 +6,19 @@ import generic.tags.ThreadSafe;
 final public class Datastore <DataType> implements Reusable, ThreadSafe {
 	
 	final private Table<DataType> data;
-	final private Queue<String> giveOrder;
+	final private Queue<String> orderedDataNames;
 	
 	public Datastore() {
 		data = new Table<DataType>();
-		giveOrder = new Queue<String>();
+		orderedDataNames = new Queue<String>();
 	}
 
 	final public synchronized boolean canTake() {
-		return !giveOrder.isEmpty();
+		return !orderedDataNames.isEmpty();
 	}
 	
 	final public synchronized DataType take() {
-		final String name = giveOrder.dequeue();
+		final String name = orderedDataNames.dequeue();
 		return take(name);
 	}
 	
@@ -30,17 +30,17 @@ final public class Datastore <DataType> implements Reusable, ThreadSafe {
 	
 	public synchronized void give(String name, DataType element) {
 		data.insert(name, element);
-		giveOrder.enqueue(name);
+		orderedDataNames.enqueue(name);
 	}
 	
 	public synchronized void reconstruct() {
 		data.clear();
-		giveOrder.clear();
+		orderedDataNames.clear();
 	}
 	
 	private synchronized void removeReferences(String name) {
 		data.remove(name);
-		giveOrder.remove(name);
+		orderedDataNames.remove(name);
 	}
 
 }
