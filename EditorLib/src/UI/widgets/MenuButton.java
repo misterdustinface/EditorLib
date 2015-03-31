@@ -7,9 +7,9 @@ import UI.input.MouseUserDevice;
 
 public class MenuButton extends FunctionButton {
 
-	private Polygon polygon;
-	private TextLabel textLabel;
-	private DebounceTimer debounceTimer;
+	final private Polygon polygon;
+	final private TextLabel textLabel;
+	final private DebounceTimer debounceTimer;
 	
 	public MenuButton() {
 		super();

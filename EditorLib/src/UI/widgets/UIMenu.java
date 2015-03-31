@@ -8,8 +8,8 @@ import shapes.Point;
 
 public abstract class UIMenu implements ButtonMenu {
 	
-	protected Point position;
-	protected ArrayList<MenuButton> buttons;
+	final protected Point position;
+	final protected ArrayList<MenuButton> buttons;
 	protected float width, height, buttonOffset, buttonWidth, buttonHeight;
 	
 	public UIMenu() {

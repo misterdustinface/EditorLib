@@ -9,10 +9,10 @@ import UI.input.MouseUserDevice;
 
 public abstract class DropdownMenuBar implements UILayer, FactoryMethodPattern {
 
-	protected MenuButton 	dropdownButton;
-	protected MenuBar		menuBar;
-	private boolean			isDropped;
-	private int 			dropdownArrowWidth, dropdownArrowHeight;
+	final protected MenuButton dropdownButton;
+	protected MenuBar menuBar;
+	private boolean	isDropped;
+	private int dropdownArrowWidth, dropdownArrowHeight;
 	
 	public DropdownMenuBar(MenuBar MENU_BAR) {
 		isDropped 		   = false;

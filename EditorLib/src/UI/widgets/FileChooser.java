@@ -13,19 +13,20 @@ import UI.input.MouseUserDevice;
 
 public abstract class FileChooser extends DataModificationNotifier implements UILayer {
 	
-	public static String START_DIRECTORY = System.getProperty("user.home");
+	final public static String START_DIRECTORY = System.getProperty("user.home");	
+	
 	public int gridCols = 4;
 	public int gridRows = 1;
 	
-	private StaticGridMenu 	fileListing;
-	private MenuButton     	upButton;
-	private MenuButton	  	exitButton;	
-	private boolean shouldDisplayAndUpdate;
-	
-	private File filepath;
+	final private StaticGridMenu fileListing;
+	final private MenuButton upButton;
+	final private MenuButton exitButton;	
 	
 	private static String UP_BUTTON_TEXT   = "UP";
 	private static String EXIT_BUTTON_TEXT = "EXIT";
+	
+	private boolean shouldDisplayAndUpdate;
+	private File filepath;
 	
 	public FileChooser() {		
 		

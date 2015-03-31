@@ -10,10 +10,10 @@ import UI.input.MouseUserDevice;
 
 public class MenuBar extends AntiViewport implements UILayer {
 
-	protected ArrayList<ButtonMenu> menus;
-	protected Rectangle			boundingBox;
-	private   int 				spacingOffset;
-	private   float				xOffset, yOffset;
+	final protected ArrayList<ButtonMenu> menus;
+	final protected Rectangle boundingBox;
+	private int spacingOffset;
+	private float xOffset, yOffset;
 
 	public MenuBar() {
 		boundingBox = new Rectangle(0,0,0,0);

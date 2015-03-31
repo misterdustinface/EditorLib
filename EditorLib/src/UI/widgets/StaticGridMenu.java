@@ -7,7 +7,7 @@ import shapes.PolygonBuilder;
 
 public class StaticGridMenu extends UIMenu {
 
-	protected Grid displaygrid;
+	final protected Grid displaygrid;
 	
 	public StaticGridMenu(Grid DISPLAYGRID) {
 		displaygrid = DISPLAYGRID;

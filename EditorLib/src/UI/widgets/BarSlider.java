@@ -8,9 +8,9 @@ public class BarSlider extends UIElement {
 	enum ORIENTATION { VERTICAL, HORIZONTAL };
 	private ORIENTATION orientation;
 	
+	final private Rectangle fill;
 	private Rectangle base;
-	private Rectangle fill;
-	private float 	  fillPercent;
+	private float fillPercent;
 	
 	public BarSlider() {
 		super();	
