@@ -6,8 +6,8 @@ import java.util.LinkedList;
 
 public class Application {
 	
-	private Table<Thread> threads;
-	private LinkedList<String> names;
+	final private Table<Thread> threads;
+	final private LinkedList<String> names;
 	
 	public Application() {
 		threads = new Table<Thread>();

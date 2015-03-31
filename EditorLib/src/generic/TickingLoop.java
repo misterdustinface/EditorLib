@@ -7,9 +7,9 @@ import java.util.LinkedList;
 
 public class TickingLoop implements Runnable {
 
-	private LinkedList<VoidFunctionPointer> functions;
+	final private LinkedList<VoidFunctionPointer> functions;
+	final private StopwatchTimer iterationStopwatch;
 	private long millisAllowedPerUpdate = 1000 / 60;
-	private StopwatchTimer iterationStopwatch;
 	
 	public TickingLoop() {
 		iterationStopwatch = new StopwatchTimer();
