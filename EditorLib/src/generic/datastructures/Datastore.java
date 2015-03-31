@@ -3,13 +3,12 @@ package generic.datastructures;
 import generic.Reusable;
 import generic.tags.ThreadSafe;
 
-
-final public class Database <DataType> implements Reusable, ThreadSafe {
+final public class Datastore <DataType> implements Reusable, ThreadSafe {
 	
 	final private Table<DataType> data;
 	final private Queue<String> giveOrder;
 	
-	public Database() {
+	public Datastore() {
 		data = new Table<DataType>();
 		giveOrder = new Queue<String>();
 	}
@@ -34,14 +33,14 @@ final public class Database <DataType> implements Reusable, ThreadSafe {
 		giveOrder.enqueue(name);
 	}
 	
-	private synchronized void removeReferences(String name) {
-		data.remove(name);
-		giveOrder.remove(name);
-	}
-
 	public synchronized void reconstruct() {
 		data.clear();
 		giveOrder.clear();
+	}
+	
+	private synchronized void removeReferences(String name) {
+		data.remove(name);
+		giveOrder.remove(name);
 	}
 
 }
