@@ -95,9 +95,6 @@ final public class Pipe extends Shape implements Aggregate {
 		centerLine.rotate(degrees);
 	}
 
-	/**
-	 * Sets the CENTER position
-	 */
 	public void setCenterPosition(float x, float y) {
 		Point midp = centerLine.midpoint();
 		float xoff = Math.abs(Math.abs(x) - Math.abs(midp.x));

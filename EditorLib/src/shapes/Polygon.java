@@ -136,7 +136,6 @@ final public class Polygon extends Shape {
 	}
 
 	/**
-	 * Sets the CENTER position
 	 * UNTESTED
 	 * @return
 	 */
