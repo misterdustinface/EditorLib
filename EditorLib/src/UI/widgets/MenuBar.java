@@ -77,8 +77,7 @@ public class MenuBar extends AntiViewport implements UILayer {
 	private void updateMenuPositions() {
 		float x = boundingBox.x + spacingOffset;
 		float y = boundingBox.y + spacingOffset;
-		for (int i = menus.size()-1; i >= 0; --i) {
-			ButtonMenu menu = menus.get(i);
+		for (ButtonMenu menu : menus) {
 			menu.setPosition(x, y);
 			x += menu.getWidth() + spacingOffset;
 		}
