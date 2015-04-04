@@ -1,4 +1,4 @@
-package generic.structures;
+package structures;
 
 import tags.Structure;
 import base.Reusable;

@@ -1,13 +1,13 @@
 package UI.widgets;
 
 import functionpointers.VoidFunctionPointer;
-import generic.structures.Grid;
 
 import java.io.File;
 
 import notifiers.DataModificationNotifier;
 import shapes.Polygon;
 import shapes.PolygonBuilder;
+import structures.Grid;
 import UI.UILayer;
 import UI.input.MouseUserDevice;
 

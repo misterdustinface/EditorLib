@@ -1,4 +1,4 @@
-package generic;
+package UI;
 
 import shapes.Polygon;
 import base.Reusable;

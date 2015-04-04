@@ -1,4 +1,4 @@
-package generic;
+package main;
 
 import UI.UIFunction;
 import UI.UILayer;

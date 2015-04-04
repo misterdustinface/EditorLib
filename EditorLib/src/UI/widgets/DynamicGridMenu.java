@@ -1,8 +1,8 @@
 package UI.widgets;
 
-import generic.structures.Grid;
 import shapes.Polygon;
 import shapes.PolygonBuilder;
+import structures.Grid;
 import tags.FactoryMethodPattern;
 import UI.input.MouseUserDevice;
 
