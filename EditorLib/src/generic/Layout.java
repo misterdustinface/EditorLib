@@ -1,7 +1,8 @@
 package generic;
 
-import generic.datastructures.Table;
 import shapes.Polygon;
+import base.Reusable;
+import datastructures.Table;
 
 public class Layout implements Reusable {
 

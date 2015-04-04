@@ -1,6 +1,6 @@
 package shapes;
 
-import generic.Reusable;
+import base.Reusable;
 
 public class Point implements Reusable {
 

@@ -1,7 +1,7 @@
 package UI.widgets;
 
+import notifiers.ChangeNotifier;
 import UI.UILayer;
-import generic.ListenerPattern.Descriptive.ChangeNotifier;
 
 public abstract class UIElement extends ChangeNotifier implements UILayer {
 

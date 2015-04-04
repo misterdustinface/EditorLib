@@ -1,8 +1,8 @@
 package UI.widgets;
 
-import generic.timers.DebounceTimer;
 import shapes.Polygon;
 import shapes.Rectangle;
+import timers.DebounceTimer;
 import UI.input.MouseUserDevice;
 
 public class MenuButton extends FunctionButton {

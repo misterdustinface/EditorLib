@@ -1,7 +1,7 @@
 package shapes;
 
-import generic.Reusable;
-import generic.tags.Aggregate;
+import tags.Aggregate;
+import base.Reusable;
 
 
 final public class LineSegment extends Shape implements Reusable, Aggregate {

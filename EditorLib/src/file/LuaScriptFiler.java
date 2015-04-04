@@ -1,12 +1,12 @@
 package file;
 
-import generic.ListenerPattern.Descriptive.DataModificationNotifier;
-
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import notifiers.DataModificationNotifier;
 
 public abstract class LuaScriptFiler extends DataModificationNotifier implements FileBus {
 	

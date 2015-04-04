@@ -1,7 +1,7 @@
 package graphicdata;
 
-import generic.datastructures.Properties;
-import generic.tags.NamedData;
+import tags.NamedData;
+import datastructures.Properties;
 
 public abstract class GraphicData extends Properties implements NamedData {
 

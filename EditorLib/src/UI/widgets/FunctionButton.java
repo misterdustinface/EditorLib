@@ -1,6 +1,6 @@
 package UI.widgets;
 
-import generic.fp.VoidFunctionPointer;
+import functionpointers.VoidFunctionPointer;
 
 public abstract class FunctionButton extends UIElement {
 	

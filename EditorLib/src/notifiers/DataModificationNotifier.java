@@ -1,6 +1,8 @@
-package generic.ListenerPattern.Descriptive;
+package notifiers;
 
 import java.util.ArrayList;
+
+import listeners.DataModificationListener;
 
 abstract public class DataModificationNotifier {
 

@@ -1,4 +1,4 @@
-package generic.ListenerPattern.Descriptive;
+package listeners;
 
 public abstract class DataModificationListener {
 	

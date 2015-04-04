@@ -1,11 +1,11 @@
 package UI.widgets;
 
-import generic.fp.VoidFunctionPointer;
-import generic.tags.FactoryMethodPattern;
 import shapes.Polygon;
 import shapes.PolygonBuilder;
+import tags.FactoryMethodPattern;
 import UI.UILayer;
 import UI.input.MouseUserDevice;
+import functionpointers.VoidFunctionPointer;
 
 public abstract class DropdownMenuBar implements UILayer, FactoryMethodPattern {
 

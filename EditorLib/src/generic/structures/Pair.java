@@ -1,7 +1,7 @@
 package generic.structures;
 
-import generic.Reusable;
-import generic.tags.Structure;
+import tags.Structure;
+import base.Reusable;
 
 final public class Pair<A, B> implements Structure, Reusable {
 	

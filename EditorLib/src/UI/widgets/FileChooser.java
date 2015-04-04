@@ -1,11 +1,11 @@
 package UI.widgets;
 
-import generic.ListenerPattern.Descriptive.DataModificationNotifier;
-import generic.fp.VoidFunctionPointer;
+import functionpointers.VoidFunctionPointer;
 import generic.structures.Grid;
 
 import java.io.File;
 
+import notifiers.DataModificationNotifier;
 import shapes.Polygon;
 import shapes.PolygonBuilder;
 import UI.UILayer;

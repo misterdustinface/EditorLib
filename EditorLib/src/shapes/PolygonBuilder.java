@@ -1,6 +1,6 @@
 package shapes;
 
-import generic.tags.Library;
+import tags.Library;
 
 final public class PolygonBuilder implements Library {
 

@@ -2,7 +2,7 @@ package UI.input;
 
 import java.util.HashSet;
 
-import generic.Reusable;
+import base.Reusable;
 
 public class InputEvent implements Reusable {
 	

@@ -1,7 +1,6 @@
 package UI;
 
-import generic.ListenerPattern.Listener;
-
+import listenerpattern.Listener;
 
 public interface DiscreteGridLayer extends UILayer, Tiled, SelectableTileGrid {
 	int getMouseoverRow();

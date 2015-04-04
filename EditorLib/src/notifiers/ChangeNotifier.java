@@ -1,7 +1,7 @@
-package generic.ListenerPattern.Descriptive;
+package notifiers;
 
-import generic.ListenerPattern.Listener;
-import generic.ListenerPattern.Notifier;
+import listenerpattern.Listener;
+import listenerpattern.Notifier;
 
 abstract public class ChangeNotifier {
 

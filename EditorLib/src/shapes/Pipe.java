@@ -1,6 +1,6 @@
 package shapes;
 
-import generic.tags.Aggregate;
+import tags.Aggregate;
 
 final public class Pipe extends Shape implements Aggregate {
 	

@@ -2,7 +2,7 @@ package UI.widgets;
 
 import shapes.Polygon;
 import shapes.PolygonBuilder;
-import generic.tags.FactoryMethodPattern;
+import tags.FactoryMethodPattern;
 
 public abstract class DynamicListMenu extends StaticListMenu implements FactoryMethodPattern {
 

@@ -1,9 +1,10 @@
 package graphicdata;
 
 import generic.structures.ColorData;
-import generic.tags.Library;
 
 import java.util.Random;
+
+import tags.Library;
 
 final public class ColorGenerator implements Library {
 	

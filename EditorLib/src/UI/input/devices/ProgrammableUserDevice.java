@@ -1,7 +1,7 @@
 package UI.input.devices;
 
-import generic.datastructures.Table;
 import UI.input.MouseUserDevice;
+import datastructures.Table;
 
 public class ProgrammableUserDevice {
 	

@@ -1,8 +1,8 @@
-package generic.ListenerPattern.Descriptive;
-
-import generic.ListenerPattern.Listener;
+package notifiers;
 
 import java.util.HashMap;
+
+import listenerpattern.Listener;
 
 public class SelectiveNotifier<Signifier> {
 	

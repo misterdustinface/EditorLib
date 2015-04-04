@@ -1,6 +1,6 @@
 package UI.input;
 
-import generic.datastructures.Queue;
+import datastructures.Queue;
 
 public abstract class UserDevice {
 	

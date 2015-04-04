@@ -1,6 +1,6 @@
 package UI.input;
 
-import generic.tags.Library;
+import tags.Library;
 
 final public class InputEventBuilder implements Library {
 	

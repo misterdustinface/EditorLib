@@ -1,6 +1,6 @@
 package UI.widgets;
 
-import generic.ListenerPattern.Descriptive.ChangeNotifier;
+import notifiers.ChangeNotifier;
 import shapes.Point;
 import shapes.Polygon;
 import shapes.Rectangle;

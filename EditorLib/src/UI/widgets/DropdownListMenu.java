@@ -1,9 +1,9 @@
 package UI.widgets;
 
-import generic.fp.VoidFunctionPointer;
 import shapes.Polygon;
 import shapes.PolygonBuilder;
 import UI.input.MouseUserDevice;
+import functionpointers.VoidFunctionPointer;
 
 public class DropdownListMenu extends UIMenu {
 	
