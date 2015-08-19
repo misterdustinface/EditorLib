@@ -1,4 +1,6 @@
 EditorLib
 =========
 
-General purpose Menu/Editor library
+Work in Progress.  
+
+Generic "Editor" Utilities.
